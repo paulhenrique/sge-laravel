@@ -25,7 +25,7 @@ class CreateEventoTable extends Migration
             $table->time("HorarioInicio");
             $table->time("HorarioFim");
             $table->time("Local");
-            $table->blob("Logo");
+            $table->binary("Logo");
         });
     }
 

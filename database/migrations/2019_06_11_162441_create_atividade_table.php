@@ -19,7 +19,6 @@ class CreateAtividadeTable extends Migration
             $table->string("tipo");
             $table->dateTime("DataInicio");
             $table->dateTime("DataTermino");
-            $table->intereger("DataTermino");
             $table->time("HoraInicio");
             $table->time("HoraTermino");
             $table->string("local");

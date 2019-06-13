@@ -14,7 +14,7 @@ class CreateCertificadoTable extends Migration
     public function up()
     {
         Schema::create('certificado', function (Blueprint $table) {
-            $table->bigIncrements('idEvento');
+            $table->bigIncrements('idCertificado');
             $table->date("DataGeracao");
             $table->string("ResponsavelEmissao");
             $table->date("Organizador");
