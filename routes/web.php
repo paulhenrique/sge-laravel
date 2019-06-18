@@ -21,8 +21,15 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+//participantes
+Route::get('register\participante', 'Auth\RegisterController@showRegistrationForm')->name('register_participante');
+Route::post('register', 'Auth\RegisterController@register_participante');
+//admin
+Route::get('register\admin', 'Auth\RegisterController@showRegistrationForm')->name('register_admin');
+Route::post('register', 'Auth\RegisterController@register_admin');
+//ministrante
+Route::get('register\ministrante', 'Auth\RegisterController@showRegistrationForm')->name('register_ministrante');
+Route::post('register', 'Auth\RegisterController@register_ministrante');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
