@@ -61,7 +61,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create_participante(array $data)
+    protected function create(array $data)
     {
 
         return User::create([
@@ -69,28 +69,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'CPF'   => $data['CPF'],
             'tipoUser' => 'participante',
-            'password' => Hash::make($data['password']),
-        ]);
-    }
-
-    protected function create_admin(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'CPF'   => $data['CPF'],
-            'tipoUser' => 'admin',
-            'password' => Hash::make($data['password']),
-        ]);
-    }
-
-    protected function create_ministrante(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'CPF'   => $data['CPF'],
-            'tipoUser' => 'ministrante',
             'password' => Hash::make($data['password']),
         ]);
     }
