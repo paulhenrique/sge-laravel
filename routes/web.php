@@ -32,6 +32,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/evento/alow', 'EventoController@create')->name('create_evento');
+Route::get('/evento/create/form', 'EventoController@ShowForm')->name('showForm_create_evento');
+
 
 

@@ -24,7 +24,7 @@ class CreateEventoTable extends Migration
             $table->string("CargaHoraria");
             $table->time("HorarioInicio");
             $table->time("HorarioFim");
-            $table->time("Local");
+            $table->string("Local");
             $table->binary("Logo");
         });
     }
