@@ -32,8 +32,17 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/evento/alow', 'EventoController@create')->name('create_evento');
+Route::post('/evento/create', 'EventoController@create')->name('create_evento');
 Route::get('/evento/create/form', 'EventoController@ShowForm')->name('showForm_create_evento');
+Route::get('/evento/show', 'EventoController@read')->name('showEvent');
+Route::post('/evento/edit', 'EventoController@update')->name('editar_evento');
+Route::get('/evento/deleteEvent', 'EventoController@delete')->name("deletar_evento");
 
-
-
+#exemplo do danilo
+#Route::get('/', 'TaskController@index');
+Route::get('/tasks/create', 'TaskController@create');
+Route::put('/tasks/{task}', 'TaskController@update');
+Route::delete('/tasks/{task}', 'TaskController@delete');
+Route::get('/tasks/{task}', 'TaskController@show');
+Route::get('/tasks/{task}/edit', 'TaskController@edit');
+Route::post('/tasks', 'TaskController@store');

@@ -8,16 +8,23 @@ use App\EventoModel;
 
 class EventoController extends Controller
 {
-    public function ShowForm() {
+    public function ShowForm(Request $data) {
 
-     return view('Evento.formEvento');   
+        if(isset($data->idEvento)){
+            $eventos = DB::table('evento')->where('idEvento', $data->idEvento)->first();
+            return view('Evento.formEvento',compact('eventos'));
+        }else{
+            return view('Evento.formEvento');
+        }
+
+        
     }
 
     public function create(Request $data){ 
 
 
         
-        return EventoModel::create([
+        EventoModel::create([
             'Nome' => $data['nome'],
             'DataInicio'   => $data['dtInicio'],
             'DataFim'   => $data['dtFim'],
@@ -31,5 +38,41 @@ class EventoController extends Controller
             'Logo'   => $data['logo'],
             ]);
         
+        return redirect(route('showEvent'));
+    }
+
+    public function read() {
+
+        $eventos = DB::table('evento')->orderBy('idEvento')->get();
+
+        
+        return view('Evento.showEvent',compact('eventos'));
+        
+    } 
+
+    public function update(Request $data)
+    {
+        $eventos = EventoModel::findOrFail($data['idEvento']);
+        $eventos->Nome = $data['nome'];
+        $eventos->DataInicio = $data['dtInicio'];
+        $eventos->DataFim = $data['dtFim'];
+        $eventos->DataLimiteInscricao = $data['dtlimite'];
+        $eventos->ConteudoProgramatico = $data['ConteudoProgramatico'];
+        $eventos->Responsavel = $data['responsavel'];
+        $eventos->CargaHoraria = $data['cargaHoraria'];
+        $eventos->HorarioInicio = $data['hrInicio'];
+        $eventos->HorarioFim = $data['hrFim'];
+        $eventos->Local = $data['local'];
+        $eventos->Logo = $data['logo'];
+        $eventos->save();
+        return redirect()->route('Evento.showEvent');
+    }
+
+    public function delete (Request $request) {
+        $idEvento = $request->query('deletar_evento');
+        EventoModel::destroy($request->idEvento);
+        return redirect()->route('showEvent');
     }
 }
+
+
