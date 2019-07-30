@@ -32,11 +32,17 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Evento
 Route::post('/evento/create', 'EventoController@create')->name('create_evento');
 Route::get('/evento/create/form', 'EventoController@ShowForm')->name('showForm_create_evento');
-Route::get('/evento/show', 'EventoController@read')->name('showEvent');
+Route::get('/evento/list', 'EventoController@read')->name('listEvent');
 Route::post('/evento/edit', 'EventoController@update')->name('editar_evento');
 Route::get('/evento/deleteEvent', 'EventoController@delete')->name("deletar_evento");
+
+//Atividades
+Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade');
+Route::get('/atividade/create/form', 'AtividadeController@showFormCreate')->name('showForm_create_atividade');
 
 #exemplo do danilo
 #Route::get('/', 'TaskController@index');

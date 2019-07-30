@@ -38,7 +38,7 @@ class EventoController extends Controller
             'Logo'   => $data['logo'],
             ]);
         
-        return redirect(route('showEvent'));
+        return redirect()->route('showEvent');
     }
 
     public function read() {
@@ -65,13 +65,15 @@ class EventoController extends Controller
         $eventos->Local = $data['local'];
         $eventos->Logo = $data['logo'];
         $eventos->save();
-        return redirect()->route('Evento.showEvent');
+
+        return redirect()->route('showEvent');
     }
 
     public function delete (Request $request) {
         $idEvento = $request->query('deletar_evento');
         EventoModel::destroy($request->idEvento);
-        return redirect()->route('showEvent');
+        
+        return redirect()->route('listEvent');
     }
 }
 
