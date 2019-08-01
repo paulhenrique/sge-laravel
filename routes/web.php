@@ -47,6 +47,9 @@ Route::get('/atividade/list', 'AtividadeController@read')->name('listAtividade')
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade');
 Route::get('/atividade/deleteAtividade', 'AtividadeController@delete')->name("deletar_atividade");
 
+//inscricao Evento
+Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user');
+
 
 
 #exemplo do danilo
