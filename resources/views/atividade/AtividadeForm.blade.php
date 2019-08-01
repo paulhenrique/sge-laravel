@@ -52,7 +52,7 @@
 
         <div class="form-group">
           <label for="limiteParticipantes">Número Máximo de Participantes: </label>
-          <input type="number" class="form-control" id="limiteParticipantes" name="limiteParticipantes" value="">
+          <input type="number" class="form-control" id="limiteParticipantes" name="NumMaxParticipantes" value="{{ isset($atividades) ? $atividades->NumMaxParticipantes : '' }}">
         </div>
       
         <div class="form-group">

@@ -33,6 +33,7 @@ class AtividadeController extends Controller
             'DataTermino'   => $data['dtFim'],
             'HoraInicio' => $data['hrInicio'],
             'HoraTermino'   => $data['hrFim'],
+            'NumMaxParticipantes'   => $data['NumMaxParticipantes'],
             'local'   => $data['local'],
             'idUser'   => auth()->user()->id,
             'idEvento'   => $data['idEvento']
@@ -57,6 +58,7 @@ class AtividadeController extends Controller
         $atividades->HoraInicio = $data['hrInicio'];
         $atividades->HoraTermino = $data['hrFim'];
         $atividades->Local = $data['local'];
+        $atividades->NumMaxParticipantes = $data['NumMaxParticipantes'];
         $atividades->idUser = auth()->user()->id;
         $atividades->idEvento = $data['idEvento'];
         $atividades->save();
