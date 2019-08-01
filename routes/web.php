@@ -42,7 +42,12 @@ Route::get('/evento/deleteEvent', 'EventoController@delete')->name("deletar_even
 
 //Atividades
 Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade');
-Route::get('/atividade/create/form', 'AtividadeController@showFormCreate')->name('showForm_create_atividade');
+Route::get('/atividade/create/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade');
+Route::get('/atividade/list', 'AtividadeController@read')->name('listAtividade');
+Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade');
+Route::get('/atividade/deleteAtividade', 'AtividadeController@delete')->name("deletar_atividade");
+
+
 
 #exemplo do danilo
 #Route::get('/', 'TaskController@index');

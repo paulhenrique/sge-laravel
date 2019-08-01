@@ -38,14 +38,13 @@ class EventoController extends Controller
             'Logo'   => $data['logo'],
             ]);
         
-        return redirect()->route('showEvent');
+        return redirect()->route('listEvent');
     }
 
     public function read() {
+        //$tasks = Task::orderBy('created_at', 'desc')->get();
+        $eventos = EventoModel::orderBy('idEvento')->get();
 
-        $eventos = DB::table('evento')->orderBy('idEvento')->get();
-
-        
         return view('Evento.showEvent',compact('eventos'));
         
     } 
@@ -66,7 +65,7 @@ class EventoController extends Controller
         $eventos->Logo = $data['logo'];
         $eventos->save();
 
-        return redirect()->route('showEvent');
+        return redirect()->route('listEvent');
     }
 
     public function delete (Request $request) {
@@ -75,6 +74,13 @@ class EventoController extends Controller
         
         return redirect()->route('listEvent');
     }
+
+    // public function editar (EventoModel $evento) {
+
+    //     $evento->save();
+
+    //     return $evento;
+    // }
 }
 
 

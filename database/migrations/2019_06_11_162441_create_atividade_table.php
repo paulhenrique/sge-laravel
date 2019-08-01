@@ -21,9 +21,10 @@ class CreateAtividadeTable extends Migration
             $table->dateTime("DataTermino");
             $table->time("HoraInicio");
             $table->time("HoraTermino");
+            $table->integer("NumMaxParticipantes");
             $table->string("local");
             $table->bigInteger('idUser')->unsigned();
-            $table->foreign('iduser')->references('id')->on('users');
+            $table->foreign('idUser')->references('id')->on('users');
             $table->bigInteger('idEvento')->unsigned();
             $table->foreign('idEvento')->references('idEvento')->on('evento');
         });

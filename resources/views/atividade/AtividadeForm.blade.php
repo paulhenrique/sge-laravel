@@ -4,7 +4,8 @@
 @endsection
 
 <?php 
-  if(isset($atividade)){
+  //dd($atividades);
+  if(isset($atividades)){
     $action = route('editar_atividade');
   }else{
     $action = route('create_atividade');
@@ -18,35 +19,35 @@
 
         @csrf
 
-      <input type="hidden" name="idEvento" value="{{ isset($atividade) ? $atividade->idAtividade : '' }}">
+      <input type="hidden" name="idAtividade" value="{{ isset($atividades) ? $atividades->idAtividade : '' }}">
 
        <div class="form-group">
             <label for="Nome">Nome atividade: </label>
-            <input type="Text" class="form-control" id="Name" name="nome" value="">
+            <input type="Text" class="form-control" id="Name" name="nomeAtividade" value="{{ isset($atividades) ? $atividades->nomeAtividade : '' }}">
        </div>
 
        <div class="form-group">
           <label for="Nome">Evento: </label>
           <select class="form-control" name="idEvento">
-              @foreach($eventos as $evento)
-                <option value="{{ $evento->idEvento }}">{{ $evento->Nome }}</option>
+              @foreach($evento as $ev)
+                  <option value="{{ isset($ev) ? $ev->idEvento : '' }}">{{$ev->Nome}}</option>
               @endforeach
           </select>
        </div>
 
         <div class="form-group">
           <label for="Tipo">Tipo de Atividade: </label>
-          <input type="Text" class="form-control" id="Tipo" name="tipo" value="">
+          <input type="Text" class="form-control" id="Tipo" name="tipo" value="{{ isset($atividades) ? $atividades->tipo : '' }}">
         </div>
 
         <div class="form-group">
           <label for="dtInicio">Data Inicio: </label>
-          <input type="date" class="form-control" id="dtInicio" name="dtInicio" value="{{ isset($atividade) ? $atividade->DataInicio : "" }}">
+          <input type="date" class="form-control" id="dtInicio" name="dtInicio" value="{{ isset($atividades) ? $atividades->DataInicio : '' }}">
         </div>
         
         <div class="form-group">
           <label for="dtFim">Data Fim: </label>
-          <input type="date" class="form-control" id="dtFim" name="dtFim" value="{{ isset($atividade) ? $atividade->DataFim : "" }}">
+          <input type="date" class="form-control" id="dtFim" name="dtFim" value="{{ isset($atividades) ? $atividades->DataTermino : '' }}">
         </div>
 
         <div class="form-group">
@@ -56,17 +57,17 @@
       
         <div class="form-group">
           <label for="hrInicio">Horária Inicio: </label>
-          <input type="time" class="form-control" id="hrInicio" name="hrInicio" value="{{ isset($atividade) ? $atividade->HorarioInicio : "" }}">
+          <input type="time" class="form-control" id="hrInicio" name="hrInicio" value="{{ isset($atividades) ? $atividades->HoraInicio : '' }}">
         </div>
 
         <div class="form-group">
           <label for="hrFim">Horário Fim: </label>
-          <input type="time" class="form-control" id="hrFim" name="hrFim" value="{{ isset($atividade) ? $atividade->HorarioFim : "" }}">
+          <input type="time" class="form-control" id="hrFim" name="hrFim" value="{{ isset($atividades) ? $atividades->HoraTermino : '' }}">
         </div>
         
         <div class="form-group">
           <label for="local">Local: </label>
-          <input type="Text" class="form-control" id="local" name="local" value="">
+          <input type="Text" class="form-control" id="local" name="local" value="{{ isset($atividades) ? $atividades->local : '' }}">
         </div>
 
        
