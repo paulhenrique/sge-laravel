@@ -19,8 +19,6 @@ class AtividadeController extends Controller
         }else{
             return view('atividade.AtividadeForm',compact('evento'));
         }
-
-        
     }
 
     public function create(Request $data){ 
@@ -39,13 +37,19 @@ class AtividadeController extends Controller
             'idEvento'   => $data['idEvento']
             ]);
         
-        return redirect()->route('listAtividade');
+        return redirect()->route('listAtividade',['idEvento' => $data['idEvento']]);
     }
 
-    public function read() {
-        $atividades = AtividadeModel::orderBy('idAtividade')->get();
-        return view('atividade.showAtividade',compact('atividades'));
-        
+    public function read(Request $data) {
+
+
+        if(isset($data->idEvento)){
+            $atividades = DB::table('atividade')->where('idEvento', $data->idEvento)->get();
+        }else{
+            $atividades = AtividadeModel::orderBy('idAtividade')->get();
+        }
+
+        return view('atividade.showAtividade',compact('atividades'));        
     } 
 
     public function update(Request $data)

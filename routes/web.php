@@ -48,9 +48,10 @@ Route::post('/atividade/update', 'AtividadeController@update')->name('editar_ati
 Route::get('/atividade/deleteAtividade', 'AtividadeController@delete')->name("deletar_atividade");
 
 //inscricao Evento
-Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user');
+Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user_evento');
 
-
+//inscricao Atividade
+Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name('inscrever_user_atividade');
 
 #exemplo do danilo
 #Route::get('/', 'TaskController@index');
