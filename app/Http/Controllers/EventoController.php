@@ -45,7 +45,7 @@ class EventoController extends Controller
         //$tasks = Task::orderBy('created_at', 'desc')->get();
         $eventos = EventoModel::orderBy('idEvento')->get();
 
-        return view('Evento.showEvent',compact('eventos'));
+        return view('Evento.list',compact('eventos'));
         
     } 
 

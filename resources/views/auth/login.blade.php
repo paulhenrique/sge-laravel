@@ -1,4 +1,7 @@
 @extends('template.main')
+@section('color-bg')
+    blue
+@endsection
 
 @section('content')
 <div class="">

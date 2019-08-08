@@ -27,11 +27,11 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     
 </head>
-<body>
+<body class="@yield('color-bg')">
     
     @yield('navbar')
 
-    <main class="container">
+    <main class="container p-2">
         @yield('content')
     </main>
 

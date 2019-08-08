@@ -1,5 +1,13 @@
-body{
+body.blue{
     background-color:#163444;
+}
+
+body.white{
+    background-color:white;
+}
+
+body.background-image{
+    background-image: url('../images/bg_white.jpg');
 }
 
 .circle{
