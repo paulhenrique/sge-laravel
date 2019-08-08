@@ -33,3 +33,7 @@ body.background-image{
 .font-white{
     color: white;
 }
+
+input[type="file"] {
+    display: none;
+}

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\EventoModel;
-
+use Illuminate\Support\Facades\Storage;
 class EventoController extends Controller
 {
     public function ShowForm(Request $data) {
@@ -20,25 +20,34 @@ class EventoController extends Controller
         
     }
 
-    public function create(Request $data){ 
+    public function create(Request $data){
+        if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
+            $name = uniqid(date('HisYmd'));
+            $extension = $data->logo->extension();
+            $namefile = "{$name}.{$extension}";
+            $upload = $data->logo->store('logo_evento');
+            //$visibility = Storage::getVisibility($upload);
+            //Storage::setVisibility($upload,'public');
+            
+            EventoModel::create([
+                'Nome' => $data['nome'],
+                'DataInicio'   => $data['dtInicio'],
+                'DataFim'   => $data['dtFim'],
+                'DataLimiteInscricao'   => $data['dtlimite'],
+                'ConteudoProgramatico'   => $data['ConteudoProgramatico'],
+                'Responsavel' => $data['responsavel'],
+                'CargaHoraria'   => $data['cargaHoraria'],
+                'HorarioInicio'   => $data['hrInicio'],
+                'HorarioFim'   => $data['hrFim'],
+                'Local'   => $data['local'],
+                'Logo'   => $upload,
+                ]);
+            
+            return redirect()->route('listEvent');        
 
-
-        
-        EventoModel::create([
-            'Nome' => $data['nome'],
-            'DataInicio'   => $data['dtInicio'],
-            'DataFim'   => $data['dtFim'],
-            'DataLimiteInscricao'   => $data['dtlimite'],
-            'ConteudoProgramatico'   => $data['ConteudoProgramatico'],
-            'Responsavel' => $data['responsavel'],
-            'CargaHoraria'   => $data['cargaHoraria'],
-            'HorarioInicio'   => $data['hrInicio'],
-            'HorarioFim'   => $data['hrFim'],
-            'Local'   => $data['local'],
-            'Logo'   => $data['logo'],
-            ]);
-        
-        return redirect()->route('listEvent');
+    } 
+    
+        // arquivo de image é válido
     }
 
     public function read() {

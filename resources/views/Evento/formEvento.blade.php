@@ -14,7 +14,7 @@
 <div class="container-fluid">
   <h1 class="text-center">Cadastrar Evento</h1>
   <div class="col-6 m-auto">
-    <form method="post" action="{{ $action }}" >
+    <form method="post" action="{{ $action }}" enctype="multipart/form-data">
 
         @csrf
 
@@ -70,8 +70,8 @@
         </div>
 
         <div class="form-group">
-            <label for="hrFim">Logo: </label>
-            <input type="text" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
+            <label for="logo">Clique aqui para adicionar Logo: </label>
+            <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
         </div>
 
        <button type="submit" class="btn btn-primary">Enviar</button>
