@@ -1,18 +1,15 @@
 @extends('template.main')
 @section('color-bg')
-    blue
+    background-image
 @endsection
-
 @section('content')
 <div class="">
     <div class="row justify-content-center m-5">
-        <div class="col-md-12">
-            <div class="card">
+        <div class="col-md-6">
+            <div class="card form-box">
                 <div class="card-body row p-0">
-                    <div class="col-md-6 bg_login_form">
-                    </div>
-                    <div class="col-md-6 p-5">
-                        <div class="circle mx-auto">
+                    <div class="col-md-12 p-5">
+                        <div class="circle mx-auto div-green">
                             <i class="material-icons font-white">account_circle</i>
                         </div>
                         <h2 class="text-center">Login do Participante</h2>

@@ -1,29 +1,36 @@
-body.blue{
-    background-color:#163444;
-}
-
 body.white{
     background-color:white;
 }
 
 body.background-image{
-    background-image: url('../images/bg_white.jpg');
+    background-image: url('../images/bg_double.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .circle{
     height: 200px;
     width: 200px;
     margin-bottom: 10%;
-    background-color:#398ab3;
     border-radius:100%;
+}
+.div-green{
+    background-color:#38c172;
+}
+.div-orange{
+    background-color:orange;
 }
 
 .height-100{
     height: 100%;
 }
 
-.bg_login_form{
-    background-image: url('../images/bg_login.jpg');   
+.form-box{
+    box-shadow: 14px 20px 98px -58px #656565;  
+}
+
+.bg-logo{
+    background-image: url('../images/logo_sge.png');
 }
 
 .material-icons{
