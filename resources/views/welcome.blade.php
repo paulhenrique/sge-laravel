@@ -70,7 +70,7 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ url('/evento/create/form') }}">Cadastrar Evento</a>
-                        <a href="{{ route('showEvent') }}"> Listar Eventos </a>
+                        <a href="{{ route('listEvent') }}"> Listar Eventos </a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

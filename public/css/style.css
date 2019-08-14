@@ -3,10 +3,19 @@ body.white{
 }
 
 body.background-image{
-    background-image: url('../images/bg_teste.png');
+    background-image: url('../images/bg_triangle.png');
     background-size: 100%;
     background-repeat: no-repeat;
 }
+.background-image-solid{
+    background-image: url('../images/bg_white.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.background-blue{
+    background-image: linear-gradient(to top right, #1b4e69, #153d53);
+}
+
 
 .circle{
     height: 200px;
@@ -15,7 +24,7 @@ body.background-image{
     border-radius:100%;
 }
 .div-green{
-    background-color:##546a75;
+    background-color:#546a75;
 }
 .div-orange{
     background-color:orange;
@@ -46,3 +55,4 @@ body.background-image{
 input[type="file"] {
     display: none;
 }
+

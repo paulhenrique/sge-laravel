@@ -8,6 +8,15 @@ use App\EventoModel;
 use Illuminate\Support\Facades\Storage;
 class EventoController extends Controller
 {
+
+    public function show(Request $data){
+        $evento = EventoModel::where('idEvento',$data->idEvento)->get();
+
+        return view('Evento.show', compact('evento'));
+    }
+
+
+
     public function ShowForm(Request $data) {
 
         if(isset($data->idEvento)){

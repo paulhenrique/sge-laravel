@@ -37,13 +37,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/evento/create', 'EventoController@create')->name('create_evento');
 Route::get('/evento/create/form', 'EventoController@ShowForm')->name('showForm_create_evento');
 Route::get('/evento/list', 'EventoController@read')->name('listEvent');
+Route::get('/evento/show', 'EventoController@show')->name('showEvent');
 Route::post('/evento/edit', 'EventoController@update')->name('editar_evento');
 Route::get('/evento/delete', 'EventoController@delete')->name("deletar_evento");
 
 //Atividades
 Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade');
 Route::get('/atividade/create/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade');
-Route::get('/atividade/list', 'AtividadeController@read')->name('listAtividade');
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade');
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade");
 

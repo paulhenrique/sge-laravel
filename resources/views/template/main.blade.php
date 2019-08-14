@@ -31,7 +31,7 @@
     
     @yield('navbar')
 
-    <main class="container p-2">
+    <main class="container-fluid">
         @yield('content')
     </main>
 
