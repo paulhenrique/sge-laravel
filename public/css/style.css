@@ -3,7 +3,7 @@ body.white{
 }
 
 body.background-image{
-    background-image: url('../images/bg_double.png');
+    background-image: url('../images/bg_teste.png');
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -15,7 +15,7 @@ body.background-image{
     border-radius:100%;
 }
 .div-green{
-    background-color:#38c172;
+    background-color:##546a75;
 }
 .div-orange{
     background-color:orange;
@@ -24,9 +24,11 @@ body.background-image{
 .height-100{
     height: 100%;
 }
-
+.div-darkblue{
+    background-color:#546a75;
+}
 .form-box{
-    box-shadow: 14px 20px 98px -58px #656565;  
+    box-shadow:14px 20px 78px -20px #656565;
 }
 
 .bg-logo{

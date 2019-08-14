@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success col-12">
+                                    <button type="submit" class="btn btn-outline-dark col-12">
                                         {{ __('Login') }}
                                     </button>
                                 </div>

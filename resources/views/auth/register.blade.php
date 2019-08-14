@@ -10,7 +10,7 @@
             <div class="card form-box">
                 <div class="card-body row p-0">
                     <div class="col-md-12 p-5">
-                        <div class="circle div-green mx-auto">
+                        <div class="circle div-darkblue mx-auto">
                             <i class="material-icons font-white">account_circle</i>
                         </div>
                         <h2 class="text-center">Registrar-se</h2>
@@ -78,7 +78,7 @@
     
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-success col-12">
+                                    <button type="submit" class="btn btn-outline-dark col-12">
                                         {{ __('Cadastrar-se') }}
                                     </button>
                                 </div>
