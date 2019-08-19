@@ -30,11 +30,13 @@
 <body class="@yield('color-bg')">
     
     @yield('navbar')
-
+    
+    @yield('add')
     <main class="container-fluid">
+            
         @yield('content')
     </main>
-
+    
     @yield('footer')
 </body>
 </html>
