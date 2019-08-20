@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-
+    <a>
+        <img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco">
+    </a>
     <a class="navbar-brand text-white" href="#">
-        <div class="col-md-2-logo-white" ></div>
-        SgeIF
+        SgeIF  
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
