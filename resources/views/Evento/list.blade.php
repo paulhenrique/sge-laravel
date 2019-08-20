@@ -25,7 +25,7 @@
 			@else
 				@foreach ($eventos as $evento)
 					<div class="col-4 p-2">
-						<div class="card  ">
+						<div class="card">
 						<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid content" alt="logo_do_evento.{{$evento->Nome}}">
 							<div class="card-body">
 								<h5 class="card-title text-center">{{$evento->Nome}}</h5>
@@ -44,7 +44,7 @@
 					<div class="card">
 						<div class="card-body">
 							<a class="text-secondary" href="{{ route('showForm_create_evento') }}">
-								<img src="{{ asset('images/plus-icon.svg') }}" class="img-fluid content col-md-12">
+								<img src="{{ asset('images/plus-icon.svg') }}" class="img-fluid text-center col-md-12">
 								<h5 class="card-title text-center">Adicionar Evento</h5>
 							</a>
 						</div>

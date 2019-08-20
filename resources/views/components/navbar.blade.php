@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light nav-event">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 
-    <a class="navbar-brand" href="#">
-        sgeIF
+    <a class="navbar-brand text-white" href="#">
+        <div class="col-md-2-logo-white" ></div>
+        SgeIF
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,10 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('listEvent')}}">Mostrar Eventos<span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{{route('listEvent')}}">Mostrar Eventos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown-menu-right">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
