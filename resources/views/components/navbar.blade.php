@@ -3,7 +3,7 @@
         <img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco">
     </a>
     <a class="navbar-brand text-white" href="#">
-        SgeIF  
+        SGEIFSP  
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

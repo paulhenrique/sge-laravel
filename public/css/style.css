@@ -96,12 +96,9 @@
     .list_image {
         min-height: 220px;
         max-height: 220px;
-        max-width: 314px;
-        min-width: 314px;
     }
     
     .button {
-        min-height: 100px;
         max-height: 100px;
         max-width: 314px;
         -webkit-transform: scale(1);
@@ -118,5 +115,32 @@
         -ms-transform: scale(0.8);
         transform: scale(0.8);
         transition: all 0.4s ease;
-        background-color: #102f3f
+        background-color: #102f3f;
+    }
+    
+    .icon {
+        height: 100px;
+        width: 100px;
+    }
+    
+    #list_hr {
+        background-color: light-gray;
+    }
+    
+    .list_svg {
+        height: 45%;
+    }
+    
+    .links {
+        color: gray;
+        transition: all 0.4s ease;
+        text-decoration: none;
+    }
+    
+    .links:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        transition: all 0.4s ease;
+        text-decoration: none;
     }

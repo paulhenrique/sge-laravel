@@ -70,7 +70,7 @@
         </div>
 
         <div class="form-group">
-            <label for="logo">Clique aqui para adicionar Logo: </label>
+          <label for="logo"><img class="icon" src="{{ asset('images/upload-icon.svg') }}"></label>
             <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
         </div>
 

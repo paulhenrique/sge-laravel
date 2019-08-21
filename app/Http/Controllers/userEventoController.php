@@ -16,16 +16,17 @@ class userEventoController extends Controller
 
     	foreach ($evento_inscrito as $evento) {
     		$even_user = $evento; 	
-    	}
-    	if(empty($evento_inscrito)){
+		}
+		
+    	if(empty($even_user)){
 	        userEventoModel::create([
 	            'idEvento' => $data['idEvento'],
-	            'idUser' => $data['idUser']
-	        ]);
+				'idUser' => auth()->user()->id
+			]);
+			return redirect()->back()->with('success', 'Sucesso, você está inscrito no evento!');
         }else{
-        	$error[] = "Já está inscrito no evento!";
-        }
-
-        return redirect()->route('listEvent');
+			return redirect()->back()->with('error', 'Falha: já está inscrito no evento!');
+		}
+        
     }
 }

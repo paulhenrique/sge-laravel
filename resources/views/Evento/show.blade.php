@@ -9,6 +9,10 @@
 	@include('components.navbar')
 @endsection
 
+@section('footer')
+	@include('components.footer')
+@endsection
+
 @section('content')
 @foreach ($evento as $event)
 <div class="container-fluid">
@@ -33,20 +37,37 @@
 		
 		
 		{{-- conteudo --}}
+		@if(session()->has('success'))
+			<div class="alert alert-success col-12">
+				{{ session()->get('success') }}
+			</div>
+		@elseif(session()->has('error'))
+			<div class="alert alert-danger col-12">
+				{{ session()->get('error') }}
+			</div>
+		@endif
 		<div class="col-9">
 			<div class="card">
 				<div class="card-body">
-					This is some text within a card body.
+					Descrição
 				</div>
 			</div>
 		</div>
 		<div class="col-3">
 			<div class="card">
 				<div class="card-body">
-					This is some text within a card body.
+					Conteúdo Programático
 				</div>
 			</div>
 		</div>
+
+		<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						Atividades
+					</div>
+				</div>
+			</div>
 	</div>
 </div>
 @endforeach
