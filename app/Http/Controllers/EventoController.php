@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\EventoModel;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\EventRequest;
+
 class EventoController extends Controller
 {
 
@@ -29,7 +31,8 @@ class EventoController extends Controller
         
     }
 
-    public function create(Request $data){
+    public function create(EventRequest $data){
+        dd(ola);
         if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
             $name = uniqid(date('HisYmd'));
             $extension = $data->logo->extension();

@@ -13,7 +13,7 @@ class EventRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -34,7 +34,7 @@ class EventRequest extends FormRequest
             'HorarioInicio' => 'required',
             'HorarioFim' => 'required',
             'Local' => 'required',
-            'Logo' => 'required',
+            'Logo' => 'required'
         ];
     }
 }
