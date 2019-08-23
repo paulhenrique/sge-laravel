@@ -32,7 +32,7 @@ class EventoController extends Controller
     }
 
     public function create(EventRequest $data){
-        dd(ola);
+        $validated = $data->validated();
         if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
             $name = uniqid(date('HisYmd'));
             $extension = $data->logo->extension();
@@ -42,16 +42,16 @@ class EventoController extends Controller
             //Storage::setVisibility($upload,'public');
             
             EventoModel::create([
-                'Nome' => $data['nome'],
-                'DataInicio'   => $data['dtInicio'],
-                'DataFim'   => $data['dtFim'],
-                'DataLimiteInscricao'   => $data['dtlimite'],
+                'Nome' => $data['Nome'],
+                'DataInicio'   => $data['DataInicio'],
+                'DataFim'   => $data['DataFim'],
+                'DataLimiteInscricao'   => $data['DataLimiteInscricao'],
                 'ConteudoProgramatico'   => $data['ConteudoProgramatico'],
-                'Responsavel' => $data['responsavel'],
-                'CargaHoraria'   => $data['cargaHoraria'],
-                'HorarioInicio'   => $data['hrInicio'],
-                'HorarioFim'   => $data['hrFim'],
-                'Local'   => $data['local'],
+                'Responsavel' => $data['Responsavel'],
+                'CargaHoraria'   => $data['CargaHoraria'],
+                'HorarioInicio'   => $data['HorarioInicio'],
+                'HorarioFim'   => $data['HorarioFim'],
+                'Local'   => $data['Local'],
                 'Logo'   => $upload,
                 ]);
             

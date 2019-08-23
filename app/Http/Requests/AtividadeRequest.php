@@ -13,27 +13,25 @@ class AtividadeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     * https://laravel.com/docs/master/validation#available-validation-rules
      * @return array
      */
     public function rules()
     {
         return [
-            'nomeAtividade' => 'required|max:255',
+            'nomeAtividade' => 'required',
             'tipo' => 'required',
-            'DataInicio' => 'required|date',
-            'DataTermino' => 'required|date',
-            'HoraInicio' => 'required|time',
-            'HoraTermino' => 'required|time',
-            'local' => 'required|max:255',
-            'idUser' => 'required',
-            'idEvento' => 'required',
-            'NumMaxParticipantes' => 'required|integer',
+            'DataInicio' => 'required',
+            'DataTermino' => 'required',
+            'HoraInicio' => 'required',
+            'HoraTermino' => 'required',
+            'NumMaxParticipantes' => 'required',
+            'local' => 'required'
         ];
     }
 }

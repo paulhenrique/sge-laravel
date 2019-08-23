@@ -15,6 +15,15 @@
 <div class="container-fluid">
   <h1 class="text-center">Cadastrar atividade</h1>
   <div class="col-6 m-auto">
+  @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
     <form method="post" action="{{ $action }}" >
 
         @csrf
@@ -42,12 +51,12 @@
 
         <div class="form-group">
           <label for="dtInicio">Data Inicio: </label>
-          <input type="date" class="form-control" id="dtInicio" name="dtInicio" value="{{ isset($atividades) ? $atividades->DataInicio : '' }}">
+          <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($atividades) ? $atividades->DataInicio : '' }}">
         </div>
         
         <div class="form-group">
           <label for="dtFim">Data Fim: </label>
-          <input type="date" class="form-control" id="dtFim" name="dtFim" value="{{ isset($atividades) ? $atividades->DataTermino : '' }}">
+          <input type="date" class="form-control" id="dtFim" name="DataTermino" value="{{ isset($atividades) ? $atividades->DataTermino : '' }}">
         </div>
 
         <div class="form-group">
@@ -57,12 +66,12 @@
       
         <div class="form-group">
           <label for="hrInicio">Horária Inicio: </label>
-          <input type="time" class="form-control" id="hrInicio" name="hrInicio" value="{{ isset($atividades) ? $atividades->HoraInicio : '' }}">
+          <input type="time" class="form-control" id="hrInicio" name="HoraInicio" value="{{ isset($atividades) ? $atividades->HoraInicio : '' }}">
         </div>
 
         <div class="form-group">
-          <label for="hrFim">Horário Fim: </label>
-          <input type="time" class="form-control" id="hrFim" name="hrFim" value="{{ isset($atividades) ? $atividades->HoraTermino : '' }}">
+          <label for="hrFim">Horário Final: </label>
+          <input type="time" class="form-control" id="hrFim" name="HoraTermino" value="{{ isset($atividades) ? $atividades->HoraTermino : '' }}">
         </div>
         
         <div class="form-group">

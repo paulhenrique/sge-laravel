@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\AtividadeModel;
 use App\EventoModel;
+use App\Http\Requests\AtividadeRequest;
 
 class AtividadeController extends Controller
 {
@@ -21,16 +22,16 @@ class AtividadeController extends Controller
         }
     }
 
-    public function create(Request $data){ 
-       //dd($data);
+    public function create(AtividadeRequest $data){ 
+        $validated = $data->validated();
         AtividadeModel::create([
             //'idAtividade' => $data['idAtividade'],
             'nomeAtividade'   => $data['nomeAtividade'],
             'tipo'   => $data['tipo'],
-            'DataInicio'   => $data['dtInicio'],
-            'DataTermino'   => $data['dtFim'],
-            'HoraInicio' => $data['hrInicio'],
-            'HoraTermino'   => $data['hrFim'],
+            'DataInicio'   => $data['DataInicio'],
+            'DataTermino'   => $data['DataTermino'],
+            'HoraInicio' => $data['HoraInicio'],
+            'HoraTermino'   => $data['HoraTermino'],
             'NumMaxParticipantes'   => $data['NumMaxParticipantes'],
             'local'   => $data['local'],
             'idUser'   => auth()->user()->id,

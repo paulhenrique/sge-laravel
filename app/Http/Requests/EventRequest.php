@@ -34,7 +34,7 @@ class EventRequest extends FormRequest
             'HorarioInicio' => 'required',
             'HorarioFim' => 'required',
             'Local' => 'required',
-            'Logo' => 'required'
+            'logo' => 'required'
         ];
     }
 }
