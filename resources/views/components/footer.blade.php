@@ -37,12 +37,11 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 ">
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><i class="facebook"></i></li>
-						<li class="list-inline-item"><a href=""><i class="twitter"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="instagram"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="" target=""><i class=""></i></a></li>
+						<li class="list-inline-item rodape_images"><img width="100" height="100" src="{{ asset('images/facebook-logo.svg') }}"></li>
+						<li class="list-inline-item rodape_images"><img width="100" height="100" src="{{ asset('images/github-logo.svg') }}"></li>
+						<li class="list-inline-item rodape_images"><img width="100" height="100" src="{{ asset('images/logo-ifsp.jpg') }}"></li>
 					</ul>
+					<div class="text-center text-white creditos">Icons made by <a class="text-white" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="text-white" href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a> is licensed by <a class="text-white" href="http://creativecommons.org/licenses/by/3.0/"         title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 				</div> 
 				
 			</div>	
