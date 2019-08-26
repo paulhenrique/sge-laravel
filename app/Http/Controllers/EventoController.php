@@ -70,6 +70,14 @@ class EventoController extends Controller
         
     } 
 
+    public function read_dashboard() {
+        //$tasks = Task::orderBy('created_at', 'desc')->get();
+        $eventos = EventoModel::orderBy('idEvento')->get();
+
+        return view('admin.listEvento',compact('eventos'));
+        
+    } 
+
     public function update(Request $data)
     {
         $eventos = EventoModel::findOrFail($data['idEvento']);
@@ -95,6 +103,9 @@ class EventoController extends Controller
         
         return redirect()->route('listEvent');
     }
+
+
+
 
     // public function editar (EventoModel $evento) {
 

@@ -32,7 +32,7 @@
     @yield('navbar')
     
     @yield('add')
-    <main class="container-fluid">
+    <main class="">
             
         @yield('content')
     </main>
