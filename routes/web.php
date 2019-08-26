@@ -53,6 +53,12 @@ Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('ins
 //inscricao Atividade
 Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name('inscrever_user_atividade');
 
+
+//admin
+Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin');
+
+
+
 #exemplo do danilo
 #Route::get('/', 'TaskController@index');
 Route::get('/tasks/create', 'TaskController@create');

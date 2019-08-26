@@ -1,7 +1,6 @@
-@extends('template.main')
+@extends('admin.dashboard')
 
-@section('navbar')
-@endsection
+
 
 <?php 
   if(isset($eventos)){
@@ -10,10 +9,13 @@
     $action = route('create_evento');
   }
 ?>
-@section('content')
-<div class="container-fluid">
-  <h1 class="text-center">Cadastrar Evento</h1>
-  <div class="col-6 m-auto">
+@section('container-dashboard')
+
+<div class="card form-box col-6 m-auto">
+                <div class="card-body row p-0">
+                    <div class="col-md-12 p-5">
+                    <h1 class="text-center">Cadastrar Evento</h1>
+  <div class="col-12 m-auto">
   @if ($errors->any())
       <div class="alert alert-danger">
           <ul>
@@ -86,8 +88,8 @@
        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   </div>
-</div>
-@endsection
-
-@section('footer')
+                </div>
+            </div>
+        </div>
+  
 @endsection
