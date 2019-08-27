@@ -16,26 +16,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/jquery/jquery-migrate.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/mobile-nav/mobile-nav.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/isotope/isotope.pkgd.min.js"></script>
-<script src="lib/lightbox/js/lightbox.min.js"></script>
-<script src="contactform/contactform.js"></script>
+
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -53,5 +41,17 @@
     </main>
     
     @yield('footer')
+    <script src="{{ asset('lib/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('lib/jquery/jquery-migrate.min.js')}}"></script>
+<script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('lib/easing/easing.min.js')}}"></script>
+<script src="{{ asset('lib/mobile-nav/mobile-nav.js')}}"></script>
+<script src="{{ asset('lib/wow/wow.min.js')}}"></script>
+<script src="{{ asset('lib/waypoints/waypoints.min.js')}}"></script>
+<script src="{{ asset('lib/counterup/counterup.min.js')}}"></script>
+<script src="{{ asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('lib/isotope/isotope.pkgd.min.js')}}"></script>
+<script src="{{ asset('lib/lightbox/js/lightbox.min.js')}}"></script>
+<script src="{{ asset('contactform/contactform.js')}}"></script>
 </body>
 </html>
