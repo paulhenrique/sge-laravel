@@ -46,25 +46,17 @@
 				{{ session()->get('error') }}
 			</div>
 		@endif
-		<div class="col-7">
+		<div class="col-9">
 			<div class="card">
 				<div class="card-body">
-					<h3>Descrição</h3>
-					<hr>
-				<p class="text-justify h4">O evento <strong>{{$event->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($event->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>, no local: <strong>{{$event->Local}}</strong>, às: <strong> {{$event->HorarioInicio}}</strong> até <strong> {{$event->HorarioFim}}</strong>, 
-					ministrado por: <strong>{{$event->Responsavel}}</strong>. </p>
-					<h3 class="text-center"> Carga Horária</h3>
-					<hr>
-					<p class="text-center h3"> {{$event->CargaHoraria}} </p>
+					Descrição
 				</div>
 			</div>
 		</div>
-		<div class="col-5">
+		<div class="col-3">
 			<div class="card">
 				<div class="card-body">
-					<h3 class="text-center">Conteúdo Programático</h3>
-					<hr>
-					<p class="text-justify"> {{$event->ConteudoProgramatico}} </p>
+					Conteúdo Programático
 				</div>
 			</div>
 		</div>

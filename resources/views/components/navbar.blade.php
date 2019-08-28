@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <a>
-    <a href="{{route('home')}}"><img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
+        <img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco">
     </a>
     <a class="navbar-brand text-white" href="#">
         SGEIFSP  
@@ -13,7 +13,6 @@
             <li class="nav-item active">
                 <a class="nav-link text-white" href="{{route('listEvent')}}">Mostrar Eventos<span class="sr-only">(current)</span></a>
             </li>
-            <?php if( Auth::user()) {?>
             <li class="nav-item dropdown-menu-right">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -30,7 +29,7 @@
                         </form>
                     </div>
             </li>
-        <?php } ?>
+
         </ul>
     </div>
 </nav>

@@ -43,7 +43,7 @@
     }
     
     .form-box {
-        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+        box-shadow: 14px 20px 78px -20px #656565;
     }
     
     .bg-logo {
@@ -144,152 +144,48 @@
         transition: all 0.4s ease;
         text-decoration: none;
     }
-    
-    #intro {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-        background: #f5f8fd url("../images/intro-bg.jpg") center top no-repeat;
-        background-size: cover;
-    }
-    
-    #intro .intro-info h1 {
-        color: #102f3f;
-        margin-bottom: 40px;
-        font-size: 48px;
-        font-weight: 700;
-    }
-    
-    #intro .intro-info h1 span {
-        color: #1bb1dc;
-    }
-    
-    #intro .intro-info .btn-get-started,
-    #intro .intro-info .btn-services {
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: inline-block;
-        padding: 10px 32px;
-        border-radius: 4px;
-        transition: 0.5s;
-        color: #fff;
-        background: #1bb1dc;
-        color: #fff;
-    }
-    
-    #intro .intro-info .btn-get-started:hover,
-    #intro .intro-info .btn-services:hover {
-        background: #0a98c0;
-    }
-    /* #intro {
-        height: auto;
-        padding: 80px 0 60px 0;
-    }
-    
-    #intro .container {
-        height: auto !important;
-    } */
-    
-    #intro .intro-img {
-        width: 80%;
-    }
-    
-    #intro .intro-info {
-        text-align: center;
-        padding-top: 40px;
-    }
-    
-    #intro .intro-info h2 {
-        font-size: 34px;
-        margin-bottom: 30px;
-    }
-    
-    #services {
-        padding: 60px 0 40px 0;
-    }
-    
-    #services .box {
-        padding: 30px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        margin: 0 10px 40px 10px;
-        background: #fff;
-        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-    }
-    
-    #services-evento .box {
-        padding: 30px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        margin: 0 10px 40px 10px;
-        background: #fff;
-        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-        text-align: center;
-    }
-    
-    #services-evento a {
-        text-decoration: none;
-    }
-    
-    #servu #services .box:hover {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-    
-    #services .icon {
-        margin: 0 auto 15px auto;
-        padding-top: 12px;
-        display: inline-block;
-        text-align: center;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-    }
-    
-    #services .icon i {
-        font-size: 36px;
-        line-height: 1;
-    }
-    
-    #services .title {
-        font-weight: 700;
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
-    
-    #services .title a {
-        color: #111;
-    }
-    
-    #services .box:hover .title a {
-        color: #1bb1dc;
-    }
-    
-    #services .description {
-        font-size: 14px;
-        line-height: 28px;
-        margin-bottom: 0;
-        text-align: left;
-    }
-    
-    .svg-classe {
-        max-width: 250px;
-        min-height: 250px;
-    }
-    
-    .invert-elements {
-        filter: invert(100%);
-    }
-    
-    .creditos {
-        color: lightgray;
-        opacity: 0.3;
-        font-size: 0.5vh;
-    }
+
+    #sidebar-wrapper {
+        min-height: 100vh;
+        margin-left: -15rem;
+        -webkit-transition: margin .25s ease-out;
+        -moz-transition: margin .25s ease-out;
+        -o-transition: margin .25s ease-out;
+        transition: margin .25s ease-out;
+      }
+      
+      #sidebar-wrapper .sidebar-heading {
+        padding: 0.875rem 1.25rem;
+        font-size: 1.2rem;
+      }
+      
+      #sidebar-wrapper .list-group {
+        width: 15rem;
+      }
+      
+      #page-content-wrapper {
+        min-width: 100vw;
+      }
+      
+      #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+      }
+      
+      @media (min-width: 768px) {
+        #sidebar-wrapper {
+          margin-left: 0;
+        }
+      
+        #page-content-wrapper {
+          min-width: 0;
+          width: 100%;
+        }
+      
+        #wrapper.toggled #sidebar-wrapper {
+          margin-left: -15rem;
+        }
+      }
+
+      .icon-text{
+          font-size:1.5rem;
+      }

@@ -56,7 +56,7 @@ Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name
 
 //admin
 Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin');
-
+Route::get('/admin/evento/participantes', 'EventoController@participantes')->name('list_participantes');
 
 
 #exemplo do danilo
