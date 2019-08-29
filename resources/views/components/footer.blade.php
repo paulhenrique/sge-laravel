@@ -10,7 +10,7 @@
 						
 						<img src="{{ asset('images/fs_orange.png') }}" width="100" height="100" alt="" >
 					  </a></i></li>
-            <li class="text-white m-2 "><i>Somos um grupo de desenvolvimento procurando por novas e criativas soluções para ajudar pessoas com nossos produtos em seus objetivos</i></li>
+            <li class="text-white m-2 text-justify "><i>Somos um grupo de desenvolvimento procurando por novas e criativas soluções para ajudar pessoas com nossos produtos em seus objetivos</i></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
@@ -37,12 +37,11 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 ">
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><i class="facebook"></i></li>
-						<li class="list-inline-item"><a href=""><i class="twitter"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="instagram"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="" target=""><i class=""></i></a></li>
+						<li class="list-inline-item rodape_images"><img width="25" class="invert-elements img-fluid" height="25" src="{{ asset('images/facebook-logo.svg') }}"></li>
+						<li class="list-inline-item rodape_images"><img width="25" class="img-fluid" height="25" src="{{ asset('images/GitHub-Mark-Light-120px-plus.png') }}"></li>
+						<li class="list-inline-item rodape_images"><img class="img-fluid" width="150" src="{{ asset('images/Marca_IFSP_2015_Itapetininga-18.png') }}"></li>
 					</ul>
+					<div class="text-center creditos">Icons made by <a class="text-white" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="text-white" href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a> is licensed by <a class="text-white" href="http://creativecommons.org/licenses/by/3.0/"         title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 				</div> 
 				
 			</div>	

@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -48,12 +48,11 @@ Route::post('/atividade/update', 'AtividadeController@update')->name('editar_ati
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade");
 
 //inscricao Evento
-Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user_evento');
+Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user_evento')->middleware('auth');
 
 //inscricao Atividade
-Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name('inscrever_user_atividade');
+Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name('inscrever_user_atividade')->middleware('auth');
 
 
 //admin
 Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin');
-Route::get('/admin/evento/participantes', 'EventoController@participantes')->name('list_participantes');

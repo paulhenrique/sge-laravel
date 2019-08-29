@@ -104,10 +104,6 @@ class EventoController extends Controller
         return redirect()->route('listEvent');
     }
 
-    public function participantes(Request $data){
-        $eventos = EventoModel::where('idEvento',$data->idEvento)->get();
-        return view('admin.listParticipantes', compact('eventos'));
-    }
 
 
 

@@ -82,6 +82,7 @@
                                         {{ __('Cadastrar-se') }}
                                     </button>
                                 </div>
+                             <a class="btn btn-link text-center mt-1" href="{{route('login')}}"> Possui Conta? Entre </a> 
                             </div>
                         </form>
                     </div>
