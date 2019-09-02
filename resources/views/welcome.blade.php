@@ -17,10 +17,10 @@
                 </div>
 
                 <div class="col-md-2 intro-img order-md-last order-first">
-                    <img src="{{asset('images/logo_png_branco.png')}}" alt="logo_sge" class="img-fluid mt-2 img-welcome">
+                    <img src="{{asset('images/logo_png_dark.png')}}" alt="logo_sge" class="img-fluid mt-2 img-welcome">
                 </div>
             </div>
-
+            
         </div>
     </section>
 
@@ -60,7 +60,7 @@
                     </div>
 
                 </div>
-
+                
             </div>
         </section>
     </main>

@@ -145,15 +145,6 @@
         text-decoration: none;
     }
     
-    #intro {
-        width: 100%;
-        height: 100vh;
-        position: relative;
-        background: #f5f8fd url("../images/intro-bg.jpg") right top no-repeat;
-        background-size: 70em;
-        /* background-size: cover; */
-    }
-    
     #intro .intro-info h1 {
         color: #102f3f;
         margin-bottom: 40px;
@@ -193,10 +184,6 @@
     #intro .container {
         height: auto !important;
     } */
-    
-    #intro .intro-img {
-        width: 80%;
-    }
     
     #intro .intro-info {
         text-align: center;
