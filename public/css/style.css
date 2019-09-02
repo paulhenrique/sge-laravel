@@ -291,3 +291,17 @@
         transform: scale(1.1);
         transition: 0.5s;
     }
+
+    .sidebar{
+        height: 94vh;
+    }
+    .icon-text{
+        font-size: 5rem;
+        width: 100%;
+        text-align: center;
+    }
+    .sidebar-heading{
+        width: 100%;
+        text-align: center;
+        font-weight: 5rem;
+    }

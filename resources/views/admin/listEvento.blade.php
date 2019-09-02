@@ -32,9 +32,9 @@
 								<hr id="list_hr">
 								<div class="row text-center ">
 									<a class="col-md-6 col-sm-2  links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
-									<a class="col-md-6 col-sm-2  links" href="{{ route('inscrever_user_evento',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/checked.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Inscrever</figcaption></a>
 									<a class="col-md-4 col-sm-2  links" href="{{ route('showFormAtividade') }}"><img src="{{ asset('images/plus.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Adicionar Atividade</figcaption></a>
-									<a class="col-md-4 col-sm-2  links" href="{{ route('showForm_create_evento', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/document.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Editar</figcaption></a>
+									<a class="col-md-4 col-sm-2  links" href="{{ route('showForm_create_evento', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/edit.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Editar</figcaption></a>
+									<a class="col-md-4 col-sm-2  links" href="{{ route('lista_de_chamada', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/checklist.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Lista de Chamada</figcaption></a>
 									<a class="col-md-4 col-sm-2  links" href="{{route('deletar_evento', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/delete.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Excluir</figcaption></a>
 								</div>
 							</div>
