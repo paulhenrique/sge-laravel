@@ -35,9 +35,9 @@
        <input type="Text" class="form-control" id="Name" name="Nome" value="{{ isset($eventos) ? $eventos->Nome : '' }}">
        </div>
 
-        <div class="form-group">
-          <label for="Responsavel">Responsável: </label>
-          <input type="Text" class="form-control" id="Responsavel" name="Responsavel" value="{{ isset($eventos) ? $eventos->Responsavel : '' }}">
+        <div class="form-group ">
+          <label class="label" for="Responsavel">Responsável: </label>
+          <input type="Text" class="form-control " id="Responsavel" name="Responsavel" value="{{ isset($eventos) ? $eventos->Responsavel : '' }}">
         </div>
         
         <div class="form-group">

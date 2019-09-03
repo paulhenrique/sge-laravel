@@ -1,203 +1,212 @@
-    body.blue {
-        background-color: #094877;
-    }
-    
-    .background-image {
-        background-image: url('../images/bg_triangle.png');
-        background-size: 100%;
-        background-repeat: no-repeat;
-    }
-    
-    .background-image-solid {
-        /*  background-image: url('../images/bg_lightBlue.jpg'); */
-        background-color: #f2f2f2;
-        background-size: 100%;
-        background-repeat: repeat;
-    }
-    
-    .background-blue {
-        background-image: linear-gradient(#102f3f, #1b4e69);
-    }
-    
-    .circle {
-        height: 200px;
-        width: 200px;
-        margin-bottom: 10%;
-        border-radius: 100%;
-    }
-    
-    .circle_home {
-        height: 50px;
-        width: 200px;
-        border-radius: 10%;
-        border-style: solid;
-        border-width: 1px;
-        border-color: #094877;
-        transition: all 0.4s ease;
-    }
-    
-    .circle_home:hover {
-        -webkit-transform: scale(0.8);
-        -ms-transform: scale(0.8);
-        transform: scale(0.8);
-        transition: all 0.4s ease;
-        background-color: #094877;
-    }
-    
-    .div-green {
-        background-color: #546a75;
-    }
-    
-    .div-orange {
-        background-color: orange;
-    }
-    
-    .height-100 {
-        height: 100%;
-    }
-    
-    .div-darkblue {
-        background-color: #546a75;
-    }
-    
-    .bg-logo {
-        background-image: url('../images/logo_sge.png');
-    }
-    
-    .form-box {
-        -webkit-box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
-        -moz-box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
-        box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
-    }
-    
-    .material-icons {
-        font-size: 14em;
-    }
-    
-    .font-white {
-        color: white;
-    }
-    
-    input[type="file"] {
-        display: none;
-    }
-    
-    .border-white {
-        border-style: solid;
-        border-width: 5px;
-        border-color: white;
-    }
-    
-    .text-blue-light {
-        color: #bbd2e7;
-    }
-    
-    .btn-outline-dark {
-        color: white;
-        background-color: #153342;
-        background-image: none;
-        border-color: gray
-    }
-    
-    .btn-outline-dark:hover {
-        color: #153342;
-        background-color: transparent;
-        border-color: #153342
-    }
-    
-    .rodape-cor {
-        background-color: rgb(255, 255, 255);
-    }
-    
-    hr {
-        background-color: white;
-    }
-    
-    .list_image {
-        min-height: 220px;
-        max-height: 220px;
-        min-width: 100%;
-    }
-    
-    .button {
-        max-height: 100px;
-        max-width: 314px;
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
-    
-    .add {
-        transition: all 0.4s ease;
-    }
-    
-    .add:hover {
-        -webkit-transform: scale(0.8);
-        -ms-transform: scale(0.8);
-        transform: scale(0.8);
-        transition: all 0.4s ease;
-        background-color: #094877;
-    }
-    
-    .icon {
-        height: 100px;
-        width: 100px;
-    }
-    
-    #list_hr {
-        background-color: light-gray;
-    }
-    
-    .list_svg {
-        height: 45%;
-    }
-    
-    .links {
-        color: gray;
-        transition: all 0.4s ease;
-        text-decoration: none;
-    }
-    
-    .links:hover {
-        -webkit-transform: scale(0.8);
-        -ms-transform: scale(0.8);
-        transform: scale(0.8);
-        transition: all 0.4s ease;
-        text-decoration: none;
-    }
-    
-    #intro .intro-info h1 {
-        color: white;
-        margin-bottom: 40px;
-        font-size: 48px;
-        font-weight: 700;
-    }
-    
-    #intro .intro-info h1 span {
-        color: #1bb1dc;
-    }
-    
-    #intro .intro-info .btn-get-started,
-    #intro .intro-info .btn-services {
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: inline-block;
-        padding: 10px 32px;
-        border-radius: 4px;
-        transition: 0.5s;
-        color: #fff;
-        background: #1bb1dc;
-        color: #fff;
-    }
-    
-    #intro .intro-info .btn-get-started:hover,
-    #intro .intro-info .btn-services:hover {
-        background: #0a98c0;
-    }
-    /* #intro {
+body.blue {
+    background-color: #094877;
+}
+
+.background-image {
+    background-image: url('../images/bg_triangle.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.background-image-solid {
+    /*  background-image: url('../images/bg_lightBlue.jpg'); */
+    background-color: #f2f2f2;
+    background-size: 100%;
+    background-repeat: repeat;
+}
+
+.background-blue {
+    background-image: linear-gradient(#102f3f, #1b4e69);
+}
+
+.circle {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10%;
+    border-radius: 100%;
+    border-color: #1bb1dc;
+}
+
+.div-green {
+    background-color: #546a75;
+}
+
+.div-orange {
+    background-color: orange;
+}
+
+.height-100 {
+    height: 100%;
+}
+
+.div-darkblue {
+    background-color: #546a75;
+}
+
+.bg-logo {
+    background-image: url('../images/logo_sge.png');
+}
+
+.form-box {
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
+    box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
+}
+
+.material-icons {
+    font-size: 14em;
+}
+
+.font-white {
+    color: white;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.text-nav {
+    font-weight: bold;
+    color: white;
+}
+
+.text-nav:hover {
+    font-weight: bold;
+    color: #1bb1dc;
+    border-bottom-style: solid;
+    border-color: #fff;
+}
+
+.text-nav .border-white {
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+}
+
+.text-blue-light {
+    color: #bbd2e7;
+}
+
+.text-blue {
+    color: white;
+    border-bottom-style: solid;
+    border-color: #1bb1dc;
+}
+
+.text-blue:hover {
+    color: #0a98c0;
+    border-bottom-style: solid;
+    border-color: #fff;
+}
+
+.btn-outline-dark {
+    color: white;
+    background-color: #153342;
+    background-image: none;
+    border-color: gray
+}
+
+.btn-outline-dark:hover {
+    color: #153342;
+    background-color: transparent;
+    border-color: #153342
+}
+
+.rodape-cor {
+    background-color: rgb(255, 255, 255);
+}
+
+hr {
+    background-color: white;
+}
+
+.list_image {
+    min-height: 220px;
+    max-height: 220px;
+    min-width: 100%;
+}
+
+.button {
+    max-height: 100px;
+    max-width: 314px;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.add {
+    transition: all 0.4s ease;
+}
+
+.add:hover {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: all 0.4s ease;
+    background-color: #1bb1dc;
+}
+
+.icon {
+    height: 100px;
+    width: 100px;
+}
+
+#list_hr {
+    background-color: light-gray;
+}
+
+.list_svg {
+    height: 45%;
+}
+
+.links {
+    color: gray;
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+
+.links:hover {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+
+#intro .intro-info h1 {
+    color: white;
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#intro .intro-info h1 span {
+    color: #1bb1dc;
+}
+
+#intro .intro-info .btn-get-started,
+#intro .intro-info .btn-services {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 4px;
+    transition: 0.5s;
+    color: #fff;
+    background: #1bb1dc;
+    color: #fff;
+}
+
+#intro .intro-info .btn-get-started:hover,
+#intro .intro-info .btn-services:hover {
+    background: #0a98c0;
+}
+
+
+/* #intro {
         height: auto;
         padding: 80px 0 60px 0;
     }
@@ -205,130 +214,127 @@
     #intro .container {
         height: auto !important;
     } */
-    
-    #intro .intro-info {
-        text-align: center;
-        padding-top: 40px;
-    }
-    
-    #intro .intro-info h2 {
-        font-size: 34px;
-        margin-bottom: 30px;
-    }
-    
-    #services {
-        padding: 60px 0 40px 0;
-    }
-    
-    #services .box {
-        padding: 30px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        margin: 0 10px 40px 10px;
-        background: #fff;
-        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-    }
-    
-    #services-evento .box {
-        overflow: hidden;
-        border-radius: 10px;
-        background: #fff;
-        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-        text-align: center;
-    }
-    
-    #services-evento a {
-        text-decoration: none;
-    }
-    
-    #servu #services .box:hover {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-    
-    #services .icon {
-        margin: 0 auto 15px auto;
-        padding-top: 12px;
-        display: inline-block;
-        text-align: center;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-    }
-    
-    #services .icon i {
-        font-size: 36px;
-        line-height: 1;
-    }
-    
-    #services .title {
-        font-weight: 700;
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
-    
-    #services .title a {
-        color: #111;
-    }
-    
-    #services .box:hover .title a {
-        color: #1bb1dc;
-    }
-    
-    #services .description {
-        font-size: 14px;
-        line-height: 28px;
-        margin-bottom: 0;
-        text-align: left;
-    }
-    
-    .svg-classe {
-        max-width: 250px;
-        min-height: 250px;
-    }
-    
-    .invert-elements {
-        filter: invert(100%);
-    }
-    
-    .creditos {
-        color: lightgray;
-        opacity: 0.3;
-        font-size: 0.5vh;
-    }
-    
-    .bounceInUp {
-        transition: 0.5s;
-    }
-    
-    .bounceInUp:hover {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-        transition: 0.5s;
-    }
-<<<<<<< HEAD
 
-    .sidebar{
-        height: 94vh;
-    }
-    .icon-text{
-        font-size: 5rem;
-        width: 100%;
-        text-align: center;
-    }
-    .sidebar-heading{
-        width: 100%;
-        text-align: center;
-        font-weight: 5rem;
-    }
-=======
-    
-    .log_bg {
-        background-color: #094877;
-    }
-    
-    s
->>>>>>> b7e5ac9609a9fbeaad65520a584f107112f0f5cc
+#intro .intro-info {
+    text-align: center;
+    padding-top: 40px;
+}
+
+#intro .intro-info h2 {
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+#services {
+    padding: 60px 0 40px 0;
+}
+
+#services .box {
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0 10px 40px 10px;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+#services-evento .box {
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+    text-align: center;
+}
+
+#services-evento a {
+    text-decoration: none;
+}
+
+#servu #services .box:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#services .icon {
+    margin: 0 auto 15px auto;
+    padding-top: 12px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+#services .icon i {
+    font-size: 36px;
+    line-height: 1;
+}
+
+#services .title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+#services .title a {
+    color: #111;
+}
+
+#services .box:hover .title a {
+    color: #1bb1dc;
+}
+
+#services .description {
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.svg-classe {
+    max-width: 250px;
+    min-height: 250px;
+}
+
+.invert-elements {
+    filter: invert(100%);
+}
+
+.creditos {
+    color: lightgray;
+    opacity: 0.3;
+    font-size: 0.5vh;
+}
+
+.bounceInUp {
+    transition: 0.5s;
+}
+
+.bounceInUp:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+HEAD .sidebar {
+    height: 94vh;
+}
+
+.icon-text {
+    font-size: 5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-heading {
+    width: 100%;
+    text-align: center;
+    font-weight: 5rem;
+}
+
+.log_bg {
+    background-color: #094877;
+}

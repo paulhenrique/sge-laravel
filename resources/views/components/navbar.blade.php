@@ -3,8 +3,8 @@
     <a>
     <a href="{{route('welcome')}}"><img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
     </a>
-    <a class="navbar-brand text-white" href="{{ route('welcome') }}">
-        SGEIFSP  
+    <a class="navbar-brand font-weight-bold" href="{{ route('welcome') }}">
+        <span class="text-blue">SGEIFSP</span>  
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,13 +12,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link text-white" href="{{route('listEvent')}}">Mostrar Eventos<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('listEvent')}}"><span class=" text-nav">Mostrar Eventos</span><span class="sr-only">(current)</span></a>
 
             </li>
 
             @if( Auth::user())
                 <li class="nav-item dropdown-menu-right">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -35,11 +35,11 @@
                 </li>
             @else
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="{{route('login')}}">Login<span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="{{route('login')}}"><span class="text-nav">Login</span><span class="sr-only">(current)</span></a>
                    
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="{{route('register')}}">Registrar<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('register')}}"><span class="text-nav">Registrar<span class="sr-only">(current)</span></a>
                     
                 </li>
             @endif
