@@ -1,9 +1,13 @@
 @extends('template.main')
 @section('color-bg')
-    background-image
+background-image 
 @endsection
 @section('content')
-<div class="container">
+@section('navbar')
+	@include('components.navbar')
+@endsection
+
+<div class="container ">
     <div class="row justify-content-center m-5">
         <div class="col-md-6">
             <div class="card form-box">
@@ -75,4 +79,5 @@
         </div>
     </div>
 </div>
+
 @endsection

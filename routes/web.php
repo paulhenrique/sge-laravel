@@ -60,11 +60,3 @@ Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_
 
 
 
-#exemplo do danilo
-#Route::get('/', 'TaskController@index');
-Route::get('/tasks/create', 'TaskController@create');
-Route::put('/tasks/{task}', 'TaskController@update');
-Route::delete('/tasks/{task}', 'TaskController@delete');
-Route::get('/tasks/{task}', 'TaskController@show');
-Route::get('/tasks/{task}/edit', 'TaskController@edit');
-Route::post('/tasks', 'TaskController@store');

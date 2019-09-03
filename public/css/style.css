@@ -1,8 +1,8 @@
     body.blue {
-        background-color: #2a3e79;
+        background-color: #094877;
     }
     
-    body.background-image {
+    .background-image {
         background-image: url('../images/bg_triangle.png');
         background-size: 100%;
         background-repeat: no-repeat;
@@ -26,6 +26,24 @@
         border-radius: 100%;
     }
     
+    .circle_home {
+        height: 50px;
+        width: 200px;
+        border-radius: 10%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #094877;
+        transition: all 0.4s ease;
+    }
+    
+    .circle_home:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        transition: all 0.4s ease;
+        background-color: #094877;
+    }
+    
     .div-green {
         background-color: #546a75;
     }
@@ -42,12 +60,14 @@
         background-color: #546a75;
     }
     
-    .form-box {
-        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-    }
-    
     .bg-logo {
         background-image: url('../images/logo_sge.png');
+    }
+    
+    .form-box {
+        -webkit-box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
+        -moz-box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
+        box-shadow: 0px 0px 30px 0px rgba(52, 58, 64, 1);
     }
     
     .material-icons {
@@ -96,6 +116,7 @@
     .list_image {
         min-height: 220px;
         max-height: 220px;
+        min-width: 100%;
     }
     
     .button {
@@ -115,7 +136,7 @@
         -ms-transform: scale(0.8);
         transform: scale(0.8);
         transition: all 0.4s ease;
-        background-color: #102f3f;
+        background-color: #094877;
     }
     
     .icon {
@@ -146,7 +167,7 @@
     }
     
     #intro .intro-info h1 {
-        color: #102f3f;
+        color: white;
         margin-bottom: 40px;
         font-size: 48px;
         font-weight: 700;
@@ -212,11 +233,8 @@
     }
     
     #services-evento .box {
-        padding: 2%;
-        position: relative;
         overflow: hidden;
         border-radius: 10px;
-        margin: 0 10px 40px 10px;
         background: #fff;
         box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
         text-align: center;
@@ -291,6 +309,7 @@
         transform: scale(1.1);
         transition: 0.5s;
     }
+<<<<<<< HEAD
 
     .sidebar{
         height: 94vh;
@@ -305,3 +324,11 @@
         text-align: center;
         font-weight: 5rem;
     }
+=======
+    
+    .log_bg {
+        background-color: #094877;
+    }
+    
+    s
+>>>>>>> b7e5ac9609a9fbeaad65520a584f107112f0f5cc
