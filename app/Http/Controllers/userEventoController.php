@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\userEventoModel;
+use App\EventoModel;
 
 class userEventoController extends Controller
 {
@@ -28,5 +29,22 @@ class userEventoController extends Controller
 			return redirect()->back()->with('error', 'Falha: já está inscrito no evento!');
 		}
         
-    }
+	}
+	
+
+	public function listaDeChamada(Request $data){
+		$participantes = DB::table('user_evento')
+							->join('users','users.id','=','user_evento.idUser')
+							->select('idUser','name')
+							->where('idEvento', '=',$data['idEvento'])
+							->get();
+		
+		$evento = EventoModel::where('idEvento',$data->idEvento)->get();
+
+		echo "<pre>";
+		print_r($participantes);
+		print_r($evento);
+		echo "</pre>";
+		return view('admin.listaDeChamadaEvento');
+	}
 }

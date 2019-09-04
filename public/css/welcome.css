@@ -1,10 +1,20 @@
 #intro {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     position: relative;
-    background: #f5f8fd url("../images/bg_intro.png");
+    background-color: #343a40;
+    /* background: #f5f8fd url("../images/bg_intro.png") */
+    ;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.event {
+    color: #1bb1dc;
+}
+
+.button-blue {
+    background-color: #1bb1dc;
 }
 
 #intro {
@@ -68,7 +78,7 @@
 }
 
 #services .box:hover .title a {
-    color: #1bb1dc;
+    color: #1e3855;
 }
 
 #services .description {
@@ -77,3 +87,29 @@
     margin-bottom: 0;
     text-align: left;
 }
+<<<<<<< HEAD
+=======
+
+.a {
+    fill: none;
+}
+
+.b {
+    clip-path: url(#a);
+}
+
+.c,
+.d {
+    fill: #fff;
+}
+
+.d {
+    opacity: 0.5;
+    isolation: isolate;
+}
+
+.wave {
+    background-color: #343a40;
+    height: 6em;
+}
+>>>>>>> 98635fa7264e7056382b40b941099dae98793a7c
