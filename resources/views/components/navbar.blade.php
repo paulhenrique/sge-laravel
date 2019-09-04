@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <a>
-    <a href="{{route('home')}}"><img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
+    <a href="{{route('welcome')}}"><img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
     </a>
     <a class="navbar-brand text-white" href="{{ route('welcome') }}">
         SGEIFSP  

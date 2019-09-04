@@ -42,7 +42,7 @@
         
         <div class="form-group">
           <label for="CargaHoraria">Carga Horária: </label>
-          <input type="Text" class="form-control" id="CargaHoraria" name="CargaHoraria" value="{{ isset($eventos) ? $eventos->CargaHoraria : '' }}">
+          <input type="number" class="form-control" id="CargaHoraria" name="CargaHoraria" value="{{ isset($eventos) ? $eventos->CargaHoraria : '' }}">
         </div>
         
         <div class="form-group">

@@ -3,7 +3,7 @@
     }
     
     body.background-image {
-        background-image: url('../images/bg_triangle.png');
+        background-image: url('../images/bg_login.jpg');
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -16,7 +16,7 @@
     }
     
     .background-blue {
-        background-image: linear-gradient(#102f3f, #1b4e69);
+        background-color:#1bb1dc;
     }
     
     .circle {
@@ -291,3 +291,110 @@
         transform: scale(1.1);
         transition: 0.5s;
     }
+
+
+    .float{
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:40px;
+        right:40px;
+        background-color:#1bb1dc;
+        border-radius:50px;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+        background-image: url('../images/logo_png_branco.png');
+        background-size: 2em;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: 0.5s;
+    }
+
+    .float:hover{
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:40px;
+        right:40px;
+        transition: 0.2s;
+        background-image: url('../images/icon.svg');
+        border-radius:50px;
+        text-align:center;     
+    }
+
+
+/* wave welcome */
+
+.a {
+    fill: none;
+}
+
+.b {
+    clip-path: url(#a);
+}
+
+.c,
+.d {
+    fill:#f5f8fd;
+}
+
+.d {
+    opacity: 0.5;
+    isolation: isolate;
+}
+
+.wave {
+    background-color: #f5f8fd;
+    height: 8em;
+}
+
+/* fim wave welcome */
+
+    /* wave show events */
+    .x {
+        fill: none;
+    }
+
+    .y {
+        clip-path: url(#x);
+    }
+
+    .w,
+    .z {
+        fill:#f2f2f2;
+    }
+
+    .z {
+        opacity: 0.5;
+        isolation: isolate;
+    }
+
+    .wave-evento {
+        background-color:#1bb1dc;
+        height: 4em;
+    }
+    /* fim wave show events */
+
+    .effect .mask {
+        opacity: 0;
+        overflow:visible;
+        border:100px solid rgba(0, 0, 0, 0.7);
+        box-sizing:border-box;
+        transition: all 0.4s ease-in-out;
+    }
+    .effect a.info {
+        position:relative;
+        top:-10px;
+        /* Center the link */
+        opacity: 0;
+        transition: opacity 0.5s 0s ease-in-out;
+    }
+    .effect:hover .mask {
+        opacity: 1;
+        border:100px solid rgba(0, 0, 0, 0.7);
+    }
+    .effect:hover a.info {
+        opacity:1;
+        transition-delay: 0.3s;
+    }
+    

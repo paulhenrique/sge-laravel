@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\EventoModel;
+use App\AtividadeModel;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EventRequest;
 
@@ -13,8 +14,8 @@ class EventoController extends Controller
 
     public function show(Request $data){
         $evento = EventoModel::where('idEvento',$data->idEvento)->get();
-
-        return view('Evento.show', compact('evento'));
+        $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->get();
+        return view('Evento.show', compact(['evento','atividades']));
     }
 
 
@@ -32,6 +33,7 @@ class EventoController extends Controller
     }
 
     public function create(EventRequest $data){
+        echo "oi";
         $validated = $data->validated();
         if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
             $name = uniqid(date('HisYmd'));
@@ -48,7 +50,7 @@ class EventoController extends Controller
                 'DataLimiteInscricao'   => $data['DataLimiteInscricao'],
                 'ConteudoProgramatico'   => $data['ConteudoProgramatico'],
                 'Responsavel' => $data['Responsavel'],
-                'CargaHoraria'   => $data['CargaHoraria'],
+                'CargaHoraria'   => $data['CargaHoraria']."H",
                 'HorarioInicio'   => $data['HorarioInicio'],
                 'HorarioFim'   => $data['HorarioFim'],
                 'Local'   => $data['Local'],

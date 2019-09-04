@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-outline-dark col-12">
+                                    <button type="submit" class="btn btn-outline-dark btn-block col-12">
                                         {{ __('Login') }}
                                     </button>
                                 </div>
@@ -74,5 +74,11 @@
             </div>
         </div>
     </div>
+
+        <div class="float"><a href="{{route('welcome')}}" class="float"><i class="fa fa-plus my-float"></i></a>
+
+        </div>
+    
+
 </div>
 @endsection

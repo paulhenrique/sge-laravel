@@ -47,6 +47,7 @@
 											<div class="row text-center ">
 												<a class="col-md-6 col-sm-2  links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
 												<a class="col-md-6 col-sm-2  links" href="{{ route('inscrever_user_evento',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/checked.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Inscrever</figcaption></a>
+												
 											</div>
 										</div>
 									</div>

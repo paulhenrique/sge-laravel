@@ -38,7 +38,7 @@ class AtividadeController extends Controller
             'idEvento'   => $data['idEvento']
             ]);
         
-        return redirect()->route('listAtividade',['idEvento' => $data['idEvento']]);
+        return redirect()->route('showEvent',['idEvento' => $data['idEvento']]);
     }
 
     public function read(Request $data) {
