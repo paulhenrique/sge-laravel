@@ -4,29 +4,31 @@
 		  <div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left text-white p-2 ">
 				<div class="col-xs-12 col-sm-4 col-md-4 text-justify">
-					<h5 class=" text-md-center">Fabrica de Softwares</h5>
-					<ul class="list-unstyled ">
-            	<li class="text-center"><i><a class="navbar-brand" href="#">
-						
-						<img src="{{ asset('images/fs_orange.png') }}" width="100" height="100" alt="" >
-					  </a></i></li>
-            <li class="text-white m-2 text-justify "><i>Somos um grupo de desenvolvimento procurando por novas e criativas soluções para ajudar pessoas com nossos produtos em seus objetivos</i></li>
+
+					<h5 class=" text-md-center"><img class="mr-2" src="{{ asset('images/fs_orange.png') }}" width="22" height="22" alt="" >Fabrica de Softwares</h5>
+			<ul class="list-unstyled">
+            <li class="text-white m-2 text-justify ">
+				<hr>
+				<i>Somos um grupo de desenvolvimento procurando por novas e criativas soluções para ajudar pessoas com nossos produtos em seus objetivos</i></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5 class=" text-md-center">Contato</h5>
 					<ul class="list-unstyled quick-links text-justify">
-						<li class="text-white "><i>Telefone:</i></li>
-						<li class="text-white "><i>Email:</i></li>
-						<li class="text-white "><i>Facebook:</i></li>
-						<li class="text-white "><i>Github: </i></li>
+						<li class="text-white ">
+								<hr>
+								<i>Email: fabricasoftware@gmail.com</i></li>
+						<li class="text-white "><i>Facebook: Fabrica de Softwares</i></li>
+						<li class="text-white "><i>Github: https://github.com/ifsp-itp/sgeIFSP</i></li>
 						
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 ">
 					<h5 class="text-md-center ">Abas</h5>
 					<ul class=" list-unstyled quick-links ">
-					<li><a href="" class="text-white m-2"><i class=""></i>Inicio</a></li>
+					<li>
+						<hr>
+						<a href="" class="text-white m-2"><i class=""></i>Inicio</a></li>
 						<li><a href="" class="text-white m-2"><i class=""></i>Eventos</a></li>
 						<li><a href="" class="text-white m-2"><i class=""></i>Sobre nós</a></li>
 

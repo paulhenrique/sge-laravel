@@ -10,11 +10,11 @@
 
     <section id="intro" class="clearfix">
         <div class="container d-flex h-100">
-            <div class="row justify-content-center align-self-center ml-3">
+            <div class="row justify-content-center align-self-center ml-3 animated wow fadeInDown">
                 <div class="col-md-10 text-left intro-info order-md-first order-last">
                     <h1>Soluções Rapidas<br>para seus <span >Eventos!</span></h1>
                     <div>
-                       <p class=""><a href="{{ route('listEvent') }}" class="btn button-blue">Iniciar</a></p>
+                       <p class=""><a href="{{ route('listEvent') }}" class="btn button-blue bold text-white">Começar</a></p>
                     </div>
                 </div>
                 <div class="col-md-2  border-md-last">

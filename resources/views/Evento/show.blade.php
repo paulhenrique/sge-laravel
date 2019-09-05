@@ -17,11 +17,11 @@
 @foreach ($evento as $event)
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12 background-blue">
+		<div class="col-md-12 background-blue" >
 			<div class="container-fluid">
 				<div class="row mt-2">
-					<div class="col-2">
-						<img src="{{ url("/storage/{$event->Logo}") }}" class="circle m-2 border-white" alt="logo_do_evento.{{$event->Nome}}">
+					<div class="col-2 ">
+						<img src="{{ url("/storage/{$event->Logo}") }}" class="circle m-2  border-white m-2" alt="logo_do_evento.{{$event->Nome}}">
 					</div>
 					<div class="col-8">
 						<h1 class="display-4 text-blue-light text-white uppercase">{{ $event->Nome }}</h1>

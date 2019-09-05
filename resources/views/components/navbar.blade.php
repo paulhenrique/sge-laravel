@@ -1,9 +1,9 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
     <a>
-    <a href="{{route('welcome')}}"><img class="mr-1" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
+    <a href="{{route('welcome')}}"><img class="mr-1 logo-branco-nav" src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
     </a>
-    <a class="navbar-brand font-weight-bold" href="{{ route('welcome') }}">
+    <a class="navbar-brand font-weight-bold " href="{{ route('welcome') }}">
         <span class="text-blue">SGEIFSP</span>  
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +18,8 @@
 
             @if( Auth::user())
                 <li class="nav-item dropdown-menu-right">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-nav" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                   <span class="text-nav text-uppercase"> {{ Auth::user()->name }} </span>
                     </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
