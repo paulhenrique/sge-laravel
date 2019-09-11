@@ -8,7 +8,7 @@ class AtividadeModel extends Model
 {
     protected   $table          = 'atividade';
     public      $timestamps     = false;
-    protected   $fillable       = array('nomeAtividade','tipo','DataInicio','DataTermino','HoraInicio','HoraTermino','local','idUser','idEvento','NumMaxParticipantes');
+    protected   $fillable       = array('nomeAtividade','tipo','DataInicio','DataTermino','HoraInicio','HoraTermino','local','idEvento','NumMaxParticipantes');
     protected   $primaryKey     = 'idAtividade';
     protected   $guarded        = ['idAtividade'];
 }

@@ -29,10 +29,6 @@ class AuthServiceProvider extends ServiceProvider
             return $user->tipoUser == 'admin';
         });
 
-        Gate::define('isPalestrante', function($user){
-            return $user->tipoUser == 'palestrante';
-        });
-
         Gate::define('isParticipante', function($user){
              return $user->tipoUser == 'participante';
         });
