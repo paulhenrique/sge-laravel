@@ -56,14 +56,15 @@
 									</div>
 								</div>
 							@endforeach
-							
+								@can("isAdmin")
 								<div class="col-4 p-6">
 										<div class="card add circle">
 												<a class="text-secondary p-3" href="{{ route('showForm_create_evento') }}">
 													<img src="{{ asset('images/plus-icon.svg') }}" class="img-fluid text-center col-md-12 p-1">
 												</a>
 										</div>
-								</div>			
+								</div>	
+								@endcan		
 							</div>
 							
 						</section>	

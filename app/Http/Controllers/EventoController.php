@@ -22,7 +22,6 @@ class EventoController extends Controller
 
 
     public function ShowForm(Request $data) {
-        //dd(Gate::allows('isAdmin'));
         if(isset($data->idEvento)){
             $eventos = DB::table('evento')->where('idEvento', $data->idEvento)->first();
             return view('Evento.formEvento',compact('eventos'));
@@ -57,7 +56,7 @@ class EventoController extends Controller
                 'Logo'   => $upload,
                 ]);
             
-            return redirect()->route('listEvent');        
+            return redirect()->route('list_evento_admin');        
 
     } 
     
@@ -65,7 +64,6 @@ class EventoController extends Controller
     }
 
     public function read() {
-        //$tasks = Task::orderBy('created_at', 'desc')->get();
         $eventos = EventoModel::orderBy('idEvento')->get();
 
         return view('Evento.list',compact('eventos'));
@@ -73,7 +71,6 @@ class EventoController extends Controller
     } 
 
     public function read_dashboard() {
-        //$tasks = Task::orderBy('created_at', 'desc')->get();
         $eventos = EventoModel::orderBy('idEvento')->get();
 
         return view('admin.listEvento',compact('eventos'));
@@ -96,25 +93,15 @@ class EventoController extends Controller
         $eventos->Logo = $data['logo'];
         $eventos->save();
 
-        return redirect()->route('listEvent');
+        return redirect()->route('list_evento_admin');
     }
 
     public function delete (Request $request) {
         $idEvento = $request->query('deletar_evento');
         EventoModel::destroy($request->idEvento);
         
-        return redirect()->route('listEvent');
+        return redirect()->route('list_evento_admin');
     }
-
-
-
-
-    // public function editar (EventoModel $evento) {
-
-    //     $evento->save();
-
-    //     return $evento;
-    // }
 }
 
 

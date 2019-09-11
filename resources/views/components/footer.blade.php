@@ -19,7 +19,7 @@
 								<hr>
 								<i>Email: fabricasoftware@gmail.com</i></li>
 						<li class="text-white "><i>Facebook: Fabrica de Softwares</i></li>
-						<li class="text-white "><i>Github: https://github.com/ifsp-itp/sgeIFSP</i></li>
+						<li class="text-white "><i> Github: <a href="https://github.com/ifsp-itp/sgeIFSP" class="text-white"> https://github.com/ifsp-itp/sgeIFSP </a></i></li>
 						
 					</ul>
 				</div>

@@ -30,6 +30,9 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+                            @can("isAdmin")
+                                <a class="btn" href="{{ route('list_evento_admin') }}">Painel de Controle</a>
+                            @endcan
                         </div>
 
                 </li>
