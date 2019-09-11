@@ -6604,7 +6604,7 @@ button.bg-dark:focus {
 }
 
 .border-right {
-    border-right: 1px solid #dee2e6 !important;
+    border-right: 1px solid black !important;
 }
 
 .border-bottom {
@@ -11868,4 +11868,17 @@ body.main nav .dropdown-menu.dropdown-menu-right.show img {
 
 body.main nav .dropdown-menu.dropdown-menu-right.show a {
     color: black !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1bb1dc;
+    border-radius: 10px;
 }

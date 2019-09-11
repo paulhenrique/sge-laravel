@@ -10,7 +10,7 @@ use App\Http\Requests\AtividadeRequest;
 
 class AtividadeController extends Controller
 {
-    
+
     public function ShowFormAtividade(Request $data) {
         $evento = DB::table('evento')->orderBy('idEvento')->get();
 
@@ -22,7 +22,7 @@ class AtividadeController extends Controller
         }
     }
 
-    public function create(AtividadeRequest $data){ 
+    public function create(AtividadeRequest $data){
         $validated = $data->validated();
         AtividadeModel::create([
             //'idAtividade' => $data['idAtividade'],
@@ -37,7 +37,6 @@ class AtividadeController extends Controller
             'idUser'   => auth()->user()->id,
             'idEvento'   => $data['idEvento']
             ]);
-        
         return redirect()->route('showEvent',['idEvento' => $data['idEvento']]);
     }
 
@@ -50,8 +49,8 @@ class AtividadeController extends Controller
             $atividades = AtividadeModel::orderBy('idAtividade')->get();
         }
 
-        return view('atividade.showAtividade',compact('atividades'));        
-    } 
+        return view('atividade.showAtividade',compact('atividades'));
+    }
 
     public function update(Request $data)
     {
@@ -74,7 +73,7 @@ class AtividadeController extends Controller
     public function delete (Request $request) {
         $idAtividade = $request->query('deletar_atividade');
         EventoModel::destroy($request->idAtividade);
-        
+
         return redirect()->route('listAtividade');
     }
 

@@ -1,5 +1,5 @@
-<!-- Rodape -->	
-	
+<!-- Rodape -->
+
       <div class="bg-dark m-auto">
 		  <div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left text-white p-2 ">
@@ -20,7 +20,7 @@
 								<i>Email: fabricasoftware@gmail.com</i></li>
 						<li class="text-white "><i>Facebook: Fabrica de Softwares</i></li>
 						<li class="text-white "><i> Github: <a href="https://github.com/ifsp-itp/sgeIFSP" class="text-white"> https://github.com/ifsp-itp/sgeIFSP </a></i></li>
-						
+
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 ">
@@ -44,11 +44,11 @@
 						<li class="list-inline-item rodape_images"><img class="img-fluid" width="150" src="{{ asset('images/Marca_IFSP_2015_Itapetininga-18.png') }}"></li>
 					</ul>
 					<div class="text-center creditos">Icons made by <a class="text-white" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="text-white" href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a> is licensed by <a class="text-white" href="http://creativecommons.org/licenses/by/3.0/"         title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-				</div> 
-				
-			</div>	
+				</div>
+
+			</div>
 		  </div>
 			</div>
-			
+
 
 	<!-- ./Rodape -->

@@ -6,7 +6,7 @@
     <title>
         @yield('page_title')
     </title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.mask.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
@@ -34,18 +35,18 @@
     <link  href="{{ asset('lib/animate/wow/wow.min.js') }}" rel="stylesheet">
 
 
-    
+
 </head>
 <body class="@yield('color-bg')">
-    
+
     @yield('navbar')
-    
+
     @yield('add')
     <main class="">
-            
+
         @yield('content')
     </main>
-    
+
     @yield('footer')
 </body>
 </html>

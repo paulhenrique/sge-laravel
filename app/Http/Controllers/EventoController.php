@@ -29,7 +29,7 @@ class EventoController extends Controller
             return view('Evento.formEvento');
         }
 
-        
+
     }
 
     public function create(EventRequest $data){
@@ -41,7 +41,7 @@ class EventoController extends Controller
             $upload = $data->logo->store('logo_evento');
             //$visibility = Storage::getVisibility($upload);
             //Storage::setVisibility($upload,'public');
-            
+
             EventoModel::create([
                 'Nome' => $data['Nome'],
                 'DataInicio'   => $data['DataInicio'],
@@ -55,11 +55,10 @@ class EventoController extends Controller
                 'Local'   => $data['Local'],
                 'Logo'   => $upload,
                 ]);
-            
-            return redirect()->route('list_evento_admin');        
+            return redirect()->route('list_evento_admin');
 
-    } 
-    
+        }
+
         // arquivo de image é válido
     }
 
@@ -67,39 +66,45 @@ class EventoController extends Controller
         $eventos = EventoModel::orderBy('idEvento')->get();
 
         return view('Evento.list',compact('eventos'));
-        
-    } 
+
+    }
 
     public function read_dashboard() {
         $eventos = EventoModel::orderBy('idEvento')->get();
 
         return view('admin.listEvento',compact('eventos'));
-        
-    } 
+
+    }
 
     public function update(Request $data)
     {
-        $eventos = EventoModel::findOrFail($data['idEvento']);
-        $eventos->Nome = $data['nome'];
-        $eventos->DataInicio = $data['dtInicio'];
-        $eventos->DataFim = $data['dtFim'];
-        $eventos->DataLimiteInscricao = $data['dtlimite'];
-        $eventos->ConteudoProgramatico = $data['ConteudoProgramatico'];
-        $eventos->Responsavel = $data['responsavel'];
-        $eventos->CargaHoraria = $data['cargaHoraria'];
-        $eventos->HorarioInicio = $data['hrInicio'];
-        $eventos->HorarioFim = $data['hrFim'];
-        $eventos->Local = $data['local'];
-        $eventos->Logo = $data['logo'];
-        $eventos->save();
+        if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
+            $name = uniqid(date('HisYmd'));
+            $extension = $data->logo->extension();
+            $namefile = "{$name}.{$extension}";
+            $upload = $data->logo->store('logo_evento');
 
-        return redirect()->route('list_evento_admin');
+            $eventos = EventoModel::findOrFail($data['idEvento']);
+            $eventos->Nome = $data['Nome'];
+            $eventos->DataInicio = $data['DataInicio'];
+            $eventos->DataFim = $data['DataFim'];
+            $eventos->DataLimiteInscricao = $data['DataLimiteInscricao'];
+            $eventos->ConteudoProgramatico = $data['ConteudoProgramatico'];
+            $eventos->Responsavel = $data['Responsavel'];
+            $eventos->CargaHoraria = $data['CargaHoraria'].'H';
+            $eventos->HorarioInicio = $data['HorarioInicio'];
+            $eventos->HorarioFim = $data['HorarioFim'];
+            $eventos->Local = $data['Local'];
+            $eventos->Logo = $upload;
+            $eventos->save();
+
+            return redirect()->route('list_evento_admin');
+        }
     }
 
     public function delete (Request $request) {
-        $idEvento = $request->query('deletar_evento');
+        $idEvento = $request->query('idEvento');
         EventoModel::destroy($request->idEvento);
-        
         return redirect()->route('list_evento_admin');
     }
 }

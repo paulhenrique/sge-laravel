@@ -193,7 +193,6 @@ hr {
 
 
 /* #intro {
-=======
 body.blue {
     background-color: #094877;
 }
@@ -403,18 +402,16 @@ hr {
     background: #0a98c0;
 }
 
+#intro {
+    height: auto;
+    padding: 80px 0 60px 0;
+}
 
-/* #intro {
->>>>>>> 98635fa7264e7056382b40b941099dae98793a7c
-        height: auto;
-        padding: 80px 0 60px 0;
-    }
-    
-    #intro .container {
-        height: auto !important;
-    } */
+#intro .container {
+    height: auto !important;
+}
 
-<<<<<<< HEAD #intro .intro-info {
+*/ #intro .intro-info {
     text-align: center;
     padding-top: 40px;
 }
@@ -634,7 +631,7 @@ hr {
     transition-delay: 0.3s;
 }
 
-=======#intro .intro-info {
+#intro .intro-info {
     text-align: center;
     padding-top: 40px;
 }
@@ -757,5 +754,3 @@ HEAD .sidebar {
 .log_bg {
     background-color: #094877;
 }
-
->>>>>>>98635fa7264e7056382b40b941099dae98793a7c

@@ -2,19 +2,21 @@
 
 
 
-<?php 
+<?php
   if(isset($eventos)){
     $action = route('editar_evento');
+    $formulario_title = 'Editar Evento';
   }else{
     $action = route('create_evento');
+    $formulario_title = 'Criar Evento';
   }
 ?>
 @section('container-dashboard')
 
-<div class="card form-box col-6 m-auto">
+<div class="card form-box col-md-6 m-auto">
                 <div class="card-body row p-0">
                     <div class="col-md-12 p-5">
-                    <h1 class="text-center">Cadastrar Evento</h1>
+                    <h1 class="text-center">{{$formulario_title}}</h1>
   <div class="col-12 m-auto">
   @if ($errors->any())
       <div class="alert alert-danger">
@@ -39,12 +41,12 @@
           <label class="label" for="Responsavel">Responsável: </label>
           <input type="Text" class="form-control " id="Responsavel" name="Responsavel" value="{{ isset($eventos) ? $eventos->Responsavel : '' }}">
         </div>
-        
+
         <div class="form-group">
           <label for="CargaHoraria">Carga Horária: </label>
-          <input type="number" class="form-control" id="CargaHoraria" name="CargaHoraria" value="{{ isset($eventos) ? $eventos->CargaHoraria : '' }}">
+          <input type="number" class="form-control" id="CargaHoraria" name="CargaHoraria" value="{{ isset($eventos) ? str_replace('H', "", $eventos->CargaHoraria) : '' }}">
         </div>
-        
+
         <div class="form-group">
           <label for="Local">Local: </label>
           <input type="Text" class="form-control" id="Local" name="Local" value="{{ isset($eventos) ? $eventos->Local : "" }}">
@@ -59,7 +61,7 @@
           <label for="dtInicio">Data Inicio: </label>
           <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($eventos) ? $eventos->DataInicio : "" }}">
         </div>
-        
+
         <div class="form-group">
           <label for="dtFim">Data Fim: </label>
           <input type="date" class="form-control" id="dtFim" name="DataFim" value="{{ isset($eventos) ? $eventos->DataFim : "" }}">
@@ -74,7 +76,7 @@
           <label for="hrInicio">Horária Inicio: </label>
           <input type="time" class="form-control" id="hrInicio" name="HorarioInicio" value="{{ isset($eventos) ? $eventos->HorarioInicio : "" }}">
         </div>
-        
+
         <div class="form-group">
           <label for="hrFim">Horário Fim: </label>
           <input type="time" class="form-control" id="hrFim" name="HorarioFim" value="{{ isset($eventos) ? $eventos->HorarioFim : "" }}">
@@ -91,5 +93,5 @@
                 </div>
             </div>
         </div>
-  
+
 @endsection
