@@ -8,6 +8,7 @@ use App\EventoModel;
 use App\AtividadeModel;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EventRequest;
+use Gate;
 
 class EventoController extends Controller
 {
@@ -21,7 +22,7 @@ class EventoController extends Controller
 
 
     public function ShowForm(Request $data) {
-
+        //dd(Gate::allows('isAdmin'));
         if(isset($data->idEvento)){
             $eventos = DB::table('evento')->where('idEvento', $data->idEvento)->first();
             return view('Evento.formEvento',compact('eventos'));
@@ -33,7 +34,6 @@ class EventoController extends Controller
     }
 
     public function create(EventRequest $data){
-        echo "oi";
         $validated = $data->validated();
         if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
             $name = uniqid(date('HisYmd'));
