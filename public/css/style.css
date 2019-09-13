@@ -757,3 +757,9 @@ HEAD .sidebar {
 .container-fluid{
     min-height: 90vh;
 }
+.label-upload-image{
+    background-color:#efefef;
+    border-style: solid;
+    border-color:black;
+    border-width: 1px;
+}
