@@ -19,7 +19,6 @@ class CreateUserEventoTable extends Migration
             $table->foreign('iduser')->references('id')->on('users');
             $table->bigInteger('idEvento')->unsigned();
             $table->foreign('idEvento')->references('idEvento')->on('evento');
-            
         });
     }
 

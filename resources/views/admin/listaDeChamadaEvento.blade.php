@@ -6,8 +6,6 @@
     <div class="card form-box col-md-10 col-sm-12 m-auto">
         <div class="card-body row p-0">
             <div class="col-md-12 p-5">
-            <form method="post" action="{{route('registrar_lista_de_chamada')}}" >
-                @csrf
                 <table class="table">
                     <thead>
                         <tr>
@@ -43,10 +41,6 @@
                         @endforeach
                     </tbody>
                 </table>
-
-
-                <button type="submit" class="btn btn-primary">Registrar Chamada</button>
-            </form>
         </div>
     </div>
 </div>

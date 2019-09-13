@@ -14,8 +14,8 @@ class AddPresenteAndAusenteColumns extends Migration
     public function up()
     {
         Schema::table('user_evento', function(Blueprint $table){
-            $table->boolean('presente')->nullable()->default(null);
-            $table->boolean('ausente')->nullable()->default(null);
+            $table->boolean('presente')->default(null);
+            $table->boolean('ausente')->default(null);
         });
     }
 

@@ -48,19 +48,13 @@ class userEventoController extends Controller
 
     public function update(Request $data){
         $idUserEvento   = $data['idUserEvento'];
-        $status         = $data['status'];
-
-        $registroStatus = userEventoModel::findOrFail($idUserEvento);
-        $registroStatus->idUser   = $registroStatus->idUser;
-        $registroStatus->idEvento   = $registroStatus->idEvento;
-        if($status == 'P'){
-            $registroStatus->presente   = True;
-            $registroStatus->ausente    = False;
-        }elseif($status == 'A'){
-            $registroStatus->presente   = False;
-            $registroStatus->ausente    = True;
-        }
-        $registroStatus->save();;
+		$status         = $data['status'];
+		
+		if($status == 'P'){
+			userEventoModel::where('idUserEvento',$idUserEvento)->update(['presente' => True, 'ausente' => False]);
+		}elseif($status == 'A'){
+			userEventoModel::where('idUserEvento',$idUserEvento)->update(['presente' => False, 'ausente' => True]);
+		}
 
         return redirect()->back();
     }

@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="row">
-			@if(count($eventos)==0) {
+			@if(count($eventos)==0)
 				<div class="col-md-12  text-center">
 				<h1>Ainda Não Há Eventos Disponíveis</h1>
 				<!-- Permitir exbição somente para Admins -->

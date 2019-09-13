@@ -50,7 +50,7 @@ Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_ati
 //inscricao Evento
 Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user_evento')->middleware('auth');
 Route::get('/evento/lista-de-chamada', 'userEventoController@listaDeChamada')->name('lista_de_chamada')->middleware('can:isAdmin');
-
+Route::get('/evento/lista-de-chamada/register', 'userEventoController@update')->name('registrar_lista_de_chamada')->middleware('can:isAdmin');
 //inscricao Atividade
 Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name('inscrever_user_atividade')->middleware('auth');
 

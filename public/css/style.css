@@ -754,3 +754,6 @@ HEAD .sidebar {
 .log_bg {
     background-color: #094877;
 }
+.container-fluid{
+    min-height: 90vh;
+}
