@@ -44,8 +44,9 @@ Route::get('/evento/delete', 'EventoController@delete')->name("deletar_evento")-
 
 
 //imageEvento
-Route::get('/evento/galeria/read', 'EventoController@showGaleria')->name("show_galeria")->middleware('can:isAdmin');
-Route::post('/evento/galeria/image/create','EventoController@addGaleria')->name('add_image_evento')->middleware('can:isAdmin');
+Route::get('/evento/galeria/read', 'GaleriaController@showGaleria')->name("show_galeria")->middleware('can:isAdmin');
+Route::post('/evento/galeria/image/create','GaleriaController@addGaleria')->name('add_image_evento')->middleware('can:isAdmin');
+Route::get('/evento/galeria/imagem/delete', 'GaleriaController@delete')->name('delete_image')->middleware('can:isAdmin');
 
 
 //Atividades

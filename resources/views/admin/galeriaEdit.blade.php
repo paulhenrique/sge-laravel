@@ -7,6 +7,13 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2 wow bounceInUp">
                     <div class="card ">
                         <img src="{{ url("/storage/{$image->Images}") }}" class="img-fluid list_image">
+                        <div class="card-body">
+                          <div class="row text-center ">
+                            <a class="col-md-12 col-sm-2  links" href="{{ route('delete_image', ['idImage' => $image->idImagesEvento])}}">
+                              <i class="material-icons icon-card-text">delete</i>
+                            </a>
+                        </div>
+                    </div>
                     </div>
                 </div>
             @endforeach

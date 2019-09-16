@@ -754,12 +754,30 @@ HEAD .sidebar {
 .log_bg {
     background-color: #094877;
 }
-.container-fluid{
-    min-height: 90vh;
-}
 .label-upload-image{
     background-color:#efefef;
     border-style: solid;
     border-color:black;
     border-width: 1px;
 }
+
+.icon-card-text{
+    font-size: 2rem;
+}
+
+#sidebar-wrapper{
+    min-height: 95vh;
+}
+
+.carousel-item{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-galery{
+    width: 600px;
+    position: relative;
+}
+
