@@ -17,7 +17,7 @@ class UserAtividadeController extends Controller
     	->get();
 
     	foreach ($evento_inscrito as $evento) {
-    		$even_user = $evento; 	
+    		$even_user = $evento;
     	}
 
     	if(!empty($evento)){
@@ -32,16 +32,16 @@ class UserAtividadeController extends Controller
                UserAtividadeModel::create([
                     'idAtividade' => $data['idAtividade'],
                     'idUser' => auth()->user()->id
-                ]); 
+                ]);
             }else{
                 $errors = "Já está inscrito na atividade";
             }
-    		
+
     	}else{
     		$errors[] = "Não está inscrito no Evento dessa atividade";
     	}
 
-    	return redirect()->route('listAtividade',['idEvento' => $data['idEvento']]);
+    	return redirect()->back();
 
     }
 }

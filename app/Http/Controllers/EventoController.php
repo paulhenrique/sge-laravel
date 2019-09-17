@@ -16,7 +16,7 @@ class EventoController extends Controller
 
     public function show(Request $data){
         $evento = EventoModel::where('idEvento',$data->idEvento)->get();
-        $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->get();
+        $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->orderBy('DataInicio')->get();
         $images = ImagesEvento::where('idEvento', $data['idEvento'])->get();
 
         return view('Evento.show', compact(['evento','atividades','images']));

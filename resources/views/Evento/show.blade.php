@@ -88,33 +88,39 @@ background-image-solid
 					<div class="col-12 mt-1 mb-1">
 						<div class="card">
 							<div class="card-body">
-								<h3 class="text-center"> Atividades <hr>
+                                {{-- <h3 class="text-center"> Atividades </h3> --}}
+                                <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="page-header">
+                                                  <h3 class="text-center">Atvidades</h3>
+                                                  <hr>
+                                                </div>
+                                                <div style="display:inline-block;width:100%;overflow-y:auto;">
+                                                <ul class="timeline timeline-horizontal">
+                                                    @foreach ($atividades as $atividade)
+                                                    <li class="timeline-item">
+                                                        <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                            <h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
+                                                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p><a class="btn btn-outline-dark " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
 
-									@php
-									$side = false;
-									@endphp
-									@foreach ($atividades as $atividade)
-									<div class="container">
+                                                    @endforeach
+                                                </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
 
-										@if ($side == false)
-										<div class="row border-right col-md-6 ml-1 pt-1 pb-1">
-											<p class="ml-5 pl-4">
-												{{$atividade->nomeAtividade}}
-											</p>
-										</div>
-										@php
-										$side = true;
-										@endphp
-										@else
-										<div class="row border-left col-md-6 float-right pt-1 pb-1">
-											<p class="ml-5 pl-5">
 
-												{{$atividade->nomeAtividade}}
-											</p>
-										</div>
-										@endif
-									</div>
-								@endforeach </h3>
+
 							</div>
 						</div>
 					</div>
@@ -126,14 +132,15 @@ background-image-solid
 						<h3 class="text-center">Fotos</h3>
 						<hr>
 						<!-- <p class="text-justify"> {{$event->ConteudoProgramatico}} </p> -->
-						<div class="col-12">
+						@if(!$images->isEmpty())
 
+						<div class="col-12">
 							<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 								<div class="carousel-inner">
 									<div class="carousel-item active">
 										<img class="carousel-galery" src="{{ url('/storage/' . $images[0]->Images) }}" class="img-fluid list_image">
 									</div>
-									<?php 
+									<?php
 									unset($images[0]);
 									?>
 									@foreach($images as $img)
@@ -153,6 +160,7 @@ background-image-solid
 								</a>
 							</div>
 						</div>
+						@endif
 					</div>
 				</div>
 			</div>

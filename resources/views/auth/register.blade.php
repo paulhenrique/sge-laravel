@@ -66,7 +66,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <input id="CPF" type="text" class="form-control @error('CPF') is-invalid @enderror" name="CPF" placeholder="CPF" value="{{ old('CPF') }}" data-mask="000,000,000-00" required autocomplete="email">
+                                    <input id="CPF" type="text" class="form-control @error('CPF') is-invalid @enderror" name="CPF" placeholder="CPF" value="{{ old('CPF') }}" data-mask="000.000.000-00" required autocomplete="email">
 
                                     @error('CPF')
                                         <span class="invalid-feedback" role="alert">
