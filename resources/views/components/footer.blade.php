@@ -7,7 +7,7 @@
 
 					<h5 class=" text-md-center"><img class="mr-2" src="{{ asset('images/fs_orange.png') }}" width="22" height="22" alt="" >Fabrica de Softwares</h5>
 			<ul class="list-unstyled">
-            <li class="text-white m-2 text-justify ">
+            <li class="text-white text-justify ">
 				<hr>
 				<i>Somos um grupo de desenvolvimento procurando por novas e criativas soluções para ajudar pessoas com nossos produtos em seus objetivos</i></li>
 					</ul>
@@ -43,7 +43,7 @@
 						<li class="list-inline-item rodape_images"><img width="25" class="img-fluid" height="25" src="{{ asset('images/GitHub-Mark-Light-120px-plus.png') }}"></li>
 						<li class="list-inline-item rodape_images"><img class="img-fluid" width="150" src="{{ asset('images/Marca_IFSP_2015_Itapetininga-18.png') }}"></li>
 					</ul>
-					<div class="text-center creditos">Icons made by <a class="text-white" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="text-white" href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a> is licensed by <a class="text-white" href="http://creativecommons.org/licenses/by/3.0/"         title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+					<p class="text-center text-white">Icons made by <a class="text-white" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a class="text-white" href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a> is licensed by <a class="text-white" href="http://creativecommons.org/licenses/by/3.0/"         title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
 				</div>
 
 			</div>

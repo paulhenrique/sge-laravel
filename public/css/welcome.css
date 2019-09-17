@@ -86,7 +86,7 @@
     text-align: left;
 }
 
-<<<<<<< HEAD=======.a {
+.a {
     fill: none;
 }
 
@@ -107,4 +107,117 @@
 .wave {
     background-color: #343a40;
     height: 6em;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.ab {
+    border-radius: 5px;
+    color: #8c8c8c;
+    padding: 10px 30px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-transform: 2px;
+    text-decoration: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+    overflow: hidden
+}
+
+.ab .mod:nth-child(1) {
+    position: absolute;
+    top: 190px;
+    left: 15px;
+    width: 20%;
+    height: 2px;
+    background: linear-gradient(to right, #31009c, #1bb1dc, #31009c);
+    animation-name: animate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.ab .mod:nth-child(2) {
+    position: absolute;
+    top: 190px;
+    left: 24%;
+    width: 2px;
+    height: 20%;
+    background: linear-gradient(to bottom, #31009c, #1bb1dc, #31009c);
+    animation-name: animate2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.ab .mod:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 20%;
+    height: 2px;
+    background: linear-gradient(to left, #31009c, #1bb1dc, #31009c);
+    animation-name: animate3;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.ab .mod:nth-child(4) {
+    position: absolute;
+    top: 190px;
+    left: 15px;
+    width: 2px;
+    height: 20%;
+    background: linear-gradient(to top, #31009c, #1bb1dc, #31009c);
+    animation-name: animate4;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.centralizador {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

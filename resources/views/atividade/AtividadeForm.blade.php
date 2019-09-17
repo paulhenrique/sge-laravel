@@ -11,9 +11,9 @@
     }
   ?>
   @section('container-dashboard')
-
-  <div class="card form-box col-md-6 col-sm-12 m-auto">
-                  <div class="card-body row p-0">
+  <section id="services-form" class="section-bg">
+  <div class="form-box col-md-6 col-sm-12 m-auto">
+                  <div class="box-body row p-0">
                       <div class="col-md-12 p-5">
                       <h1 class="text-center">Cadastrar atividade</h1>
     <div class="col-12 m-auto">
@@ -51,14 +51,15 @@
             <input type="Text" class="form-control" id="Tipo" name="tipo" value="{{ isset($atividades) ? $atividades->tipo : '' }}">
           </div>
 
-          <div class="form-group">
+          <div class="row form-group">
+            <div class="col-6">
             <label for="dtInicio">Data Inicio: </label>
             <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($atividades) ? $atividades->DataInicio : '' }}">
           </div>
-          
-          <div class="form-group">
+          <div class="col-6">
             <label for="dtFim">Data Fim: </label>
             <input type="date" class="form-control" id="dtFim" name="DataTermino" value="{{ isset($atividades) ? $atividades->DataTermino : '' }}">
+          </div>
           </div>
 
           <div class="form-group">
@@ -66,14 +67,15 @@
             <input type="number" class="form-control" id="limiteParticipantes" name="NumMaxParticipantes" value="{{ isset($atividades) ? $atividades->NumMaxParticipantes : '' }}">
           </div>
         
-          <div class="form-group">
+          <div class="row form-group">
+            <div class="col-6">
             <label for="hrInicio">Horária Inicio: </label>
             <input type="time" class="form-control" id="hrInicio" name="HoraInicio" value="{{ isset($atividades) ? $atividades->HoraInicio : '' }}">
-          </div>
-
-          <div class="form-group">
+            </div>
+          <div class="col-6">
             <label for="hrFim">Horário Final: </label>
             <input type="time" class="form-control" id="hrFim" name="HoraTermino" value="{{ isset($atividades) ? $atividades->HoraTermino : '' }}">
+          </div>
           </div>
           
           <div class="form-group">
@@ -83,9 +85,10 @@
 
         
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
       </form>
     </div>
+    </section>
                   </div>
               </div>
           </div>

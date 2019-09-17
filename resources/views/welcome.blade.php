@@ -9,17 +9,24 @@
 @section('content')
 
     <section id="intro" class="clearfix">
-        <div class="container d-flex h-100">
+        <div class="container d-flex h-100 centralizador">
             <div class="row justify-content-center align-self-center ml-3 animated wow fadeInDown">
                 <div class="col-md-10 text-left intro-info order-md-first order-last">
-                    <h1>Soluções Rapidas<br>para seus <span >Eventos!</span></h1>
-                    <div>
-                       <p class=""><a href="{{ route('listEvent') }}" class="btn button-blue bold text-white">Começar</a></p>
+                    <h1>Soluções Rapidas<br>para seus <span>Eventos!</h1>
+                    <div class="div-norm">
+                        <div class="div-mod">
+                       <a href="{{ route('listEvent') }}" class="btn bold text-white ab">Começar
+                           <span class="mod"></span>
+                           <span class="mod"></span>
+                           <span class="mod"></span>
+                           <span class="mod"></span>
+                       </a>
+                    </div>
                     </div>
                 </div>
                 <div class="col-md-2  border-md-last">
                     <img src="{{asset('images/logo_png_branco.png')}}" alt="logo_sge" class="img-fluid mt-2 img-welcome">
-                    
+
                 </div>
 
             </div>
@@ -28,7 +35,7 @@
     </section>
     <svg style="pointer-events: none" class="wave" width="100%" height="50px" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 75">
                 <defs>
-            
+
                 <clipPath id="a">
                 <rect class="a" width="1920" height="75"></rect>
                 </clipPath>
@@ -54,12 +61,12 @@
             <div class="container">
                 <header class="section-header text-center mb-2">
                     <h3>Sobre o SGE</h3>
-                    <p>Descubra um pouco sobre o nosso projeto.</p>
+                    <p class="mb-3">Descubra um pouco sobre o nosso projeto.</p>
                 </header>
                 <div class="row">
 
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="box">                            
+                        <div class="box">
                                 <img src="{{asset('images/undraw_newspaper_k72w.svg')}}" alt="logo_sge" class="mb-1 svg-classe">
                             <h4 class="title"><a href="">Explore</a></h4>
                             <p class="description text-justify">Explore e descubra novos eventos e amplie seu horizonte atraves de nosso sistema de organização.</p>
@@ -82,11 +89,10 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </section>
     </main>
 @endsection
         @section('footer') @include('components.footer') @endsection
 
-       

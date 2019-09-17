@@ -17,45 +17,6 @@ background-image-solid
 @foreach ($evento as $event)
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12 background-blue" >
-			<div class="container-fluid">
-				<div class="row mt-2">
-					<div class="col-2 ">
-						<img src="{{ url("/storage/{$event->Logo}") }}" class="circle m-2  border-white m-2" alt="logo_do_evento.{{$event->Nome}}">
-					</div>
-					<div class="col-8">
-						<h1 class="display-4 text-blue-light text-white uppercase">{{ $event->Nome }}</h1>
-						<p class="lead text-blue-light text-white">
-							Inscrições até: {{ date("d/m/Y", strtotime($event->DataFim)) }}
-						</p>
-						<a class="btn btn-outline-dark " href="{{ route('inscrever_user_evento',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<svg style="pointer-events: none" class="wave-evento" width="100%" height="50px" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 75">
-			<defs>
-
-				<clipPath id="x">
-					<rect class="x" width="1920" height="75"></rect>
-				</clipPath>
-			</defs>
-			<title>wave-evento</title>
-			<g class="y">
-				<path class="w" d="M1963,327H-105V65A2647.49,2647.49,0,0,1,431,19c217.7,3.5,239.6,30.8,470,36,297.3,6.7,367.5-36.2,642-28a2511.41,2511.41,0,0,1,420,48"></path>
-			</g>
-			<g class="y">
-				<path class="z" d="M-127,404H1963V44c-140.1-28-343.3-46.7-566,22-75.5,23.3-118.5,45.9-162,64-48.6,20.2-404.7,128-784,0C355.2,97.7,341.6,78.3,235,50,86.6,10.6-41.8,6.9-127,10"></path>
-			</g>
-			<g class="y">
-				<path class="z" d="M1979,462-155,446V106C251.8,20.2,576.6,15.9,805,30c167.4,10.3,322.3,32.9,680,56,207,13.4,378,20.3,494,24"></path>
-			</g>
-			<g class="y">
-				<path class="z" d="M1998,484H-243V100c445.8,26.8,794.2-4.1,1035-39,141-20.4,231.1-40.1,378-45,349.6-11.6,636.7,73.8,828,150"></path>
-			</g>
-		</svg>
-		{{-- conteudo --}}
 		@if(session()->has('success'))
 		<div class="alert alert-success col-12">
 			{{ session()->get('success') }}
@@ -65,23 +26,43 @@ background-image-solid
 			{{ session()->get('error') }}
 		</div>
 		@endif
-
-		<div class="col-8">
-			<div class="row">
-				<div class="col-12">
-					<div class="card">
-						<div class="card-body">
-							<div class="row">
-								<div class="col-12">
-									<h3>Descrição</h3>
-									<hr>
-									<p class="text-justify h4">O evento <strong>{{$event->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($event->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>, no local: <strong>{{$event->Local}}</strong>, às: <strong> {{$event->HorarioInicio}}</strong> até <strong> {{$event->HorarioFim}}</strong>,
-										ministrado por: <strong>{{$event->Responsavel}}</strong>. </p>
-										<h3 class="text-center"> Carga Horária</h3>
-										<p class="text-center h3"> {{$event->CargaHoraria}} </p>
-										<hr>
+		<div class="jumbotron jumbotron-fluid col-12 py-3">
+			<div class="container">
+				<div class="display-4 col-12 text-center">
+					<img src="{{ url('/storage/' .$event->Logo) }}" class="circle-event-logo m-2  border-white m-2" alt="logo_do_evento.{{$event->Nome}}">
+				</div>
+				<h1 class="display-4 text-center"><strong>{{ $event->Nome }}</strong></h1>
+				<h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></h2>
+				<p class="lead text-center">
+					<strong>Inscrições até: {{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>
+				</p>
+				<p class="lead mx-auto col-8">
+					O evento <strong>{{$event->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($event->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>, no local: <strong>{{$event->Local}}</strong>, às: <strong> {{$event->HorarioInicio}}</strong> até <strong> {{$event->HorarioFim}}</strong>, organizado por: <strong>{{$event->Responsavel}}</strong>. 
+				</p>
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="container-fluid py-3">
+				<div class="page-header">
+					<h1 class="text-center">Atvidades</h1>
+					<hr>
+				</div>
+				<div class="col-8 mx-auto">
+					<div style="display:inline-block;width:100%;overflow-y:auto;">
+						<ul class="timeline timeline-horizontal">
+							@foreach ($atividades as $atividade)
+							<li class="timeline-item">
+								<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
+										<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
+									</div>
+									<div class="timeline-body">
+										<p><a class="btn btn-outline-dark " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
 									</div>
 								</div>
+<<<<<<< HEAD
 							</div>
 						</div>
 					</div>
@@ -161,12 +142,38 @@ background-image-solid
 							</div>
 						</div>
 						@endif
+=======
+							</li>
+
+							@endforeach
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card col-12">
+			<div class="container-fluid py-3">
+				<div class="page-header">
+					<h1 class="text-center">Fotos</h1>
+					<hr>
+				</div>
+				<div class="container">
+					<div class="row">
+						@foreach ($images as $image)
+						<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 wow bounceInUp">
+							<div class="card">
+								<img src="{{ url("/storage/{$image->Images}") }}" class="img-fluid list_image">
+							</div>
+						</div>
+						@endforeach
+
+>>>>>>> bf4d530dbe79c52a64da8ff78c2fd627f9795d58
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-</div>
+
 @endforeach
 @endsection
