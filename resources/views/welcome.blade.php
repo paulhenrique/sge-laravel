@@ -54,7 +54,7 @@
             <div class="container">
                 <header class="section-header text-center mb-2">
                     <h3>Sobre o SGE</h3>
-                    <p>Descubra um pouco sobre o nosso projeto.</p>
+                    <p class="mb-3">Descubra um pouco sobre o nosso projeto.</p>
                 </header>
                 <div class="row">
 
