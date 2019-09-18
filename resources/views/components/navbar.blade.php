@@ -13,9 +13,13 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('listEvent')}}"><span class=" text-nav">Mostrar Eventos</span><span class="sr-only">(current)</span></a>
-
             </li>
+            <li class="nav-item active">
+                    @can("isAdmin")
+                        <a class=" nav-link" href="{{ route('list_evento_admin') }}"><span class="text-nav">Painel de Controle</span><span class="sr-only">(current)</span></a>
 
+                    @endcan
+                </li>
             @if( Auth::user())
                 <li class="nav-item dropdown-menu-right">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -30,9 +34,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                            @can("isAdmin")
-                                <a class="btn" href="{{ route('list_evento_admin') }}">Painel de Controle</a>
-                            @endcan
+                            
                         </div>
 
                 </li>
@@ -45,6 +47,8 @@
                     <a class="nav-link" href="{{route('register')}}"><span class="text-nav">Registrar<span class="sr-only">(current)</span></a>
                     
                 </li>
+
+                
             @endif
             
         </ul>

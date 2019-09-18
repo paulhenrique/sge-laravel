@@ -47,19 +47,19 @@ background-image-solid
 					<h1 class="text-center">Atividades</h1>
 					<hr>
 				</div>
-				<div class="col-8 mx-auto">
+				<div class="col-8 mx-auto text-center">
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 						<ul class="timeline timeline-horizontal">
 							@foreach ($atividades as $atividade)
 							<li class="timeline-item">
-								<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+								<div class="timeline-badge primary"><i class="text-center glyphicon glyphicon-check"></i></div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
 										<h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
 										<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
 									</div>
 									<div class="timeline-body">
-										<p><a class="btn btn-outline-dark " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
 									</div>
 								</div>
                             </li>
@@ -69,17 +69,17 @@ background-image-solid
 				</div>
 			</div>
 		</div>
-		<div class="card col-12">
+		<div class="jumbotron jumbotron-fluid col-12 mb-0">
 			<div class="container-fluid py-3">
 				<div class="page-header">
-					<h1 class="text-center">Fotos</h1>
+					<h1 class="text-center">Galeria do Evento</h1>
 					<hr>
 				</div>
 				<div class="container">
 					<div class="row">
 						@foreach ($images as $image)
-						<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 wow bounceInUp">
-							<div class="card">
+						<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 bounceInUp">
+							<div class="box">
 								<img src="{{ url("/storage/{$image->Images}") }}" class="img-fluid list_image">
 							</div>
 						</div>

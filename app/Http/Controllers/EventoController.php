@@ -22,6 +22,17 @@ class EventoController extends Controller
         return view('Evento.show', compact(['evento','atividades','images']));
     }
 
+    public function view($Apelido){
+        
+        echo $Apelido;
+
+        // $evento = EventoModel::where('Apelido',$Apelido)->get();
+        // $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->orderBy('DataInicio')->get();
+        // $images = ImagesEvento::where('idEvento', $data['idEvento'])->get();
+
+        return view('Evento.show', compact(['evento','atividades','images']));
+    }
+
 
 
     public function ShowForm(Request $data) {
@@ -46,7 +57,9 @@ class EventoController extends Controller
             //Storage::setVisibility($upload,'public');
 
             EventoModel::create([
+                'CondicaoEvento' => 'Ativado',
                 'Nome' => $data['Nome'],
+                'Apelido' => $data['Apelido'],
                 'DataInicio'   => $data['DataInicio'],
                 'DataFim'   => $data['DataFim'],
                 'DataLimiteInscricao'   => $data['DataLimiteInscricao'],
@@ -89,6 +102,7 @@ class EventoController extends Controller
 
             $eventos = EventoModel::findOrFail($data['idEvento']);
             $eventos->Nome = $data['Nome'];
+            $evento->Apelido = $data['Apelido'];
             $eventos->DataInicio = $data['DataInicio'];
             $eventos->DataFim = $data['DataFim'];
             $eventos->DataLimiteInscricao = $data['DataLimiteInscricao'];
@@ -105,9 +119,11 @@ class EventoController extends Controller
         }
     }
 
-    public function delete (Request $request) {
-        $idEvento = $request->query('idEvento');
-        EventoModel::destroy($request->idEvento);
+    public function delete (Request $data) {
+        $eventos = EventoModel::findOrFail($data['idEvento']);
+            $eventos->CondicaoEvento = 'Desativado';
+            $eventos->save();
+
         return redirect()->route('list_evento_admin');
     }
 }

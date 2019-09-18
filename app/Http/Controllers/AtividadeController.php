@@ -37,7 +37,7 @@ class AtividadeController extends Controller
             'idUser'   => auth()->user()->id,
             'idEvento'   => $data['idEvento']
             ]);
-        return redirect()->route('showEvent',['idEvento' => $data['idEvento']]);
+        return redirect()->route('listEvent',['idEvento' => $data['idEvento']]);
     }
 
     public function read(Request $data) {
