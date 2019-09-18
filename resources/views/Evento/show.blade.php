@@ -47,102 +47,21 @@ background-image-solid
 					<h1 class="text-center">Atvidades</h1>
 					<hr>
 				</div>
-				<div class="col-8 mx-auto">
+				<div class="col-8 mx-auto text-center">
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 						<ul class="timeline timeline-horizontal">
 							@foreach ($atividades as $atividade)
 							<li class="timeline-item">
-								<div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+								<div class="timeline-badge primary"><i class="text-center glyphicon glyphicon-check"></i></div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
 										<h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
 										<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
 									</div>
 									<div class="timeline-body">
-										<p><a class="btn btn-outline-dark " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
 									</div>
 								</div>
-<<<<<<< HEAD
-							</div>
-						</div>
-					</div>
-					<div class="col-12 mt-1 mb-1">
-						<div class="card">
-							<div class="card-body">
-                                {{-- <h3 class="text-center"> Atividades </h3> --}}
-                                <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="page-header">
-                                                  <h3 class="text-center">Atvidades</h3>
-                                                  <hr>
-                                                </div>
-                                                <div style="display:inline-block;width:100%;overflow-y:auto;">
-                                                <ul class="timeline timeline-horizontal">
-                                                    @foreach ($atividades as $atividade)
-                                                    <li class="timeline-item">
-                                                        <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
-                                                        <div class="timeline-panel">
-                                                            <div class="timeline-heading">
-                                                            <h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
-                                                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p><a class="btn btn-outline-dark " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    @endforeach
-                                                </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-4">
-				<div class="card">
-					<div class="card-body">
-						<h3 class="text-center">Fotos</h3>
-						<hr>
-						<!-- <p class="text-justify"> {{$event->ConteudoProgramatico}} </p> -->
-						@if(!$images->isEmpty())
-
-						<div class="col-12">
-							<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-								<div class="carousel-inner">
-									<div class="carousel-item active">
-										<img class="carousel-galery" src="{{ url('/storage/' . $images[0]->Images) }}" class="img-fluid list_image">
-									</div>
-									<?php
-									unset($images[0]);
-									?>
-									@foreach($images as $img)
-									<div class="carousel-item">
-										<img class="carousel-galery" src="{{ url('/storage/' . $img->Images) }}" class="img-fluid list_image">
-									</div>
-									@endforeach
-
-								</div>
-								<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="sr-only">Anterior</span>
-								</a>
-								<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="sr-only">Próximo</span>
-								</a>
-							</div>
-						</div>
-						@endif
-=======
 							</li>
 
 							@endforeach
@@ -151,23 +70,22 @@ background-image-solid
 				</div>
 			</div>
 		</div>
-		<div class="card col-12">
+		<div class="jumbotron jumbotron-fluid col-12 mb-0">
 			<div class="container-fluid py-3">
 				<div class="page-header">
-					<h1 class="text-center">Fotos</h1>
+					<h1 class="text-center">Galeria do Evento</h1>
 					<hr>
 				</div>
 				<div class="container">
 					<div class="row">
 						@foreach ($images as $image)
-						<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 wow bounceInUp">
-							<div class="card">
+						<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 bounceInUp">
+							<div class="box">
 								<img src="{{ url("/storage/{$image->Images}") }}" class="img-fluid list_image">
 							</div>
 						</div>
 						@endforeach
 
->>>>>>> bf4d530dbe79c52a64da8ff78c2fd627f9795d58
 					</div>
 				</div>
 			</div>

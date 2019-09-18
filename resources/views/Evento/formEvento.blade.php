@@ -57,14 +57,15 @@
           <textarea class="form-control" name="ConteudoProgramatico" id="ConteudoProgramatico">{{ isset($eventos) ? $eventos->ConteudoProgramatico : "" }}</textarea>
         </div>
 
-        <div class="form-group">
+        <div class="row form-group">
+          <div  class="col-6">
           <label for="dtInicio">Data Inicio: </label>
           <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($eventos) ? $eventos->DataInicio : "" }}">
         </div>
-
-        <div class="form-group">
+         <div class="col-6">
           <label for="dtFim">Data Fim: </label>
           <input type="date" class="form-control" id="dtFim" name="DataFim" value="{{ isset($eventos) ? $eventos->DataFim : "" }}">
+         </div>
         </div>
 
         <div class="form-group">
@@ -72,22 +73,27 @@
           <input type="date" class="form-control" id="dtlimite" name="DataLimiteInscricao" value="{{ isset($eventos) ? $eventos->DataLimiteInscricao : "" }}">
         </div>
 
-        <div class="form-group">
+         <div class="row form-group">
+          <div class="col-6">
           <label for="hrInicio">Horária Inicio: </label>
           <input type="time" class="form-control" id="hrInicio" name="HorarioInicio" value="{{ isset($eventos) ? $eventos->HorarioInicio : "" }}">
         </div>
-
-        <div class="form-group">
+        <div class="col-6">
           <label for="hrFim">Horário Fim: </label>
           <input type="time" class="form-control" id="hrFim" name="HorarioFim" value="{{ isset($eventos) ? $eventos->HorarioFim : "" }}">
         </div>
+        </div>
+
+        
+  
+        </div>
 
         <div class="form-group">
-          <label for="logo"><img class="icon" src="{{ asset('images/upload-icon.svg') }}"></label>
+          <label for="logo"><p class="text-center"><img class="icon" src="{{ asset('images/upload-icon.svg') }}"></p></label>
             <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
         </div>
 
-       <button type="submit" class="btn btn-primary">Enviar</button>
+       <button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>
     </form>
   </div>
                 </div>
@@ -95,3 +101,4 @@
         </div>
 
 @endsection
+
