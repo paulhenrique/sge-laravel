@@ -13,7 +13,7 @@
 ?>
 @section('container-dashboard')
 <div id="services-evento"> 
-<div class="box col-md-6 m-auto">
+<div class="box text-left col-md-6 m-auto">
   
                 <div class="card-body row p-0">
                   
