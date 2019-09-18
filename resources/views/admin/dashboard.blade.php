@@ -7,11 +7,13 @@
 @section('content')
 <div class="row container-fluid">
 @include('components.sidebar')
-  <div class="col-xs-12 col-md-10 mt-2">
+  <div class="col-md-10 col-lg-12 mt-2">
   <!-- Page Content -->
-    <div class="container-fluid">
+    <div>
           @yield('container-dashboard')
+          <div class="float"><a onclick="window.history.back()" class="float"><i class="fa fa-plus my-float"></i></a>
 
+          </div>
     </div>
   </div>
 </div>

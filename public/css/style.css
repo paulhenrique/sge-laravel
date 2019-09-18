@@ -1627,3 +1627,17 @@ HEAD .sidebar {
 .div-black {
     background-color: #333333;
 }
+
+figcaption {
+    color: gray;
+}
+
+figcaption:hover {
+    color: black;
+}
+
+@media (min-width: 771px) {
+    .list_svg {
+        height: 35%;
+    }
+}

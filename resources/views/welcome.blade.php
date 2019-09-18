@@ -16,18 +16,19 @@
                     <div class="div-norm">
                         <div class="div-mod">
                        <a href="{{ route('listEvent') }}" class="btn bold text-white ab">Começar
-                           <span class="mod"></span>
-                           <span class="mod"></span>
-                           <span class="mod"></span>
-                           <span class="mod"></span>
+                           <span class="mod d-sm-none d-lg-block d-none"></span>
+                           <span class="mod d-sm-none d-lg-block d-none"></span>
+                           <span class="mod d-sm-none d-lg-block d-none"></span>
+                           <span class="mod d-sm-none d-lg-block d-none"></span>
                        </a>
                     </div>
                     </div>
                 </div>
                 <div class="col-md-2  border-md-last">
-                    <img src="{{asset('images/logo_png_branco.png')}}" alt="logo_sge" class="img-fluid mt-2 img-welcome">
+                    <img src="{{asset('images/logo_png_branco.png')}}" alt="logo_sge" class="img-fluid mt-2 img-welcome d-sm-none d-md-block d-none">
 
                 </div>
+
 
             </div>
             {{-- <hr class="logohr"> --}}

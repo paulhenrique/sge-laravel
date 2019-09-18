@@ -1,6 +1,6 @@
 @extends('template.main')
 @section('color-bg')
-background-image 
+background-image
 @endsection
 @section('content')
 @section('navbar')
@@ -79,10 +79,10 @@ background-image
         </div>
     </div>
 
-        <div class="float "><a href="{{route('welcome')}}" class="float"><i class="fa fa-plus my-float"></i></a>
+        <div class="float"><a href="{{route('welcome')}}" class="float"><i class="fa fa-plus my-float"></i></a>
 
         </div>
-    
+
 
 </div>
 
