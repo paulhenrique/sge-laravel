@@ -24,9 +24,10 @@
 				</div>
 			@else
 				@foreach ($eventos as $evento)
-					<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2">
-						<div class="card ">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2" id="services-evento">
+						<div class="box ">
 						@if ($evento->CondicaoEvento == "Ativado")
+			
 						<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
 							<div class="card-body">
 								<h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
@@ -41,7 +42,16 @@
 								</div>
 							</div>
 						@else
-							<h1>Está desativado</h1>
+						<div class="desativado">
+							<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
+							<div class="card-body ">
+									<h4 class="card-title text-center "><?php echo ucfirst($evento->Nome) ?></h4>
+									<hr id="list_hr">
+									<div class="text-center">
+										<h4>Evento Desativado</h4>
+									</div>
+							</div>
+						</div>
 						@endif
 						</div>
 					</div>
