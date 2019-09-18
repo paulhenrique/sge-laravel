@@ -26,6 +26,7 @@
 				@foreach ($eventos as $evento)
 					<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2">
 						<div class="card ">
+						@if ($evento->CondicaoEvento == "Ativado")
 						<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
 							<div class="card-body">
 								<h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
@@ -39,6 +40,9 @@
 									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('show_galeria', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/galery_add.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Galeria</figcaption></a>
 								</div>
 							</div>
+						@else
+							<h1>Está desativado</h1>
+						@endif
 						</div>
 					</div>
 				@endforeach
