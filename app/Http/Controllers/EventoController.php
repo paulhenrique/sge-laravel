@@ -57,6 +57,7 @@ class EventoController extends Controller
             //Storage::setVisibility($upload,'public');
 
             EventoModel::create([
+                'CondicaoEvento' => 'Ativado',
                 'Nome' => $data['Nome'],
                 'Apelido' => $data['Apelido'],
                 'DataInicio'   => $data['DataInicio'],
@@ -118,9 +119,11 @@ class EventoController extends Controller
         }
     }
 
-    public function delete (Request $request) {
-        $idEvento = $request->query('idEvento');
-        EventoModel::destroy($request->idEvento);
+    public function delete (Request $data) {
+        $eventos = EventoModel::findOrFail($data['idEvento']);
+            $eventos->CondicaoEvento = 'Desativado';
+            $eventos->save();
+
         return redirect()->route('list_evento_admin');
     }
 }
