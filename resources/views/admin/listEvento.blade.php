@@ -17,7 +17,7 @@
 
 		<div class="row">
 			@if(count($eventos)==0) {
-				<div class="col-md-12  text-center">
+				<div class="col-md-12 text-center">
 				<h1>Ainda Não Há Eventos Disponíveis</h1>
 				<!-- Permitir exbição somente para Admins -->
 				<p>Clique aqui para adicionar um novo evento: <a href="{{route('showForm_create_evento')}}">Adicionar Novo Evento</a><p>

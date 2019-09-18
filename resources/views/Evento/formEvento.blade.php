@@ -90,11 +90,11 @@
         </div>
         </div>
 
-        
-  
+
+
         </div>
 
-        <div class="form-group">
+        <div class="form-group welcome-left d-flex align-items-center justify-content-center align-self-center">
           <label for="logo"><p class="text-center"><img class="icon" src="{{ asset('images/upload-icon.svg') }}"></p></label>
             <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
         </div>

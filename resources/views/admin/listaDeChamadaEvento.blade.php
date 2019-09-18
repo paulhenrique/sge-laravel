@@ -3,8 +3,9 @@
 @section('container-dashboard')
 <h1 class="text-center">Lista de Participantes do Evento: {{$evento[0]->Nome}}</h1>
 <div class="container">
-    <div class="card form-box col-md-10 col-sm-12 m-auto">
+    <div class="card form-box col-md-12 col-sm-12 m-4">
         <div class="card-body row p-0">
+
             <div class="col-md-12 p-5">
                 <table class="table">
                     <thead>
