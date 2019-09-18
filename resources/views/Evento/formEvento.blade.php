@@ -12,11 +12,16 @@
   }
 ?>
 @section('container-dashboard')
-
-<div class="card form-box col-md-6 m-auto">
+<div id="services-evento"> 
+<div class="box col-md-6 m-auto">
+  
                 <div class="card-body row p-0">
+                  
                     <div class="col-md-12 p-5">
+                    
                     <h1 class="text-center">{{$formulario_title}}</h1>
+                    <hr>
+                
   <div class="col-12 m-auto">
   @if ($errors->any())
       <div class="alert alert-danger">
@@ -105,6 +110,7 @@
                 </div>
             </div>
         </div>
+</div>
 
 @endsection
 
