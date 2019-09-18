@@ -44,7 +44,7 @@ background-image-solid
 		<div class="col-12">
 			<div class="container-fluid py-3">
 				<div class="page-header">
-					<h1 class="text-center">Atvidades</h1>
+					<h1 class="text-center">Atividades</h1>
 					<hr>
 				</div>
 				<div class="col-8 mx-auto text-center">

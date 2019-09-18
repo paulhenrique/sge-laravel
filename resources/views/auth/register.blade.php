@@ -92,6 +92,7 @@
                 </div>
             </div>
         </div>
+        <div class="float "><a href="{{route('welcome')}}" class="float"><i class="fa fa-plus my-float"></i></a>
     </div>
 </div>
 @endsection

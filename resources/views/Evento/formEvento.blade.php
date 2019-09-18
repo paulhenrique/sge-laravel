@@ -32,55 +32,61 @@
         @csrf
 
         <input type="hidden" name="idEvento" value="{{ isset($eventos) ? $eventos->idEvento : '' }}">
+
        <div class="form-group">
          <label for="Nome">Nome Evento: </label>
-       <input type="Text" class="form-control" id="Name" name="Nome" value="{{ isset($eventos) ? $eventos->Nome : '' }}">
+       <input type="Text" class="form-control" id="Name" name="Nome" value="{{ isset($eventos) ? $eventos->Nome : '' }}" placeholder="Insira um nome para o evento">
+       </div>
+
+       <div class="form-group">
+         <label for="Apelido">Apelido do Evento: </label>
+       <input type="Text" class="form-control" id="Apelido" name="Apelido" value="{{ isset($eventos) ?  : '' }}" placeholder="Insira um apelido curto e sem espaços">
        </div>
 
         <div class="form-group ">
           <label class="label" for="Responsavel">Responsável: </label>
-          <input type="Text" class="form-control " id="Responsavel" name="Responsavel" value="{{ isset($eventos) ? $eventos->Responsavel : '' }}">
+          <input type="Text" class="form-control " id="Responsavel" name="Responsavel" placeholder="Insira o nome do responsável do evento" value="{{ isset($eventos) ? $eventos->Responsavel : '' }}">
         </div>
 
         <div class="form-group">
           <label for="CargaHoraria">Carga Horária: </label>
-          <input type="number" class="form-control" id="CargaHoraria" name="CargaHoraria" value="{{ isset($eventos) ? str_replace('H', "", $eventos->CargaHoraria) : '' }}">
+          <input type="number" class="form-control" id="CargaHoraria" name="CargaHoraria" placeholder="Insira o tempo de duração do evento" value="{{ isset($eventos) ? str_replace('H', "", $eventos->CargaHoraria) : '' }}">
         </div>
 
         <div class="form-group">
           <label for="Local">Local: </label>
-          <input type="Text" class="form-control" id="Local" name="Local" value="{{ isset($eventos) ? $eventos->Local : "" }}">
+          <input type="Text" class="form-control" id="Local" name="Local" placeholder="Insira o local onde ocorrerá o evento" value="{{ isset($eventos) ? $eventos->Local : "" }}">
         </div>
 
         <div class="form-group">
           <label for="ConteudoProgramatico">Conteúdo Programático: </label>
-          <textarea class="form-control" name="ConteudoProgramatico" id="ConteudoProgramatico">{{ isset($eventos) ? $eventos->ConteudoProgramatico : "" }}</textarea>
+          <textarea class="form-control" name="ConteudoProgramatico" placeholder="Descreva sucintamente o que ocorrerá durante o evento" id="ConteudoProgramatico">{{ isset($eventos) ? $eventos->ConteudoProgramatico : "" }}</textarea>
         </div>
 
         <div class="row form-group">
           <div  class="col-6">
           <label for="dtInicio">Data Inicio: </label>
-          <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($eventos) ? $eventos->DataInicio : "" }}">
+          <input type="date" class="form-control" id="dtInicio" name="DataInicio" placeholder="Insira a data de início do evento" value="{{ isset($eventos) ? $eventos->DataInicio : "" }}">
         </div>
          <div class="col-6">
           <label for="dtFim">Data Fim: </label>
-          <input type="date" class="form-control" id="dtFim" name="DataFim" value="{{ isset($eventos) ? $eventos->DataFim : "" }}">
+          <input type="date" class="form-control" id="dtFim" name="DataFim" placeholder="Insira a data de encerramento do evento" value="{{ isset($eventos) ? $eventos->DataFim : "" }}">
          </div>
         </div>
 
         <div class="form-group">
           <label for="dtFim">Data Limite de Inscrição: </label>
-          <input type="date" class="form-control" id="dtlimite" name="DataLimiteInscricao" value="{{ isset($eventos) ? $eventos->DataLimiteInscricao : "" }}">
+          <input type="date" class="form-control" id="dtlimite" name="DataLimiteInscricao" placeholder="Insira a data limite para realização da inscrição " value="{{ isset($eventos) ? $eventos->DataLimiteInscricao : "" }}">
         </div>
 
          <div class="row form-group">
           <div class="col-6">
           <label for="hrInicio">Horária Inicio: </label>
-          <input type="time" class="form-control" id="hrInicio" name="HorarioInicio" value="{{ isset($eventos) ? $eventos->HorarioInicio : "" }}">
+          <input type="time" class="form-control" id="hrInicio" name="HorarioInicio" placeholder="Insira o horário de início do evento" value="{{ isset($eventos) ? $eventos->HorarioInicio : "" }}">
         </div>
         <div class="col-6">
           <label for="hrFim">Horário Fim: </label>
-          <input type="time" class="form-control" id="hrFim" name="HorarioFim" value="{{ isset($eventos) ? $eventos->HorarioFim : "" }}">
+          <input type="time" class="form-control" id="hrFim" name="HorarioFim" placeholder="Insira o horário de encerramento do evento"  value="{{ isset($eventos) ? $eventos->HorarioFim : "" }}">
         </div>
         </div>
 

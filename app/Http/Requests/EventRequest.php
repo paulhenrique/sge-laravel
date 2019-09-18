@@ -25,6 +25,7 @@ class EventRequest extends FormRequest
     {
         return [
             'Nome' => 'required',
+            'Apelido' => 'required',
             'DataInicio' => 'required',
             'DataFim' => 'required',
             'DataLimiteInscricao' => 'required',

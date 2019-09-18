@@ -16,6 +16,8 @@ class CreateUserEventoTable extends Migration
         Schema::create('user_evento', function (Blueprint $table) {
             $table->bigIncrements('iduserEvento');
             $table->bigInteger('idUser')->unsigned();
+            $table->boolean('presente')->default(null);
+            $table->boolean('ausente')->default(null);
             $table->foreign('iduser')->references('id')->on('users');
             $table->bigInteger('idEvento')->unsigned();
             $table->foreign('idEvento')->references('idEvento')->on('evento');
