@@ -59,7 +59,7 @@ background-image-solid
 										<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
 									</div>
 									<div class="timeline-body">
-										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade]) }}" role="button">Inscrever-se</a></p>
 									</div>
 								</div>
                             </li>

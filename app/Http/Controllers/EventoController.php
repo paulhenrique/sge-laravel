@@ -24,13 +24,12 @@ class EventoController extends Controller
 
     public function view($Apelido){
         
-        echo $Apelido;
-
-        // $evento = EventoModel::where('Apelido',$Apelido)->get();
-        // $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->orderBy('DataInicio')->get();
-        // $images = ImagesEvento::where('idEvento', $data['idEvento'])->get();
-
-        //return view('Evento.show', compact(['evento','atividades','images']));
+        $evento = EventoModel::where('Apelido', '=', $Apelido)->get();
+        foreach ($evento as $event) {
+            $atividades = AtividadeModel::where('idEvento','=',$event->idEvento)->orderBy('DataInicio')->get();
+            $images = ImagesEvento::where('idEvento', $event->idEvento)->get();
+        }
+        return view('Evento.show', compact(['evento','atividades','images']));
     }
 
 
