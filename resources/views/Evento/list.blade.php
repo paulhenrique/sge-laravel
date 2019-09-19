@@ -32,16 +32,16 @@
 				<div class="col-md-12 text-center">
 				<h1>Ainda Não Há Eventos Disponíveis</h1>
 				<!-- Permitir exbição somente para Admins -->
-				<p>Clique aqui para adicionar um novo evento: <a href="{{route('showForm_create_evento')}}">Adicionar Novo Evento</a><p>
+				<p>Clique aqui para adicionar um novo evento: <a class="link_form" href="{{route('showForm_create_evento')}}"><strong> Adicionar Novo Evento </strong></a><p>
 				</div>
 			@else
 					<div class="container">
 						<section id="services-evento">
 						<div class="row">
 							@foreach ($eventos as $evento)
+								@if ($evento->CondicaoEvento == "Ativado")
 								<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2">
-
-									<div class="box ">
+									<div class="box">
 											<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
 										<div class="card-body">
 
@@ -55,6 +55,7 @@
 										</div>
 									</div>
 								</div>
+								@endif
 							@endforeach
 								@can("isAdmin")
 								<div class="col-4 p-6">

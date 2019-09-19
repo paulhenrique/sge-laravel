@@ -16,16 +16,18 @@
 		</div>
 
 		<div class="row">
-			@if(count($eventos)==0) {
+			@if(count($eventos)==0)
 				<div class="col-md-12 text-center">
 				<h1>Ainda Não Há Eventos Disponíveis</h1>
 				<!-- Permitir exbição somente para Admins -->
-				<p>Clique aqui para adicionar um novo evento: <a href="{{route('showForm_create_evento')}}">Adicionar Novo Evento</a><p>
+				<p>Clique aqui para adicionar um novo evento: <a style="link_form" href="{{route('showForm_create_evento')}}"><strong> Adicionar Novo Evento</strong></a><p>
 				</div>
 			@else
 				@foreach ($eventos as $evento)
-					<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2">
-						<div class="card ">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2" id="services-evento">
+						<div class="box ">
+						@if ($evento->CondicaoEvento == "Ativado")
+
 						<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
 							<div class="card-body">
 								<h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
@@ -39,6 +41,18 @@
 									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('show_galeria', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/galery_add.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Galeria</figcaption></a>
 								</div>
 							</div>
+						@else
+						<div class="desativado">
+							<img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
+							<div class="card-body ">
+									<h4 class="card-title text-center "><?php echo ucfirst($evento->Nome) ?></h4>
+									<hr id="list_hr">
+									<div class="text-center">
+										<h4>Evento Desativado</h4>
+									</div>
+							</div>
+						</div>
+						@endif
 						</div>
 					</div>
 				@endforeach

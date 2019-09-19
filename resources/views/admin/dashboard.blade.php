@@ -12,13 +12,11 @@
 
           @yield('container-dashboard')
           <div class="float"><a onclick="window.history.back()" class="float"><i class="fa fa-plus my-float"></i></a>
-
           </div>
 
   </div>
 </div>
 @endsection
-
 @section('footer')
 @endsection
 

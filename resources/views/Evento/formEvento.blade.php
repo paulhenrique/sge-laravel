@@ -13,7 +13,7 @@
 ?>
 @section('container-dashboard')
 
-<div class="card form-box col-md-6 m-auto">
+<div class="card form-box col-md-10 col-lg-10 col-xl-6 m-auto">
                 <div class="card-body row p-0">
                     <div class="col-md-12 p-5">
                     <h1 class="text-center">{{$formulario_title}}</h1>

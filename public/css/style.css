@@ -1638,3 +1638,11 @@ figcaption:hover {
         height: 35%;
     }
 }
+
+.desativado {
+    opacity: 0.4;
+}
+
+.link_form {
+    color: black;
+}
