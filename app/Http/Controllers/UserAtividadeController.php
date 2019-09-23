@@ -34,21 +34,14 @@ class UserAtividadeController extends Controller
                     'idUser' => auth()->user()->id
                 ]);
             }else{
-                $errors = "Já está inscrito na atividade";
+                return redirect()->back()->with('error', 'Já está inscrito nessa atividade');
             }
 
     	}else{
-    		$errors[] = "Não está inscrito no Evento dessa atividade";
+    		return redirect()->back()->with('error', 'Não está inscrito no Evento dessa atividade');
     	}
 
-    	return redirect()->back();
+    	return redirect()->back()->with('success', 'Sucesso, você está inscrito no evento!');
 
-    }
-
-    public function update(){
-            echo "OI";
-
-            return view('listaDeChamadaEventos');
-        }
     }
 }
