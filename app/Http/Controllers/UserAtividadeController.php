@@ -44,4 +44,11 @@ class UserAtividadeController extends Controller
     	return redirect()->back();
 
     }
+
+    public function update(){
+            echo "OI";
+
+            return view('listaDeChamadaEventos');
+        }
+    }
 }

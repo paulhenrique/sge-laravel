@@ -35,8 +35,11 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{route('registrar_lista_de_chamada',['idUserEvento' => $p->iduserEvento,'status' => 'P'])}}" class="text-white btn btn-success"> Presente</a>
+                                        
                                         <a href="{{route('registrar_lista_de_chamada',['idUserEvento' => $p->iduserEvento,'status' => 'A'])}}" class="text-white btn btn-danger"> Ausente</a>
+
                                     </div>
+                                    <a href="{{route('tornar_adm')}}" class="text-white btn btn-success"> Tornar administrador</a>
                                 </td>
                             </tr>
                         @endforeach

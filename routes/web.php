@@ -42,6 +42,7 @@ Route::get('/evento/galeria/imagem/delete', 'GaleriaController@delete')->name('d
 Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade')->middleware('can:isAdmin');
 Route::get('/atividade/create/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade')->middleware('can:isAdmin');
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade')->middleware('can:isAdmin');
+Route::post('/atividade/update', 'UserAtividadeController@update')->name('tornar_adm')->middleware('can:isAdmin');
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade")->middleware('can:isAdmin');
 
 //inscricao Evento
@@ -54,6 +55,7 @@ Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name
 
 //admin
 Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin')->middleware('can:isAdmin');
+
 
 
 Route::get('/{Apelido}', 'EventoController@view');
