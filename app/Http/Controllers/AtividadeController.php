@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\AtividadeModel;
 use App\EventoModel;
 use App\Http\Requests\AtividadeRequest;
+use PhpParser\Node\Stmt\Echo_;
 
 class AtividadeController extends Controller
 {
@@ -24,20 +25,29 @@ class AtividadeController extends Controller
 
     public function create(AtividadeRequest $data){
         $validated = $data->validated();
-        AtividadeModel::create([
-            //'idAtividade' => $data['idAtividade'],
-            'nomeAtividade'   => $data['nomeAtividade'],
-            'tipo'   => $data['tipo'],
-            'DataInicio'   => $data['DataInicio'],
-            'DataTermino'   => $data['DataTermino'],
-            'HoraInicio' => $data['HoraInicio'],
-            'HoraTermino'   => $data['HoraTermino'],
-            'NumMaxParticipantes'   => $data['NumMaxParticipantes'],
-            'local'   => $data['local'],
-            'idUser'   => auth()->user()->id,
-            'idEvento'   => $data['idEvento']
-            ]);
-        return redirect()->route('listEvent',['idEvento' => $data['idEvento']]);
+
+        $data_evento = EventoModel::find($data['idEvento']);
+
+        if(strtotime($data['DataInicio']) >= strtotime($data_evento->DataInicio)
+            && strtotime($data['DataTermino']) <= strtotime($data_evento->DataFim)){
+
+            AtividadeModel::create([
+                //'idAtividade' => $data['idAtividade'],
+                'nomeAtividade'   => $data['nomeAtividade'],
+                'tipo'   => $data['tipo'],
+                'DataInicio'   => $data['DataInicio'],
+                'DataTermino'   => $data['DataTermino'],
+                'HoraInicio' => $data['HoraInicio'],
+                'HoraTermino'   => $data['HoraTermino'],
+                'NumMaxParticipantes'   => $data['NumMaxParticipantes'],
+                'local'   => $data['local'],
+                'idUser'   => auth()->user()->id,
+                'idEvento'   => $data['idEvento']
+                ]);
+            return redirect()->route('list_evento_admin',['idEvento' => $data['idEvento']]);
+        }else{
+            return redirect()->route('showFormAtividade',['idEvento' => $data['idEvento']])->withErrors('As datas em que ocorrerá atividade não está dentro dos dias que o evento ocorrerá!');
+        }
     }
 
     public function read(Request $data) {

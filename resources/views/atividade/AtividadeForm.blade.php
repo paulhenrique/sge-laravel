@@ -2,7 +2,7 @@
 
 
 
-  <?php 
+  <?php
     //dd($atividades);
     if(isset($atividades)){
       $action = route('editar_atividade');
@@ -17,7 +17,7 @@
                       <div class="col-md-12 p-5">
                       <h1 class="text-center">Cadastrar atividade</h1>
     <div class="col-12 m-auto">
-      @if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -66,7 +66,7 @@
             <label for="limiteParticipantes">Número Máximo de Participantes: </label>
             <input type="number" class="form-control" id="limiteParticipantes" name="NumMaxParticipantes" value="{{ isset($atividades) ? $atividades->NumMaxParticipantes : '' }}">
           </div>
-        
+
           <div class="row form-group">
             <div class="col-6">
             <label for="hrInicio">Horária Inicio: </label>
@@ -77,13 +77,13 @@
             <input type="time" class="form-control" id="hrFim" name="HoraTermino" value="{{ isset($atividades) ? $atividades->HoraTermino : '' }}">
           </div>
           </div>
-          
+
           <div class="form-group">
             <label for="local">Local: </label>
             <input type="Text" class="form-control" id="local" name="local" value="{{ isset($atividades) ? $atividades->local : '' }}">
           </div>
 
-        
+
 
         <button type="submit" class="btn btn-primary btn-block">Enviar</button>
       </form>
@@ -92,5 +92,5 @@
                   </div>
               </div>
           </div>
-    
+
   @endsection
