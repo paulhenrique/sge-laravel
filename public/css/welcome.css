@@ -29,6 +29,10 @@
     margin-bottom: 30px;
 }
 
+.header-welcome{
+    animation-delay: .5s;
+}
+
 #services {
     padding: 60px 0 40px 0;
 }

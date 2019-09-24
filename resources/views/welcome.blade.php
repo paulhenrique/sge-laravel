@@ -10,12 +10,12 @@
 
     <section id="intro" class="clearfix">
         <div class="container d-flex h-100 centralizador">
-            <div class="row justify-content-center align-self-center ml-3 animated wow fadeInDown">
+            <div class="row justify-content-center align-self-center  ml-3 animated wow fadeInDown" data-wow-delay="5.4s">
                 <div class="col-md-10 text-left intro-info order-md-first order-last">
                     <h1>Soluções Rapidas<br>para seus <span>Eventos!</h1>
                     <div class="div-norm">
                         <div class="div-mod">
-                       <a href="{{ route('listEvent') }}" class="btn bold text-white ab">Começar
+                       <a href="{{ route('listEvent') }}" class="animated wow fadeInDown header-welcome btn bold text-white ab">Começar
                            <span class="mod d-sm-none d-lg-block d-none"></span>
                            <span class="mod d-sm-none d-lg-block d-none"></span>
                            <span class="mod d-sm-none d-lg-block d-none"></span>
@@ -59,6 +59,7 @@
     <main id="main">
 
         <section id="services" class="section-bg">
+        
             <div class="container">
                 <header class="section-header text-center mb-2">
                     <h3>Sobre o SGE</h3>
@@ -66,13 +67,14 @@
                 </header>
                 <div class="row">
 
-                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay='2s'>
                         <div class="box">
                                 <img src="{{asset('images/undraw_newspaper_k72w.svg')}}" alt="logo_sge" class="mb-1 svg-classe">
                             <h4 class="title"><a href="">Explore</a></h4>
                             <p class="description text-justify">Explore e descubra novos eventos e amplie seu horizonte atraves de nosso sistema de organização.</p>
                         </div>
                     </div>
+                    
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
                         <div class="box">
                                 <img src="{{asset('images/undraw_segment_analysis_bdn4.svg')}}" alt="logo_sge" class="mb-1 svg-classe">

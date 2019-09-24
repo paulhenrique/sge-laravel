@@ -22,6 +22,7 @@
             $('#myInput').trigger('focus')
         })
     </script>
+    <script>new WOW().init();</script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
@@ -37,6 +38,7 @@
     <link  href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
     <!-- Js -->
     <link  href="{{ asset('lib/animate/wow/wow.min.js') }}" rel="stylesheet">
+    <link  href="{{ asset('lib/animate/wow/wow.js') }}" rel="stylesheet">
 
 
 
