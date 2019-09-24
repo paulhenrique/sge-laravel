@@ -15,6 +15,7 @@ class CreateAtividadeTable extends Migration
     {
         Schema::create('atividade', function (Blueprint $table) {
             $table->bigIncrements('idAtividade');
+            $table->string("CondicaoAtividade");
             $table->string("nomeAtividade");
             $table->string("tipo");
             $table->dateTime("DataInicio");

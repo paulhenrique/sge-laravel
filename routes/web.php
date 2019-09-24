@@ -30,8 +30,6 @@ Route::get('/evento/show', 'EventoController@show')->name('showEvent');
 Route::post('/evento/edit', 'EventoController@update')->name('editar_evento')->middleware('can:isAdmin');
 Route::get('/evento/delete', 'EventoController@delete')->name("deletar_evento")->middleware('can:isAdmin');
 
-
-
 //imageEvento
 Route::get('/evento/galeria/read', 'GaleriaController@showGaleria')->name("show_galeria")->middleware('can:isAdmin');
 Route::post('/evento/galeria/image/create','GaleriaController@addGaleria')->name('add_image_evento')->middleware('can:isAdmin');
@@ -40,9 +38,9 @@ Route::get('/evento/galeria/imagem/delete', 'GaleriaController@delete')->name('d
 
 //Atividades
 Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade')->middleware('can:isAdmin');
-Route::get('/atividade/create/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade')->middleware('can:isAdmin');
+Route::get('/atividade/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade')->middleware('can:isAdmin');
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade')->middleware('can:isAdmin');
-Route::post('/atividade/update', 'UserAtividadeController@update')->name('tornar_adm')->middleware('can:isAdmin');
+// Route::post('/atividade/update', 'UserAtividadeController@update')->name('tornar_adm')->middleware('can:isAdmin');
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade")->middleware('can:isAdmin');
 
 //inscricao Evento
@@ -55,6 +53,7 @@ Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name
 
 //admin
 Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin')->middleware('can:isAdmin');
+Route::get('/admin/atividade/list', 'AtividadeController@read_dashboard')->name('list_atividade_admin')->middleware('can:isAdmin');
 
 
 

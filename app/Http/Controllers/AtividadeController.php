@@ -22,7 +22,7 @@ class AtividadeController extends Controller
             return view('atividade.AtividadeForm',compact('evento'));
         }
     }
-
+    
     public function create(AtividadeRequest $data){
         $validated = $data->validated();
 
@@ -33,6 +33,7 @@ class AtividadeController extends Controller
 
             AtividadeModel::create([
                 //'idAtividade' => $data['idAtividade'],
+                'CondicaoAtividade' => 'Ativado',
                 'nomeAtividade'   => $data['nomeAtividade'],
                 'tipo'   => $data['tipo'],
                 'DataInicio'   => $data['DataInicio'],
@@ -41,7 +42,6 @@ class AtividadeController extends Controller
                 'HoraTermino'   => $data['HoraTermino'],
                 'NumMaxParticipantes'   => $data['NumMaxParticipantes'],
                 'local'   => $data['local'],
-                'idUser'   => auth()->user()->id,
                 'idEvento'   => $data['idEvento']
                 ]);
             return redirect()->route('list_evento_admin',['idEvento' => $data['idEvento']]);
@@ -62,29 +62,36 @@ class AtividadeController extends Controller
         return view('atividade.showAtividade',compact('atividades'));
     }
 
+    public function read_dashboard(Request $data){
+        $atividades = AtividadeModel::where('idEvento',$data['idEvento'])->get();
+
+        // dd($atividades);
+        return view('admin.listAtividade')->with('atividades',$atividades);
+    }
+
     public function update(Request $data)
     {
         $atividades = AtividadeModel::findOrFail($data['idAtividade']);
         $atividades->nomeAtividade = $data['nomeAtividade'];
         $atividades->tipo = $data['tipo'];
-        $atividades->DataInicio = $data['dtInicio'];
-        $atividades->DataTermino = $data['dtFim'];
-        $atividades->HoraInicio = $data['hrInicio'];
-        $atividades->HoraTermino = $data['hrFim'];
+        $atividades->DataInicio = $data['DataInicio'];
+        $atividades->DataTermino = $data['DataTermino'];
+        $atividades->HoraInicio = $data['HoraInicio'];
+        $atividades->HoraTermino = $data['HoraTermino'];
         $atividades->Local = $data['local'];
         $atividades->NumMaxParticipantes = $data['NumMaxParticipantes'];
-        $atividades->idUser = auth()->user()->id;
         $atividades->idEvento = $data['idEvento'];
         $atividades->save();
 
-        return redirect()->route('listAtividade');
+        return redirect()->route('list_atividade_admin',['idEvento' => $data['idEvento']]);
     }
 
     public function delete (Request $request) {
-        $idAtividade = $request->query('deletar_atividade');
-        EventoModel::destroy($request->idAtividade);
+        $atividade = EventoModel::findOrFail($data['idAtividade']);
+            $atividade->CondicaoAtividade = 'Desativado';
+            $atividade->save();
 
-        return redirect()->route('listAtividade');
+        return redirect()->route('list_atividade_admin');
     }
 
 }
