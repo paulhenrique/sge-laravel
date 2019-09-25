@@ -20,7 +20,7 @@
 				<div class="col-md-12 text-center">
 				<h1>Ainda Não Há Eventos Disponíveis</h1>
 				<!-- Permitir exbição somente para Admins -->
-				<p>Clique aqui para adicionar um novo evento: <a style="link_form" href="{{route('showForm_create_evento')}}"><strong> Adicionar Novo Evento</strong></a><p>
+				<p>Clique aqui para adicionar um novo evento: <a class="link_form" href="{{route('showForm_create_evento')}}"><strong> Adicionar Novo Evento</strong></a><p>
 				</div>
 			@else
 				@foreach ($eventos as $evento)

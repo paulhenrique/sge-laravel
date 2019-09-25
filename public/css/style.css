@@ -1646,3 +1646,7 @@ figcaption:hover {
 .link_form {
     color: black;
 }
+
+.link_form:hover {
+    color: black;
+}
