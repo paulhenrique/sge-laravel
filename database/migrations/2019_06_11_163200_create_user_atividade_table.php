@@ -16,6 +16,7 @@ class CreateUserAtividadeTable extends Migration
         Schema::create('user_atividade', function (Blueprint $table) {
             $table->bigIncrements('idUserAtividade');
             $table->bigInteger('idUser')->unsigned();
+            $table->string("CondicaoAtividade");
             $table->foreign('iduser')->references('id')->on('users');
             $table->bigInteger('idAtividade')->unsigned();
             $table->foreign('idAtividade')->references('idAtividade')->on('atividade');
