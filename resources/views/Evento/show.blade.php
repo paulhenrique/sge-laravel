@@ -14,7 +14,8 @@ background-image-solid
 @endsection
 
 @section('content')
-@foreach ($evento as $event)
+@foreach ($eventos as $event)
+
 <div class="container-fluid">
 	<div class="row">
 		@if(session()->has('success'))
@@ -32,7 +33,11 @@ background-image-solid
 					<img src="{{ url('/storage/' .$event->Logo) }}" class="circle-event-logo m-2  border-white m-2" alt="logo_do_evento.{{$event->Nome}}">
 				</div>
 				<h1 class="display-4 text-center"><strong>{{ $event->Nome }}</strong></h1>
+				@if($event->inscrito == false)
 				<h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></h2>
+				@else
+				<h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></h2>
+				@endif
 				<p class="lead text-center">
 					<strong>Inscrições até: {{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>
 				</p>
@@ -59,7 +64,11 @@ background-image-solid
 										<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
 									</div>
 									<div class="timeline-body">
-										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade]) }}" role="button">Inscrever-se</a></p>
+									@if($atividade->inscrito == false)
+									<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+									@else
+									<p><a class="btn btn-outline-danger " href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></p>
+									@endif
 									</div>
 								</div>
                             </li>

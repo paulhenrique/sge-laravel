@@ -24,7 +24,7 @@ class userEventoController extends Controller
 	            'idEvento' => $data['idEvento'],
 				'idUser' => auth()->user()->id
 			]);
-			return redirect()->back()->with('success', 'Sucesso, você está inscrito no evento!');
+			return redirect()->back();
         }else{
 			return redirect()->back()->with('error', 'Falha: já está inscrito no evento!');
 		}
@@ -58,28 +58,11 @@ class userEventoController extends Controller
 
         return redirect()->back();
 	}
-	
-	public function pegarTodasInscricoesUsuario(Request $data)
-	{
-		$incritos = DB::table('user_evento')->where('idUser', '=', auth()->user()->id)->get();
-
-		return route('listEvent')->with($inscritos);
-	}
-
-	public function pegarInscricaoUsuario(Request $data)
-	{
-		$incritos = DB::table('user_evento')->where('idUser', '=', auth()->user()->id)->where('idEvento','=', $data['idEvento'])->get();
-
-		return route('showEvent')->with($inscritos);
-	}
 
 	public function desinscrever(Request $data)
 	{
-		$evento_desinscrito = DB::table('user_evento')
-    	->where('idEvento','=',$data['idEvento'])
-    	->where('idUser','=',auth()->user()->id)
-		->delete();
+		userEventoModel::where('idEvento','=',$data['idEvento'])->where('idUser','=',auth()->user()->id)->delete();
 		
-		return route('listEvent');
+		return redirect()->back();
 	}
 }

@@ -45,7 +45,7 @@
 
        <div class="form-group">
          <label for="Apelido">Apelido do Evento: </label>
-       <input type="Text" class="form-control" id="Apelido" name="Apelido" value="{{ isset($eventos) ?  : '' }}" placeholder="Insira um apelido curto e sem espaços">
+       <input type="Text" class="form-control" id="Apelido" name="Apelido" value="{{ isset($eventos) ?  $eventos->Apelido: '' }}" placeholder="Insira um apelido curto e sem espaços">
        </div>
 
         <div class="form-group ">

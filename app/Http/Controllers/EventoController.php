@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\EventoModel;
 use App\AtividadeModel;
 use App\ImagesEvento;
+use App\userEventoModel;
+use App\UserAtividadeModel;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EventRequest;
 use Gate;
@@ -15,11 +17,36 @@ class EventoController extends Controller
 {
 
     public function show(Request $data){
-        $evento = EventoModel::where('idEvento',$data->idEvento)->get();
+        $showEvento = EventoModel::where('idEvento',$data->idEvento)->get();
         $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->orderBy('DataInicio')->get();
         $images = ImagesEvento::where('idEvento', $data['idEvento'])->get();
+        
+        if (auth()->user()){
+            $atividades = DB::table('atividade')->where('idEvento', $data->idEvento)->get();
+            foreach ($atividades as $atividade) {
+                $atividade_inscrito = UserAtividadeModel::where('idUser', '=', auth()->user()->id)->where('idAtividade', '=', $atividade->idAtividade)->count();
+                if($atividade_inscrito !=0){
+                    $atividade->inscrito = true;
+                }else{
+                    $atividade->inscrito = false;
+                }
+            }
 
-        return view('Evento.show', compact(['evento','atividades','images']));
+            $eventos = EventoModel::where('idEvento',$data->idEvento)->get();
+            foreach ($eventos as $evento) {
+                $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $evento->idEvento)->count();
+                if($evento_inscrito !=0){
+                    $evento->inscrito = true;
+                }else{
+                    $evento->inscrito = false;
+                }
+            }
+
+            return view('Evento.show', compact('eventos','atividades','images'));
+        }
+      
+
+        return view('Evento.show', compact(['showEvento','atividades','images']));
     }
 
     public function view($Apelido){
@@ -73,12 +100,24 @@ class EventoController extends Controller
             return redirect()->route('list_evento_admin');
 
         }
-
-        // arquivo de image é válido
     }
 
     public function read() {
-        $eventos = EventoModel::orderBy('idEvento')->get();
+        $eventos = DB::table('evento')->get();
+
+        if (auth()->user()){
+            $eventos = DB::table('evento')->get();
+            foreach ($eventos as $evento) {
+                $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $evento->idEvento)->count();
+                if($evento_inscrito !=0){
+                    $evento->inscrito = true;
+                }else{
+                    $evento->inscrito = false;
+                }
+            }
+            
+            return view('Evento.list',compact('eventos'));
+        }
 
         return view('Evento.list',compact('eventos'));
 
@@ -119,6 +158,7 @@ class EventoController extends Controller
     }
 
     public function delete (Request $data) {
+        
         $eventos = EventoModel::findOrFail($data['idEvento']);
             $eventos->CondicaoEvento = 'Desativado';
             $eventos->save();

@@ -58,7 +58,6 @@ class AtividadeController extends Controller
         }else{
             $atividades = AtividadeModel::orderBy('idAtividade')->get();
         }
-
         return view('atividade.showAtividade',compact('atividades'));
     }
 

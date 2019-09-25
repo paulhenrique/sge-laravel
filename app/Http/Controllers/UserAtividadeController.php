@@ -14,21 +14,16 @@ class UserAtividadeController extends Controller
     	$evento_inscrito = DB::table('user_evento')
     	->where('idEvento','=',$data['idEvento'])
     	->where('idUser','=',auth()->user()->id)
-    	->get();
+    	->count();
 
-    	foreach ($evento_inscrito as $evento) {
-    		$even_user = $evento;
-    	}
-
-    	if(!empty($evento)){
+        //dd($evento_inscrito);
+    	if($evento_inscrito != 0){
             $atividade_inscrito = DB::table('user_atividade')
             ->where('idAtividade','=',$data['idAtividade'])
-            ->where('idUser','=',auth()->user()->id)
-            ->get();
-
-            //dd($atividade_inscrito);
-
-            if(count($atividade_inscrito) == 0){
+            ->where('idUser','=', auth()->user()->id)
+            ->count();
+            
+            if($atividade_inscrito == 0){
                UserAtividadeModel::create([
                     'idAtividade' => $data['idAtividade'],
                     'idUser' => auth()->user()->id
@@ -38,10 +33,16 @@ class UserAtividadeController extends Controller
             }
 
     	}else{
-    		return redirect()->back()->with('error', 'Não está inscrito no Evento dessa atividade');
+    		return redirect()->back()->with('error', 'É necessario estar inscrito no evento dessa atividade');
     	}
 
     	return redirect()->back()->with('success', 'Sucesso, você está inscrito no evento!');
 
     }
+    public function desinscrever(Request $data)
+	{
+		UserAtividadeModel::where('idAtividade','=',$data['idAtividade'])->where('idUser','=',auth()->user()->id)->delete();
+		
+		return redirect()->back();
+	}
 }
