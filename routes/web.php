@@ -21,6 +21,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // account user
 Route::get('/account','UserController@index')->name('account');
+Route::post('/account/edit','UserController@edit')->name('edit_account');
+
 // home
 Route::get('/home', 'HomeController@index')->name('home');
 
