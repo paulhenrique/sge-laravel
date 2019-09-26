@@ -57,6 +57,12 @@
                                                     <a class="col-md-6 col-sm-2  links" href="{{ route('desinscrever',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/cancel.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Desinscrever</figcaption></a>
                                                     @endif
                                                 @elsecan("isParticipante")
+                                                    @if($evento->inscrito == false)
+                                                    <a class="col-md-6 col-sm-2  links" href="{{ route('inscrever_user_evento',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/checked.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Inscrever</figcaption></a>
+                                                    @else
+                                                    <a class="col-md-6 col-sm-2  links" href="{{ route('desinscrever',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/cancel.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Desinscrever</figcaption></a>
+                                                    @endif
+                                                @else
                                                 <a class="col-md-6 col-sm-2  links" href="{{ route('inscrever_user_evento',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/checked.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Inscrever</figcaption></a>
                                                 @endcan
 											</div>
