@@ -18,15 +18,12 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-<<<<<<< HEAD
-=======
 
 // account user
 Route::get('/account','UserController@index')->name('account');
 Route::post('/account/edit','UserController@edit')->name('edit_account');
 
 // home
->>>>>>> 0b9c0814bfe450aedd095882372999a199a6a51c
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Evento
