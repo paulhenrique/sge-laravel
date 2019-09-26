@@ -17,10 +17,10 @@ class EventoController extends Controller
 {
 
     public function show(Request $data){
-        $showEvento = EventoModel::where('idEvento',$data->idEvento)->get();
+        $eventos = EventoModel::where('idEvento',$data->idEvento)->get();
         $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->orderBy('DataInicio')->get();
         $images = ImagesEvento::where('idEvento', $data['idEvento'])->get();
-        
+
         if (auth()->user()){
             $atividades = DB::table('atividade')->where('idEvento', $data->idEvento)->get();
             foreach ($atividades as $atividade) {
@@ -44,19 +44,19 @@ class EventoController extends Controller
 
             return view('Evento.show', compact('eventos','atividades','images'));
         }
-      
 
-        return view('Evento.show', compact(['showEvento','atividades','images']));
+
+        return view('Evento.show', compact(['eventos','atividades','images']));
     }
 
     public function view($Apelido){
-        
-        $evento = EventoModel::where('Apelido', '=', $Apelido)->get();
-        foreach ($evento as $event) {
+
+        $eventos = EventoModel::where('Apelido', '=', $Apelido)->get();
+        foreach ($eventos as $event) {
             $atividades = AtividadeModel::where('idEvento','=',$event->idEvento)->orderBy('DataInicio')->get();
             $images = ImagesEvento::where('idEvento', $event->idEvento)->get();
         }
-        return view('Evento.show', compact(['evento','atividades','images']));
+        return view('Evento.show', compact(['eventos','atividades','images']));
     }
 
 
@@ -115,10 +115,9 @@ class EventoController extends Controller
                     $evento->inscrito = false;
                 }
             }
-            
+
             return view('Evento.list',compact('eventos'));
         }
-
         return view('Evento.list',compact('eventos'));
 
     }
@@ -140,7 +139,7 @@ class EventoController extends Controller
 
             $eventos = EventoModel::findOrFail($data['idEvento']);
             $eventos->Nome = $data['Nome'];
-            $evento->Apelido = $data['Apelido'];
+            $eventos->Apelido = $data['Apelido'];
             $eventos->DataInicio = $data['DataInicio'];
             $eventos->DataFim = $data['DataFim'];
             $eventos->DataLimiteInscricao = $data['DataLimiteInscricao'];
@@ -158,7 +157,7 @@ class EventoController extends Controller
     }
 
     public function delete (Request $data) {
-        
+
         $eventos = EventoModel::findOrFail($data['idEvento']);
             $eventos->CondicaoEvento = 'Desativado';
             $eventos->save();

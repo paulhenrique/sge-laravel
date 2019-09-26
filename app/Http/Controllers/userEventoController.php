@@ -13,20 +13,17 @@ class userEventoController extends Controller
     	$evento_inscrito = DB::table('user_evento')
     	->where('idEvento','=',$data['idEvento'])
     	->where('idUser','=',auth()->user()->id)
-    	->get();
+    	->count();
 
-    	foreach ($evento_inscrito as $evento) {
-    		$even_user = $evento;
-		}
 
-    	if(empty($even_user)){
+    	if($evento_inscrito == 0){
 	        userEventoModel::create([
 	            'idEvento' => $data['idEvento'],
 				'idUser' => auth()->user()->id
 			]);
 			return redirect()->back();
         }else{
-			return redirect()->back()->with('error', 'Falha: já está inscrito no evento!');
+			return redirect()->route("listEvent");
 		}
 
 	}
@@ -49,7 +46,7 @@ class userEventoController extends Controller
     public function update(Request $data){
         $idUserEvento   = $data['idUserEvento'];
 		$status         = $data['status'];
-		
+
 		if($status == 'P'){
 			userEventoModel::where('idUserEvento',$idUserEvento)->update(['presente' => True, 'ausente' => False]);
 		}elseif($status == 'A'){
@@ -62,7 +59,7 @@ class userEventoController extends Controller
 	public function desinscrever(Request $data)
 	{
 		userEventoModel::where('idEvento','=',$data['idEvento'])->where('idUser','=',auth()->user()->id)->delete();
-		
+
 		return redirect()->back();
 	}
 }
