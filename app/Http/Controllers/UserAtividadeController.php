@@ -22,7 +22,7 @@ class UserAtividadeController extends Controller
             ->where('idAtividade','=',$data['idAtividade'])
             ->where('idUser','=', auth()->user()->id)
             ->count();
-            
+
             if($atividade_inscrito == 0){
                UserAtividadeModel::create([
                     'idAtividade' => $data['idAtividade'],
@@ -42,7 +42,31 @@ class UserAtividadeController extends Controller
     public function desinscrever(Request $data)
 	{
 		UserAtividadeModel::where('idAtividade','=',$data['idAtividade'])->where('idUser','=',auth()->user()->id)->delete();
-		
+
 		return redirect()->back();
+    }
+
+
+    public function listaDeChamada(Request $data){
+        $participantes = DB::table('user_atividade')
+							->join('users','users.id','=','user_atividade.idUser')
+							->where('idAtividade', '=',$data['idAtividade'])
+							->get();
+
+        return view('admin.listaDeChamadaAtividade')->with('participantes',$participantes);
+    }
+
+    public function update(Request $data)
+    {
+        $idUserAtividade    = $data['idUserAtividade'];
+		$status             = $data['status'];
+
+		if($status == 'P'){
+			UserAtividadeModel::where('idUserAtividade',$idUserAtividade)->update(['presente' => True, 'ausente' => False]);
+		}elseif($status == 'A'){
+			UserAtividadeModel::where('idUserAtividade',$idUserAtividade)->update(['presente' => False, 'ausente' => True]);
+		}
+
+        return redirect()->back();
 	}
 }

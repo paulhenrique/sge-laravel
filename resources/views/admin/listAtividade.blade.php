@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="row">
-        
+
         @foreach ($atividades as $atividade)
             @if ($atividade->CondicaoAtividade == "Ativado")
                 <div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2" id="services-evento">
@@ -28,7 +28,7 @@
                             <div class="row text-center">
                                 <a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('showFormAtividade', ['idAtividade' => $atividade->idAtividade])}}"><img src="{{ asset('images/edit.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Editar</figcaption></a>
                                 <a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('deletar_atividade', ['idAtividade' => $atividade->idAtividade])}}"><img src="{{ asset('images/delete.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Excluir</figcaption></a>
-                                <a class="col-md-4 col-sm-6 col-xl-4 links" href="#"><img src="{{ asset('images/checklist.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Lista de Chamada</figcaption></a>
+                                <a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('lista_de_chamada_atividade', ['idAtividade' => $atividade->idAtividade])}}"><img src="{{ asset('images/checklist.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Lista de Chamada</figcaption></a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
 							</a>
 					</div>
 				</div>
-				
+
         </div>
 	</div>
 @endsection

@@ -128,7 +128,7 @@
                                     <h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
                                     <hr id="list_hr">
                                     <div class="row text-center">
-                                        <a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
+                                        <a class="col-md-4 col-sm-6 col-xl-4 mx-auto links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
                                     </div>
                                 </div>
                             @else

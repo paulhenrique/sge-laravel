@@ -57,7 +57,8 @@ Route::get('desinscrever/', 'userEventoController@desinscrever')->name('desinscr
 //inscricao Atividade
 Route::get('userAtividade/inscricao/','UserAtividadeController@inscrever')->name('inscrever_user_atividade')->middleware('auth');
 Route::get('userAtividade/desinscricao/','UserAtividadeController@desinscrever')->name('desinscrever_user_atividade')->middleware('auth');
-
+Route::get('/atividade/lista-de-chamada', 'UserAtividadeController@listaDeChamada')->name('lista_de_chamada_atividade')->middleware('can:isAdmin');
+Route::get('/atividade/lista-de-chamada/register', 'UserAtividadeController@update')->name('registrar_lista_de_chamada_atividade')->middleware('can:isAdmin');
 
 //admin
 Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin')->middleware('can:isAdmin');

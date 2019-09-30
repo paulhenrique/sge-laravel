@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @section('container-dashboard')
-<h1 class="text-center">Lista de Participantes do Evento: {{$evento[0]->Nome}}</h1>
+<h1 class="text-center">Lista de Participantes da Atividade</h1>
 <div class="container">
     <div class="card form-box col-md-12 col-sm-12 m-4">
         <div class="card-body row p-0">
@@ -34,9 +34,9 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{route('registrar_lista_de_chamada',['idUserEvento' => $p->iduserEvento,'status' => 'P'])}}" class="text-white btn btn-success"> Presente</a>
+                                        <a href="{{route('registrar_lista_de_chamada_atividade',['idUserAtividade' => $p->idUserAtividade,'status' => 'P'])}}" class="text-white btn btn-success"> Presente</a>
 
-                                        <a href="{{route('registrar_lista_de_chamada',['idUserEvento' => $p->iduserEvento,'status' => 'A'])}}" class="text-white btn btn-danger"> Ausente</a>
+                                        <a href="{{route('registrar_lista_de_chamada_atividade',['idUserAtividade' => $p->idUserAtividade,'status' => 'A'])}}" class="text-white btn btn-danger"> Ausente</a>
 
                                     </div>
                                 </td>
