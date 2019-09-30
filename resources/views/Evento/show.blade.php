@@ -34,9 +34,9 @@ background-image-solid
 				</div>
 				<h1 class="display-4 text-center"><strong>{{ $event->Nome }}</strong></h1>
 				@if($event->inscrito == false)
-				<h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></h2>
+				    <h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></h2>
 				@else
-				<h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></h2>
+				    <h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></h2>
 				@endif
 				<p class="lead text-center">
 					<strong>Inscrições até: {{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>

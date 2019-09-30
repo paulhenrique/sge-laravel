@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\userEventoModel;
+use App\EventoModel;
+
 class UserController extends Controller
 {
     public function __construct()
@@ -15,7 +18,12 @@ class UserController extends Controller
     {
         $id = Auth()->id();
         $user = User::findOrFail($id);
-        return view('user.account')->with('user', $user);
+
+        $eventos = userEventoModel::join('evento','evento.idEvento','=','user_evento.idEvento')
+                    ->where('user_evento.idUser','=',auth()->id())
+                    ->get();
+
+        return view('user.account')->with('user', $user)->with('eventos',$eventos);
     }
     public function edit(request $data) {
         $user = User::findOrFail(Auth()->id());

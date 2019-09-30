@@ -106,7 +106,48 @@
 
         </div>
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            ...
+            <div class="row">
+                @if(count($eventos)==0)
+                    <div class="col-md-12 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1>Você ainda não participou de evento algum!!</h1>
+                                <!-- Permitir exbição somente para Admins -->
+                                <p>Clique aqui para vizualizar os <a class="link_form" href="{{route('listEvent')}}"><strong> eventos disponíveis</strong></a><p>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    @foreach ($eventos as $evento)
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-xl-4 col-lg-4 p-2" id="services-evento">
+                            <div class="box ">
+                            @if ($evento->CondicaoEvento == "Ativado")
+
+                            <img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
+                                    <hr id="list_hr">
+                                    <div class="row text-center">
+                                        <a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
+                                    </div>
+                                </div>
+                            @else
+                            <div class="desativado">
+                                <img src="{{ url("/storage/{$evento->Logo}") }}" class="img-fluid list_image" alt="logo_do_evento.{{$evento->Nome}}">
+                                <div class="card-body ">
+                                        <h4 class="card-title text-center "><?php echo ucfirst($evento->Nome) ?></h4>
+                                        <hr id="list_hr">
+                                        <h4 class="text-center">Evento Indisponível</h4>
+
+                                </div>
+                            </div>
+                            @endif
+                            </div>
+                        </div>
+
+                    @endforeach
+                @endif
+            </div>
 
         </div>
         </div>
