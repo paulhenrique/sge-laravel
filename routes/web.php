@@ -62,6 +62,8 @@ Route::get('userAtividade/desinscricao/','UserAtividadeController@desinscrever')
 //admin
 Route::get('/admin/evento/list', 'EventoController@read_dashboard')->name('list_evento_admin')->middleware('can:isAdmin');
 Route::get('/admin/atividade/list', 'AtividadeController@read_dashboard')->name('list_atividade_admin')->middleware('can:isAdmin');
+Route::get('/admin/tornarAdmin', 'AtividadeController@TornarAdmin')->name('tornarAdmin')->middleware('can:isAdmin');
+Route::get('/admin/pegarUsers', 'AtividadeController@pegarUsers')->name('pegarUsers')->middleware('can:isAdmin');
 
 //apelido
 Route::get('/{Apelido}', 'EventoController@view');

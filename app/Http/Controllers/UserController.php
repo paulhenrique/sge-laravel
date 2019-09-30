@@ -15,6 +15,11 @@ class UserController extends Controller
     {
         $id = Auth()->id();
         $user = User::findOrFail($id);
+
+        // if(can('isAdmin')){
+        //     $userAll = User::all();
+        //     ->with('userAll', $userAll)
+        // }
         return view('user.account')->with('user', $user);
     }
     public function edit(request $data) {
@@ -34,13 +39,13 @@ class UserController extends Controller
         $user->tipoUser = 'admin';
         $user->save();
 
-        return redirect()->route('');
+        return redirect()->view('');
     }
 
     public function pegarTodosUsers()
     {
         $user = User::all();
         
-        return redirect()->route('')->with($user);
+        return redirect()->view('user.account')->with('user', $user);
     }
 }
