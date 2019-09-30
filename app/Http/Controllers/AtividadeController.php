@@ -22,7 +22,7 @@ class AtividadeController extends Controller
             return view('atividade.AtividadeForm',compact('evento'));
         }
     }
-    
+
     public function create(AtividadeRequest $data){
         $validated = $data->validated();
 
@@ -44,7 +44,7 @@ class AtividadeController extends Controller
                 'local'   => $data['local'],
                 'idEvento'   => $data['idEvento']
                 ]);
-            return redirect()->route('list_evento_admin',['idEvento' => $data['idEvento']]);
+            return redirect()->route('list_atividade_admin',['idEvento' => $data['idEvento']]);
         }else{
             return redirect()->route('showFormAtividade',['idEvento' => $data['idEvento']])->withErrors('As datas em que ocorrerá atividade não está dentro dos dias que o evento ocorrerá!');
         }
@@ -64,7 +64,6 @@ class AtividadeController extends Controller
     public function read_dashboard(Request $data){
         $atividades = AtividadeModel::where('idEvento',$data['idEvento'])->get();
 
-        // dd($atividades);
         return view('admin.listAtividade')->with('atividades',$atividades);
     }
 
@@ -86,11 +85,11 @@ class AtividadeController extends Controller
     }
 
     public function delete (Request $request) {
-        $atividade = EventoModel::findOrFail($data['idAtividade']);
+        $atividade = AtividadeModel::findOrFail($request['idAtividade']);
             $atividade->CondicaoAtividade = 'Desativado';
             $atividade->save();
 
-        return redirect()->route('list_atividade_admin');
+        return redirect()->route('list_atividade_admin', ["idEvento" => $atividade->idEvento]);
     }
 
 }

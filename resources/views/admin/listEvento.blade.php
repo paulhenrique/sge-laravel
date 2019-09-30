@@ -33,7 +33,7 @@
 								<h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
 								<hr id="list_hr">
 								<div class="row text-center">
-									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
+									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('showEvent',['Apelido' => $evento->Apelido]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
 									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('showForm_create_evento', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/edit.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Editar</figcaption></a>
 									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('lista_de_chamada', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/checklist.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Lista de Chamada</figcaption></a>
 									<a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('list_atividade_admin', ['idEvento' => $evento->idEvento])}}"><img src="{{ asset('images/workshop.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Listar Atividades</figcaption></a>
@@ -61,13 +61,13 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Excluir evento</h5>
+								<h5 class="modal-title" id="exampleModalLabel">Desativar Evento</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								Deseja realmente excluir o evento permanentemente? a ação não poderá ser desfeita.
+								Deseja realmente desativar o evento permanentemente? A ação não poderá ser desfeita.
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

@@ -49,7 +49,7 @@
 											<h4 class="card-title text-center">{{$evento->Nome}}</h4>
 											<hr id="list_hr">
 											<div class="row text-center ">
-												<a class="col-md-6 col-sm-2  links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
+												<a class="col-md-6 col-sm-2  links" href="{{ route('showEvent',['Apelido' => $evento->Apelido]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
                                                 @can("isAdmin")
                                                     @if($evento->inscrito == false)
                                                     <a class="col-md-6 col-sm-2  links" href="{{ route('inscrever_user_evento',[ 'idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/checked.svg') }}" class="img-fluid text-center  button list_svg"><figcaption>Inscrever</figcaption></a>

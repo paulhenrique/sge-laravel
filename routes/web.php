@@ -30,7 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/evento/create', 'EventoController@create')->name('create_evento')->middleware('can:isAdmin');
 Route::get('/evento/create/form', 'EventoController@ShowForm')->name('showForm_create_evento')->middleware('can:isAdmin');
 Route::get('/evento/list', 'EventoController@read')->name('listEvent');
-Route::get('/evento/show', 'EventoController@show')->name('showEvent');
+//Route::get('/evento/show', 'EventoController@show')->name('showEvent');
 Route::post('/evento/edit', 'EventoController@update')->name('editar_evento')->middleware('can:isAdmin');
 Route::get('/evento/delete', 'EventoController@delete')->name("deletar_evento")->middleware('can:isAdmin');
 
@@ -67,5 +67,5 @@ Route::get('/admin/tornarAdmin', 'AtividadeController@TornarAdmin')->name('torna
 Route::get('/admin/pegarUsers', 'AtividadeController@pegarUsers')->name('pegarUsers')->middleware('can:isAdmin');
 
 //apelido
-Route::get('/{Apelido}', 'EventoController@view');
+Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("showEvent");
 

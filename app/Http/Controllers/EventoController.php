@@ -16,13 +16,15 @@ use Gate;
 class EventoController extends Controller
 {
 
-    public function show(Request $data){
-        $eventos = EventoModel::where('idEvento',$data->idEvento)->get();
-        $atividades = AtividadeModel::where('idEvento','=',$data->idEvento)->orderBy('DataInicio')->get();
-        $images = ImagesEvento::where('idEvento', $data['idEvento'])->get();
+    public function show($Apelido){
+
+        //pegando evento pelo apelido
+        $eventos = EventoModel::where('Apelido', '=', $Apelido)->get()->first();
+        $atividades = AtividadeModel::where('idEvento','=',$eventos->idEvento)->orderBy('DataInicio')->get();
+        $images = ImagesEvento::where('idEvento', $eventos["idEvento"])->get();
 
         if (auth()->user()){
-            $atividades = DB::table('atividade')->where('idEvento', $data->idEvento)->get();
+            $atividades = DB::table('atividade')->where('idEvento', $eventos->idEvento)->get();
             foreach ($atividades as $atividade) {
                 $atividade_inscrito = UserAtividadeModel::where('idUser', '=', auth()->user()->id)->where('idAtividade', '=', $atividade->idAtividade)->count();
                 if($atividade_inscrito !=0){
@@ -32,7 +34,7 @@ class EventoController extends Controller
                 }
             }
 
-            $eventos = EventoModel::where('idEvento',$data->idEvento)->get();
+            $eventos = EventoModel::where('idEvento',$eventos->idEvento)->get();
             foreach ($eventos as $evento) {
                 $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $evento->idEvento)->count();
                 if($evento_inscrito !=0){
@@ -42,24 +44,12 @@ class EventoController extends Controller
                 }
             }
 
-            return view('Evento.show', compact('eventos','atividades','images'));
+            return view("Evento.show", compact('eventos','atividades','images'));
         }
 
 
-        return view('Evento.show', compact(['eventos','atividades','images']));
+        return view("Evento.show", compact(['eventos','atividades','images']));
     }
-
-    public function view($Apelido){
-
-        $eventos = EventoModel::where('Apelido', '=', $Apelido)->get();
-        foreach ($eventos as $event) {
-            $atividades = AtividadeModel::where('idEvento','=',$event->idEvento)->orderBy('DataInicio')->get();
-            $images = ImagesEvento::where('idEvento', $event->idEvento)->get();
-        }
-        return view('Evento.show', compact(['eventos','atividades','images']));
-    }
-
-
 
     public function ShowForm(Request $data) {
         if(isset($data->idEvento)){
