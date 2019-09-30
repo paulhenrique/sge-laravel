@@ -28,4 +28,19 @@ class UserController extends Controller
 
     }
 
+    public function TornarAdmin(Request $data)
+    {
+        $user = User::findOrFail($data["id"]);
+        $user->tipoUser = 'admin';
+        $user->save();
+
+        return redirect()->route('');
+    }
+
+    public function pegarTodosUsers()
+    {
+        $user = User::all();
+        
+        return redirect()->route('')->with($user);
+    }
 }
