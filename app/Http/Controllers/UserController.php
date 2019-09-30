@@ -24,6 +24,10 @@ class UserController extends Controller
                     ->get();
 
         return view('user.account')->with('user', $user)->with('eventos',$eventos);
+        // if(can('isAdmin')){
+        //     $userAll = User::all();
+        //     ->with('userAll', $userAll)
+        // }
     }
     public function edit(request $data) {
         $user = User::findOrFail(Auth()->id());
@@ -36,4 +40,19 @@ class UserController extends Controller
 
     }
 
+    public function TornarAdmin(Request $data)
+    {
+        $user = User::findOrFail($data["id"]);
+        $user->tipoUser = 'admin';
+        $user->save();
+
+        return redirect()->view('');
+    }
+
+    public function pegarTodosUsers()
+    {
+        $user = User::all();
+
+        return redirect()->view('user.account')->with('user', $user);
+    }
 }
