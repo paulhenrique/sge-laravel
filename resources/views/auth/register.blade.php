@@ -80,12 +80,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 ">
                                     <button type="submit" class="btn btn-outline-dark col-12">
                                         {{ __('Cadastrar-se') }}
                                     </button>
                                 </div>
+                            <div class="text-center col-md-12">
                              <a class="btn btn-link text-center mt-1" href="{{route('login')}}"> Possui Conta? Entre </a>
+                             </div>
                             </div>
                         </form>
                     </div>

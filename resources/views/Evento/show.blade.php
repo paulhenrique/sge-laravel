@@ -56,22 +56,24 @@ background-image-solid
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 						<ul class="timeline timeline-horizontal">
 							@foreach ($atividades as $atividade)
-							<li class="timeline-item">
-								<div class="timeline-badge primary"><i class="text-center glyphicon glyphicon-check"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
-										<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
+							@if($atividade->CondicaoAtividade == "Ativado")
+								<li class="timeline-item">
+									<div class="timeline-badge primary"><i class="text-center glyphicon glyphicon-check"></i></div>
+									<div class="timeline-panel">
+										<div class="timeline-heading">
+											<h4 class="timeline-title"><?php echo ucfirst($atividade->nomeAtividade)?></h4>
+											<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
+										</div>
+										<div class="timeline-body">
+										@if($atividade->inscrito == false)
+										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+										@else
+										<p><a class="btn btn-outline-danger " href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></p>
+										@endif
+										</div>
 									</div>
-									<div class="timeline-body">
-									@if($atividade->inscrito == false)
-									<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
-									@else
-									<p><a class="btn btn-outline-danger " href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></p>
-									@endif
-									</div>
-								</div>
-                            </li>
+								</li>
+							@endif
 							@endforeach
 						</ul>
 					</div>

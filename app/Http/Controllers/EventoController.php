@@ -64,31 +64,35 @@ class EventoController extends Controller
 
     public function create(EventRequest $data){
         $validated = $data->validated();
-        if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
-            $name = uniqid(date('HisYmd'));
-            $extension = $data->logo->extension();
-            $namefile = "{$name}.{$extension}";
-            $upload = $data->logo->store('logo_evento');
-            //$visibility = Storage::getVisibility($upload);
-            //Storage::setVisibility($upload,'public');
 
-            EventoModel::create([
-                'CondicaoEvento' => 'Ativado',
-                'Nome' => $data['Nome'],
-                'Apelido' => $data['Apelido'],
-                'DataInicio'   => $data['DataInicio'],
-                'DataFim'   => $data['DataFim'],
-                'DataLimiteInscricao'   => $data['DataLimiteInscricao'],
-                'ConteudoProgramatico'   => $data['ConteudoProgramatico'],
-                'Responsavel' => $data['Responsavel'],
-                'CargaHoraria'   => $data['CargaHoraria']."H",
-                'HorarioInicio'   => $data['HorarioInicio'],
-                'HorarioFim'   => $data['HorarioFim'],
-                'Local'   => $data['Local'],
-                'Logo'   => $upload,
-                ]);
-            return redirect()->route('list_evento_admin');
+        if(strtotime($data['DataInicio']) <= strtotime($data['DataFim'])){
+            if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
+                $name = uniqid(date('HisYmd'));
+                $extension = $data->logo->extension();
+                $namefile = "{$name}.{$extension}";
+                $upload = $data->logo->store('logo_evento');
+                //$visibility = Storage::getVisibility($upload);
+                //Storage::setVisibility($upload,'public');
 
+                EventoModel::create([
+                    'CondicaoEvento' => 'Ativado',
+                    'Nome' => $data['Nome'],
+                    'Apelido' => $data['Apelido'],
+                    'DataInicio'   => $data['DataInicio'],
+                    'DataFim'   => $data['DataFim'],
+                    'DataLimiteInscricao'   => $data['DataLimiteInscricao'],
+                    'ConteudoProgramatico'   => $data['ConteudoProgramatico'],
+                    'Responsavel' => $data['Responsavel'],
+                    'CargaHoraria'   => $data['CargaHoraria']."H",
+                    'HorarioInicio'   => $data['HorarioInicio'],
+                    'HorarioFim'   => $data['HorarioFim'],
+                    'Local'   => $data['Local'],
+                    'Logo'   => $upload,
+                    ]);
+                return redirect()->route('list_evento_admin');
+            }
+        }else{
+            return redirect()->route('showForm_create_evento')->withErrors('A data de inicio do evento deve ser anterior que a de seu encerramento!');
         }
     }
 
