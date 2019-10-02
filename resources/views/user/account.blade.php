@@ -93,12 +93,14 @@
                         </div>
                         <div class="col-lg-12 mt-1">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-outline-danger form-control"> Alterar Dados </button>
+                                <button type="button" class="btn btn-outline-danger form-control"> Alterar Dados </button>
+                                <a href="" class="btn btn-outline-danger form-control">Excluir conta</a>
                             </div>
                             </div>
                     </div>
 
                     </form>
+
                 </div>
             </div>
         </section>

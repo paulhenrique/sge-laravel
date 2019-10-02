@@ -54,4 +54,11 @@ class UserController extends Controller
 
         return view('admin.listusers')->with('users', $users);
     }
+
+    public function deletarUsuario()
+    {
+        $user = User::where("idUser", "=", user()->auth()->id)->delete();
+
+        return view("welcome");
+    }
 }

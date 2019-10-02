@@ -2,6 +2,10 @@
 
 
 @section('container-dashboard')
+
+@section('footer')
+	@include('components.footer')
+@endsection
 <div class="container">
 		<div class="row">
 			@if(session()->has('success'))
