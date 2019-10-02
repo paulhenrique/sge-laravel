@@ -65,7 +65,8 @@ class EventoController extends Controller
     public function create(EventRequest $data){
         $validated = $data->validated();
 
-        if(strtotime($data['DataInicio']) <= strtotime($data['DataFim'])){
+        if(strtotime($data['DataInicio']) <= strtotime($data['DataFim'])
+        && strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim'])){
             if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
                 $name = uniqid(date('HisYmd'));
                 $extension = $data->logo->extension();

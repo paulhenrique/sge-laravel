@@ -14,7 +14,6 @@ background-image-solid
 @endsection
 
 @section('content')
-@foreach ($eventos as $event)
 
 <div class="container-fluid">
 	<div class="row">
@@ -30,19 +29,19 @@ background-image-solid
 		<div class="jumbotron jumbotron-fluid col-12 py-3">
 			<div class="container">
 				<div class="display-4 col-12 text-center">
-					<img src="{{ url('/storage/' .$event->Logo) }}" class="circle-event-logo m-2  border-white m-2" alt="logo_do_evento.{{$event->Nome}}">
+					<img src="{{ url("/storage/{$eventos->Logo}") }}" class="circle-event-logo m-2  border-white m-2" alt="logo_do_evento_{{$eventos->Nome}}">
 				</div>
-				<h1 class="display-4 text-center"><strong>{{ $event->Nome }}</strong></h1>
-				@if($event->inscrito == false)
-				    <h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></h2>
+				<h1 class="display-4 text-center"><strong>{{ $eventos->Nome }}</strong></h1>
+				@if($eventos->inscrito == false)
+				    <h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></h2>
 				@else
-				    <h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></h2>
+				    <h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></h2>
 				@endif
 				<p class="lead text-center">
-					<strong>Inscrições até: {{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>
+					<strong>Inscrições até: {{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>
 				</p>
 				<p class="lead mx-auto col-8 text-justify">
-					O evento <strong>{{$event->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($event->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($event->DataFim)) }}</strong>, no local: <strong>{{$event->Local}}</strong>, às: <strong> {{$event->HorarioInicio}}</strong> até <strong> {{$event->HorarioFim}}</strong>, organizado por: <strong>{{$event->Responsavel}}</strong>.
+					O evento <strong>{{$eventos->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($eventos->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>, no local: <strong>{{$eventos->Local}}</strong>, às: <strong> {{$eventos->HorarioInicio}}</strong> até <strong> {{$eventos->HorarioFim}}</strong>, organizado por: <strong>{{$eventos->Responsavel}}</strong>.
 				</p>
 			</div>
 		</div>
@@ -103,5 +102,5 @@ background-image-solid
 	</div>
 </div>
 
-@endforeach
+
 @endsection

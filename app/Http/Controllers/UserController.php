@@ -40,19 +40,18 @@ class UserController extends Controller
 
     }
 
-    public function TornarAdmin(Request $data)
+    public function TornarAdmin(Request $request)
     {
-        $user = User::findOrFail($data["id"]);
-        $user->tipoUser = 'admin';
-        $user->save();
-
-        return redirect()->view('');
+        $users = User::findOrFail($request['idUser']);
+        $users->tipoUser = 'admin';
+        $users->save();
+        return view('admin.listusers')->with('users',$users);
     }
 
     public function pegarTodosUsers()
     {
-        $user = User::all();
+        $users = User::all();
 
-        return redirect()->view('user.account')->with('user', $user);
+        return view('admin.listusers')->with('users', $users);
     }
 }
