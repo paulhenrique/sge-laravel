@@ -23,11 +23,9 @@ class UserController extends Controller
                     ->where('user_evento.idUser','=',auth()->id())
                     ->get();
 
+        //$eventos->password = Hash::bcrypt($eventos->password);
         return view('user.account')->with('user', $user)->with('eventos',$eventos);
-        // if(can('isAdmin')){
-        //     $userAll = User::all();
-        //     ->with('userAll', $userAll)
-        // }
+
     }
     public function edit(request $data) {
         $user = User::findOrFail(Auth()->id());

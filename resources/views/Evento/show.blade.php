@@ -66,9 +66,9 @@ background-image-solid
 										</div>
 										<div class="timeline-body">
 										@if($atividade->inscrito == false)
-										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Inscrever-se</a></p>
+										<p><a class="btn btn-outline-success " href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></p>
 										@else
-										<p><a class="btn btn-outline-danger " href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $event->idEvento]) }}" role="button">Desinscrever-se</a></p>
+										<p><a class="btn btn-outline-danger " href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></p>
 										@endif
 										</div>
 									</div>

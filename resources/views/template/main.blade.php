@@ -51,9 +51,9 @@
     @yield('add')
     <main class="wrapper" id="page-content">
         @yield('content')
-
+        <div class="push"></div>
     </main>
-    <div class="push"></div>
+
     @yield('footer')
 </body>
 </html>
