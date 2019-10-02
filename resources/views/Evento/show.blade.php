@@ -15,6 +15,7 @@ background-image-solid
 
 @section('content')
 
+
 <div class="container-fluid">
 	<div class="row">
 		@if(session()->has('success'))

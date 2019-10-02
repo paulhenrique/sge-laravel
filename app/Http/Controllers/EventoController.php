@@ -34,14 +34,11 @@ class EventoController extends Controller
                 }
             }
 
-            $eventos = EventoModel::where('idEvento',$eventos->idEvento)->get();
-            foreach ($eventos as $evento) {
-                $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $evento->idEvento)->count();
-                if($evento_inscrito !=0){
-                    $evento->inscrito = true;
-                }else{
-                    $evento->inscrito = false;
-                }
+            $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $eventos->idEvento)->count();
+            if($evento_inscrito !=0){
+                $eventos->inscrito = true;
+            }else{
+                $eventos->inscrito = false;
             }
 
             return view("Evento.show", compact('eventos','atividades','images'));
