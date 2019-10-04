@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\userEventoModel;
+use App\UserAtividadeModel;
 use App\EventoModel;
 
 class UserController extends Controller
@@ -55,8 +56,9 @@ class UserController extends Controller
 
     public function deletarUsuario()
     {
-        $user = User::where("idUser", "=", user()->auth()->id)->delete();
-
+        User::where("idUser", "=", user()->auth()->id)->delete();
+        UserAtividadeModel::where("idUser", "=", user()->auth()->id)->delete();
+        userEventoModel::where("idUser", "=", user()->auth()->id)->delete();
         return view("welcome");
     }
 }

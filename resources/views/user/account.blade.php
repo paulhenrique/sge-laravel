@@ -21,7 +21,7 @@
         <div class="nav nav-tabs ml-1" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active link_form" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dados Gerais</a>
             <a class="nav-item nav-link link_form" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Alterar Dados</a>
-            <a class="nav-item nav-link link_form" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Eventos</a>
+            <a class="nav-item nav-link link_form" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Eventos Inscritos</a>
         </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -93,13 +93,34 @@
                         </div>
                         <div class="col-lg-12 mt-1">
                             <div class="form-group">
-                                <button type="button" class="btn btn-outline-danger form-control"> Alterar Dados </button>
-                                <a href="" class="btn btn-outline-danger form-control">Excluir conta</a>
+                            <button type="button" class="btn btn-warning form-control"> Alterar Dados </button>
                             </div>
+                            <a data-toggle="modal" data-target="#exampleModal"><button type="button" class="btn btn-danger form-control"> Excluir conta </button></a>
                             </div>
                     </div>
-
                     </form>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Excluir Conta</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Deseja realmente excluir sua conta permanentemente? A ação não poderá ser desfeita.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <a href="{{route('delete_account')}}"><button type="button" class="btn btn-danger">Excluir Conta</button></a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -129,9 +150,6 @@
                                 <div class="card-body">
                                     <h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
                                     <hr id="list_hr">
-                                    <div class="row text-center">
-                                        <a class="col-md-4 col-sm-6 col-xl-4 mx-auto links" href="{{ route('showEvent',['idEvento' => $evento->idEvento]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
-                                    </div>
                                 </div>
                             @else
                             <div class="desativado">
