@@ -14,17 +14,20 @@ class UserAtividadeController extends Controller
         $atividade_quant_inscritos = DB::table('user_atividade')
         ->where('idAtividade','=',$data['idAtividade'])
         ->count();
-        $atividade_quant_inscritos = DB::table('atividade')
+        $atividade_quant_inscritos_tot = DB::table('atividade')
         ->where('idAtividade','=',$data['idAtividade'])
         ->get('NumMaxParticipantes')->first();
-        
-        //Verificando se o usuário está inscrito no evento que possui essa tividade
-    	$evento_inscrito = DB::table('user_evento')
-    	->where('idEvento','=',$data['idEvento'])
-    	->where('idUser','=',auth()->user()->id)
-    	->count();
 
-        if($atividade_quant_inscritos <= $atividade_quant_inscritos){
+        //Verificando se o usuário está inscrito no evento que possui essa tividade
+
+        if($atividade_quant_inscritos <= $atividade_quant_inscritos_tot->NumMaxParticipantes){
+
+            //Verficando se o usuario esta inscrito no evento
+            $evento_inscrito = DB::table('user_evento')
+            ->where('idEvento','=',$data['idEvento'])
+            ->where('idUser','=',auth()->user()->id)
+            ->count();
+
             if($evento_inscrito != 0){
                 $atividade_inscrito = DB::table('user_atividade')
                 ->where('idAtividade','=',$data['idAtividade'])
@@ -35,7 +38,8 @@ class UserAtividadeController extends Controller
                 UserAtividadeModel::create([
                         'idAtividade' => $data['idAtividade'],
                         'idUser' => auth()->user()->id
-                    ]);
+                    ])->save();
+
                 }else{
                     return redirect()->back()->with('error', 'Já está inscrito nessa atividade');
                 }
@@ -45,9 +49,9 @@ class UserAtividadeController extends Controller
             }
 
             return redirect()->back()->with('success', 'Sucesso, você está inscrito no evento!');
-            
+
         }else{
-           return redirect()->back()->with('error', 'Sem vagas para essa atividade');
+           return redirect()->back()->with('error', 'Infelizmente não possuímos vagas para a atividade desejada, tente outra.');
         }
     }
     public function desinscrever(Request $data)

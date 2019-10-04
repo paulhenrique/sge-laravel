@@ -62,8 +62,8 @@ class EventoController extends Controller
     public function create(EventRequest $data){
         $validated = $data->validated();
 
-        if(strtotime($data['DataInicio']) <= strtotime($data['DataFim'])
-        && strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim'])){
+        if( (strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
+        && (strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim']) ) ){
             if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
                 $name = uniqid(date('HisYmd'));
                 $extension = $data->logo->extension();
@@ -90,7 +90,7 @@ class EventoController extends Controller
                 return redirect()->route('list_evento_admin');
             }
         }else{
-            return redirect()->route('showForm_create_evento')->withErrors('A data de inicio do evento deve ser anterior que a de seu encerramento!');
+            return redirect()->route('showForm_create_evento')->withErrors('Verifique as datas inseridas! As datas de inicio e de limite de inscrição devem ser anteriores a data de término.');
         }
     }
 

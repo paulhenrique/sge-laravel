@@ -30,7 +30,6 @@ class AtividadeController extends Controller
 
         if(strtotime($data['DataInicio']) >= strtotime($data_evento->DataInicio)
             && strtotime($data['DataTermino']) <= strtotime($data_evento->DataFim)){
-
             AtividadeModel::create([
                 //'idAtividade' => $data['idAtividade'],
                 'CondicaoAtividade' => 'Ativado',

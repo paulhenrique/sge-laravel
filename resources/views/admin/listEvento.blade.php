@@ -3,9 +3,9 @@
 
 @section('container-dashboard')
 
-@section('footer')
+{{-- @section('footer')
 	@include('components.footer')
-@endsection
+@endsection --}}
 <div class="container">
 		<div class="row">
 			@if(session()->has('success'))
