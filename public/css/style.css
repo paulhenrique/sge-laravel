@@ -1735,3 +1735,13 @@ figcaption:hover {
     color: black;
     font-weight: bold;
 }
+
+.navbar-toggler {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #1bb0db !important;
+}
+
+.btn-navbar-toggler {
+    color: #1bb0db !important;
+}
