@@ -43,6 +43,7 @@
 
 
 
+
 </head>
 <body class="@yield('color-bg')">
 
@@ -55,5 +56,7 @@
     </main>
 
     @yield('footer')
+
+    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 </body>
 </html>

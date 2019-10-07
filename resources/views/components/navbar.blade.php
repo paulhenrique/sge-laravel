@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light bg-dark ">
+<nav class="navbar navbar-expand-lg navbar-expand-md  navbar-light bg-dark ">
     <a>
     <a href="{{route('welcome')}}"><img class="mr-1 logo-branco-nav " src="{{ asset('images/logo_png_branco.png') }}" width="35" height="35" alt="logo_branco"> </a>
     </a>

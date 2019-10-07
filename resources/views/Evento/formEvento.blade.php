@@ -14,25 +14,21 @@
 @section('container-dashboard')
 <div id="services-evento">
 <div class="box text-left col-md-6 m-auto">
-
-                <div class="card-body row p-0">
-
-                    <div class="col-md-12 p-5">
-
-                    <h1 class="text-center">{{$formulario_title}}</h1>
-                    <hr>
-
+    <div class="card-body row p-0">
+        <div class="col-md-12 p-5">
+        <h1 class="text-center">{{$formulario_title}}</h1>
+        <hr>
   <div class="col-12 m-auto">
-  @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-  @endif
-    <form method="post" action="{{ $action }}" enctype="multipart/form-data">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form method="post" id="form_conteudo_programatico"  action="{{ $action }}" enctype="multipart/form-data">
 
         @csrf
 
@@ -63,10 +59,15 @@
           <input type="Text" class="form-control" id="Local" name="Local" placeholder="Insira o local onde ocorrerá o evento" value="{{ isset($eventos) ? $eventos->Local : "" }}">
         </div>
 
-        <div class="form-group">
+        <div class="form-group input_fields_wrap">
           <label for="ConteudoProgramatico">Conteúdo Programático: </label>
+
+          {{-- conteúdo Programático --}}
+
           <textarea class="form-control" name="ConteudoProgramatico" placeholder="Descreva sucintamente o que ocorrerá durante o evento" id="ConteudoProgramatico">{{ isset($eventos) ? $eventos->ConteudoProgramatico : "" }}</textarea>
         </div>
+
+        {{-- <button type="button" class="btn add_field_button" id="addScnt">+ Item</button> --}}
 
         <div class="row form-group">
           <div  class="col-6">
@@ -107,10 +108,34 @@
        <button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>
     </form>
   </div>
-                </div>
             </div>
         </div>
+    </div>
 </div>
 
+
+
+{{-- <script>
+        $(function() {
+            var scntDiv = $('#form_conteudo_programatico');
+            var i = $('#form_conteudo_programatico div').size() + 1;
+
+
+            $('#addScnt').live('click', function() {
+                    $("<div class='row' id='alternativa'><div class='input-field col s12'><input id='title' type='text' name='alternativa'><label for='title'>Alternativa:</label></div></div>").appendTo(scntDiv);
+                    i++;
+                    return false;
+            });
+
+            $('#remScnt').live('click', function() {
+                    if( i > 2 ) {
+                        $(this).parents('p').remove();
+                        i--;
+                    }
+                    return false;
+            });
+    });
+
+    </script> --}}
 @endsection
 

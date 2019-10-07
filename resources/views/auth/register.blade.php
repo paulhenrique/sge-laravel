@@ -8,8 +8,8 @@
 	@include('components.navbar')
 @endsection
 <div class="container">
-    <div class="row justify-content-center m-4">
-        <div class="col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
             <div class="card form-box">
                 <div class="card-body row p-0">
                     <div class="col-md-12 p-5">

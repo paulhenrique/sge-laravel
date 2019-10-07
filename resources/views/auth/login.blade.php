@@ -8,8 +8,8 @@ background-image
 @endsection
 
 <div class="container ">
-    <div class="row justify-content-center m-5">
-        <div class="col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-6">
             <div class="card form-box">
                 <div class="card-body row p-0">
                     <div class="col-md-12 p-5">
@@ -44,7 +44,7 @@ background-image
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="form-group">
                                 <div class="col-md-12">

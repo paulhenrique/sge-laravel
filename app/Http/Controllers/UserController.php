@@ -44,6 +44,7 @@ class UserController extends Controller
         $users = User::findOrFail($request['idUser']);
         $users->tipoUser = 'admin';
         $users->save();
+        $users = User::all();
         return view('admin.listusers')->with('users',$users);
     }
 
