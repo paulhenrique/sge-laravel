@@ -88,7 +88,7 @@
                             <label for="senha"> Senha:</label>
                             {{-- <h3>123.123.123-1</h3> --}}
                             <div class="form-group">
-                            <input type="password" name="password" id="senha" class="form-control" value="{{$user->password}}">
+                            <input type="password" name="password" id="senha" class="form-control">
                             </div>
                         </div>
                         <div class="col-lg-12 mt-1">
@@ -127,7 +127,7 @@
         </section>
 
 
-        </div>
+
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             <div class="row">
                 @if(count($eventos)==0)
@@ -150,6 +150,10 @@
                                 <div class="card-body">
                                     <h4 class="card-title text-center"><?php echo ucfirst($evento->Nome) ?></h4>
                                     <hr id="list_hr">
+                                    <div class="row text-center">
+                                        <a class="col-md-4 col-sm-6 col-xl-4 links mx-auto" href="{{ route('showEvent',['Apelido' => $evento->Apelido]) }}"><img src="{{ asset('images/search.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Visualizar</figcaption></a>
+                                        {{-- <a class="col-md-4 col-sm-6 col-xl-4 links" href="{{ route('GerarPDF')}}"><img src="{{ asset('images/diploma.svg') }}" class="img-fluid text-center button list_svg"><figcaption>Gerar Certificado</figcaption></a> --}}
+                                    </div>
                                 </div>
                             @else
                             <div class="desativado">
@@ -173,7 +177,7 @@
         </div>
 </div>
 
-
+</div>
 
 
 

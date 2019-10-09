@@ -1745,4 +1745,7 @@ figcaption:hover {
     .footer {
         height: 100%;
     }
+    .push {
+        height: 200px;
+    }
 }

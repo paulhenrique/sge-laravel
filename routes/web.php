@@ -69,3 +69,5 @@ Route::get('/admin/users', 'UserController@pegarTodosUsers')->name('todosUsers')
 //apelido
 Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("showEvent");
 
+//PDF
+Route::get('/pdf/certificado','PdfController@GeneratePDF')->name("GerarPDF");
