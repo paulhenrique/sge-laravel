@@ -1,3 +1,7 @@
+<p align="center"><img src="http://ic.itp.ifsp.edu.br/images/logo_png_branco.png"></p>
+
+/pagebreak
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
