@@ -71,3 +71,4 @@ Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("
 
 //PDF
 Route::get('/pdf/certificado','PdfController@GeneratePDF')->name("GerarPDF");
+

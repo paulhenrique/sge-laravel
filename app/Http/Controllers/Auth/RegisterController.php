@@ -62,7 +62,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
+        //mude 'participante' e 'admin'
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

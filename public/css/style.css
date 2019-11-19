@@ -1749,3 +1749,11 @@ figcaption:hover {
         height: 29rem;
     }
 }
+
+.paragrafo {
+    Certificado text-indent: 4em;
+}
+
+.certificado {
+    font-style: italic;
+}
