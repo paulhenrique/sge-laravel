@@ -17,12 +17,18 @@
                 <div class="fab fab-icon-holder">
                         <img class="m-3" src="{{ asset('images/logo_png_branco.png') }}" width="30" height="30" alt="logo_branco">
                 </div>
-                <ul class="fab-options m-0">
+                <ul class="fab-options m-0"> 
                   <li>
                     <div class="fab-icon-holder">
                         <a class="links_button_admin" href="{{ route('list_evento_admin') }}"><i class="fas fa-clipboard-list"></i> </a>
                     </div>
                     <span class="fab-label"><a class="links_button_admin" href="{{ route('list_evento_admin') }}">Listar eventos</a></span>
+                  </li>
+                  <li>
+                    <div class="fab-icon-holder">
+                        <a class="links_button_admin" href="{{ route('listar_atividades_em_analise') }}"><i class="fas fa-clipboard-list"></i> </a>
+                    </div>
+                    <span class="fab-label"><a class="links_button_admin" href="{{ route('listar_atividades_em_analise') }}">Atividades Pendentes</a></span>
                   </li>
                   <li>
                     <div class="fab-icon-holder">
@@ -38,6 +44,7 @@
                     </div>
                     <span class="fab-label"><a class="links_button_admin" href="{{ route('showForm_create_evento') }}">Adicionar Eventos </a></span>
                   </li>
+              
                     <li>
                     <div class="fab-icon-holder">
 

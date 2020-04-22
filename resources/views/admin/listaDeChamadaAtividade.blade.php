@@ -23,9 +23,9 @@
                                 <td>{{$p->name}}</td>
                                 <td>
                                     @if($p->presente == True && $p->ausente == False)
-                                        {{ 'P' }}
+                                        {{ 'Presente' }}
                                     @elseif($p->presente == False && $p->ausente == True)
-                                        {{ 'A' }}
+                                        {{ 'Ausente' }}
                                     @elseif($p->presente == Null && $p->ausente == Null)
                                         {{ 'Selecione uma opcao' }}
                                     @else
@@ -34,9 +34,9 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{route('registrar_lista_de_chamada_atividade',['idUserAtividade' => $p->idUserAtividade,'status' => 'P'])}}" class="text-white btn btn-success"> Presente</a>
+                                        <a href="{{route('registrar_lista_de_chamada_atividade',['idUserAtividade' => $p->idUserAtividade,'status' => 'Presente'])}}" class="text-white btn btn-success"> Presente</a>
 
-                                        <a href="{{route('registrar_lista_de_chamada_atividade',['idUserAtividade' => $p->idUserAtividade,'status' => 'A'])}}" class="text-white btn btn-danger"> Ausente</a>
+                                        <a href="{{route('registrar_lista_de_chamada_atividade',['idUserAtividade' => $p->idUserAtividade,'status' => 'Ausente'])}}" class="text-white btn btn-danger"> Ausente</a>
 
                                     </div>
                                 </td>

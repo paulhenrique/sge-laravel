@@ -3,7 +3,7 @@
 
 
   <?php
-    //dd($atividades);
+
     if(isset($atividades)){
       $action = route('editar_atividade');
     }else{
@@ -15,7 +15,7 @@
   <div class="form-box col-md-6 col-sm-12 m-auto">
                   <div class="box-body row p-0">
                       <div class="col-md-12 p-5">
-                      <h1 class="text-center">Cadastrar atividade</h1>
+                      <h1 class="text-center">Cadastrar Atividade</h1>
     <div class="col-12 m-auto">
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -49,6 +49,11 @@
           <div class="form-group">
             <label for="Tipo">Tipo de Atividade: </label>
             <input type="Text" class="form-control" id="Tipo" name="tipo" value="{{ isset($atividades) ? $atividades->tipo : '' }}">
+          </div>
+
+          <div class="form-group input_fields_wrap">
+              <label for="Descricao">Descrição da atividade: </label>
+              <textarea class="form-control" id="Descricao" name="Descricao"> {{ isset($atividades) ? $atividades->Descricao : '' }}</textarea>
           </div>
 
           <div class="row form-group">

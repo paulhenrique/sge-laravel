@@ -40,10 +40,14 @@ Route::post('/evento/galeria/image/create','GaleriaController@addGaleria')->name
 Route::get('/evento/galeria/imagem/delete', 'GaleriaController@delete')->name('delete_image')->middleware('can:isAdmin');
 
 //Atividades
-Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade')->middleware('can:isAdmin');
-Route::get('/atividade/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade')->middleware('can:isAdmin');
+Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade');
+Route::get('/atividade/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade');
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade')->middleware('can:isAdmin');
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade")->middleware('can:isAdmin');
+
+//Atividades em Analise
+Route::get('/admin/atividade-em-analise/list', 'AtividadeController@listar_atividades_em_analise')->name('listar_atividades_em_analise')->middleware('can:isAdmin');
+Route::get('/atividade/alterar-condicao', 'AtividadeController@alterar_condicao')->name('alterar_condicao')->middleware('can:isAdmin');
 
 //inscricao Evento
 Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user_evento')->middleware('auth');
