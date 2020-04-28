@@ -1,7 +1,6 @@
   @extends('admin.dashboard')
 
 
-
   <?php
 
     if(isset($atividades)){
@@ -41,7 +40,15 @@
             <label for="Nome">Evento: </label>
             <select class="form-control" name="idEvento">
                 @foreach($evento as $ev)
-                    <option value="{{ isset($ev) ? $ev->idEvento : '' }}">{{$ev->Nome}}</option>
+                    @can("isAdmin")
+                        <option value="{{ isset($ev) ? $ev->idEvento : '' }}">{{$ev->Nome}}</option>
+                    @endcan
+
+                    @cannot("isAdmin")
+                      @if($ev->CondicaoCadastroDeAtividade == "Sim")
+                        <option value="{{ isset($ev) ? $ev->idEvento : '' }}">{{$ev->Nome}}</option>
+                      @endif
+                    @endcannot
                 @endforeach
             </select>
         </div>

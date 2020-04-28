@@ -96,9 +96,24 @@
         </div>
         </div>
 
-
+        <div class="form-group">
+          <div class="">
+            <label for="hrFim">Os participantes poderão ministrar atividades?</label>
+          </div>
+          <div class="m-auto">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CondicaoCadastroDeAtividade" id="inlineRadio1" value="{{ isset($eventos) ? $eventos->CondicaoCadastroDeAtividade : "Sim" }}">
+              <label class="form-check-label" for="inlineRadio1">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="CondicaoCadastroDeAtividade" id="inlineRadio2" value="{{ isset($eventos) ? $eventos->CondicaoCadastroDeAtividade : "Nao" }}">
+              <label class="form-check-label" for="inlineRadio2">Não</label>
+            </div>
+          </div>
+        </div>
 
         </div>
+        
 
         <div class="form-group welcome-left d-flex align-items-center justify-content-center align-self-center">
           <label for="logo"><p class="text-center"><img class="icon" src="{{ asset('images/upload-icon.svg') }}"></p></label>

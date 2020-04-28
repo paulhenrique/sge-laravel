@@ -77,14 +77,16 @@ background-image-solid
 							@endforeach
 						</ul>
 					</div>
-					@can("isParticipante")
-					<div classe="container">
-						<p class="lead mx-auto col-8 text-justify">
-							<strong> Esse evento está aberto para receber atividades da comunidade, caso deseje participar, basta clicar no botão abaixo, preencher o formulário e aguardar a resposta em seu email.</strong>
-						</p>
-						<p><a class="btn btn-success " href="{{ route('showFormAtividade',['idEvento' => $eventos->idEvento]) }}" role="button">Enviar Proposta!</a></p>
-					</div>
-					@endcan
+					@if($eventos->CondicaoCadastroDeAtividade == "Sim")
+						@can("isParticipante")
+						<div classe="container">
+							<p class="lead mx-auto col-8 text-justify">
+								<strong> Esse evento está aberto para receber atividades da comunidade, caso deseje participar, basta clicar no botão abaixo, preencher o formulário e aguardar a resposta em seu email.</strong>
+							</p>
+							<p><a class="btn btn-success " href="{{ route('showFormAtividade',['idEvento' => $eventos->idEvento]) }}" role="button">Enviar Proposta!</a></p>
+						</div>
+						@endcan
+					@endif
 				</div>
 			</div>
 		</div>

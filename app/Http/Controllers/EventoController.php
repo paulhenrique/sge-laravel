@@ -61,7 +61,7 @@ class EventoController extends Controller
 
     public function create(EventRequest $data){
         $validated = $data->validated();
-
+        //dd($data);
         if( (strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
         && (strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim']) ) ){
             if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
@@ -74,6 +74,7 @@ class EventoController extends Controller
 
                 EventoModel::create([
                     'CondicaoEvento' => 'Ativado',
+                    'CondicaoCadastroDeAtividade'=> $data['CondicaoCadastroDeAtividade'],
                     'Nome' => $data['Nome'],
                     'Apelido' => $data['Apelido'],
                     'DataInicio'   => $data['DataInicio'],
@@ -130,6 +131,7 @@ class EventoController extends Controller
             $upload = $data->logo->store('logo_evento');
 
             $eventos = EventoModel::findOrFail($data['idEvento']);
+            $eventos->CondicaoCadastroDeAtividade = $data['CondicaoCadastroDeAtividade'];
             $eventos->Nome = $data['Nome'];
             $eventos->Apelido = $data['Apelido'];
             $eventos->DataInicio = $data['DataInicio'];

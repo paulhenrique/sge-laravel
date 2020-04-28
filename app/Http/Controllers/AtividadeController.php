@@ -25,15 +25,19 @@ class AtividadeController extends Controller
     }
 
     public function create(AtividadeRequest $data){
-        if (auth()->user()->tipoUser == "admin") {
-            $condicao = "Ativado";
-        }else{
-            $condicao = "Analise";
-        }
         
         $validated = $data->validated();
 
         $data_evento = EventoModel::find($data['idEvento']);
+
+        if (auth()->user()->tipoUser == "admin") {
+            $condicao = "Ativado";
+        }elseif($data_evento->CondicaoCadastroDeAtividade == "Sim"){
+            $condicao = "Analise";
+        }else{
+            return redirect()->back()->withErrors('Este evento não está liberado para receber atividades ministradas pelo público.');
+        }
+              
 
         if(strtotime($data['DataInicio']) >= strtotime($data_evento->DataInicio)
             && strtotime($data['DataTermino']) <= strtotime($data_evento->DataFim)){
