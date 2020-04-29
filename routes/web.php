@@ -40,7 +40,7 @@ Route::post('/evento/galeria/image/create','GaleriaController@addGaleria')->name
 Route::get('/evento/galeria/imagem/delete', 'GaleriaController@delete')->name('delete_image')->middleware('can:isAdmin');
 
 //Atividades
-Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade');
+Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade')->middleware('auth');
 Route::get('/atividade/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade');
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade')->middleware('can:isAdmin');
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade")->middleware('can:isAdmin');

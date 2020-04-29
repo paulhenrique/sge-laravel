@@ -11,6 +11,7 @@
   <!-- Page Content -->
 
           @yield('container-dashboard')
+          @can("isAdmin")
           {{-- <div class="float"><a onclick="window.history.back()" class="float"><i class="fa fa-plus my-float"></i></a>
           </div> --}}
           <div class="fab-container">
@@ -55,6 +56,7 @@
                     </li>
                 </ul>
   </div>
+  @endcan
 </div>
 @endsection
 @section('footer')
