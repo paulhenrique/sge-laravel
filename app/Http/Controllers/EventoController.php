@@ -22,30 +22,34 @@ class EventoController extends Controller
         $eventos = EventoModel::where('Apelido', '=', $Apelido)->get()->first();
         $atividades = AtividadeModel::where('idEvento','=',$eventos->idEvento)->orderBy('DataInicio')->get();
         $images = ImagesEvento::where('idEvento', $eventos["idEvento"])->get();
-
-        if (auth()->user()){
-            $atividades = DB::table('atividade')->where('idEvento', $eventos->idEvento)->get();
-            foreach ($atividades as $atividade) {
-                $atividade_inscrito = UserAtividadeModel::where('idUser', '=', auth()->user()->id)->where('idAtividade', '=', $atividade->idAtividade)->count();
-                if($atividade_inscrito !=0){
-                    $atividade->inscrito = true;
-                }else{
-                    $atividade->inscrito = false;
+        $url = $eventos['Site'];
+        if($url <> "vazio"){  
+            return redirect($url);
+        }else{
+            if (auth()->user()){
+                $atividades = DB::table('atividade')->where('idEvento', $eventos->idEvento)->get();
+                foreach ($atividades as $atividade) {
+                    $atividade_inscrito = UserAtividadeModel::where('idUser', '=', auth()->user()->id)->where('idAtividade', '=', $atividade->idAtividade)->count();
+                    if($atividade_inscrito !=0){
+                        $atividade->inscrito = true;
+                    }else{
+                        $atividade->inscrito = false;
+                    }
                 }
+
+                $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $eventos->idEvento)->count();
+                if($evento_inscrito !=0){
+                    $eventos->inscrito = true;
+                }else{
+                    $eventos->inscrito = false;
+                }
+
+                return view("Evento.show", compact('eventos','atividades','images'));
             }
 
-            $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $eventos->idEvento)->count();
-            if($evento_inscrito !=0){
-                $eventos->inscrito = true;
-            }else{
-                $eventos->inscrito = false;
-            }
 
-            return view("Evento.show", compact('eventos','atividades','images'));
+            return view("Evento.show", compact(['eventos','atividades','images']));
         }
-
-
-        return view("Evento.show", compact(['eventos','atividades','images']));
     }
 
     public function ShowForm(Request $data) {
@@ -60,6 +64,9 @@ class EventoController extends Controller
     }
 
     public function create(EventRequest $data){
+        if(empty($data['Site'])){
+            $data['Site'] = "vazio";
+        }
         $validated = $data->validated();
         //dd($data);
         if( (strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
@@ -87,6 +94,7 @@ class EventoController extends Controller
                     'HorarioFim'   => $data['HorarioFim'],
                     'Local'   => $data['Local'],
                     'Logo'   => $upload,
+                    'Site'   => $data['Site'],
                     ]);
                 return redirect()->route('list_evento_admin');
             }

@@ -29,6 +29,7 @@ class CreateEventoTable extends Migration
             $table->time("HorarioFim");
             $table->string("Local");
             $table->binary("Logo");
+            $table->string("Site");
         });
     }
 
