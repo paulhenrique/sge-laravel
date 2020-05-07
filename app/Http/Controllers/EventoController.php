@@ -23,6 +23,7 @@ class EventoController extends Controller
         $atividades = AtividadeModel::where('idEvento','=',$eventos->idEvento)->orderBy('DataInicio')->get();
         $images = ImagesEvento::where('idEvento', $eventos["idEvento"])->get();
         $url = $eventos['Site'];
+
         if($url <> "vazio"){  
             return redirect($url);
         }else{
@@ -67,7 +68,9 @@ class EventoController extends Controller
         if(empty($data['Site'])){
             $data['Site'] = "vazio";
         }
+
         $validated = $data->validated();
+        
         //dd($data);
         if( (strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
         && (strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim']) ) ){
@@ -130,8 +133,9 @@ class EventoController extends Controller
 
     }
 
-    public function update(Request $data)
+    public function update(EventRequest $data)
     {
+        $validated = $data->validated();
         if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
             $name = uniqid(date('HisYmd'));
             $extension = $data->logo->extension();
@@ -152,6 +156,7 @@ class EventoController extends Controller
             $eventos->HorarioFim = $data['HorarioFim'];
             $eventos->Local = $data['Local'];
             $eventos->Logo = $upload;
+            $eventos->Site = $data['Site'];
             $eventos->save();
 
             return redirect()->route('list_evento_admin');
