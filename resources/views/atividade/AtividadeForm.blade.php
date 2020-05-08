@@ -66,7 +66,7 @@
           <div class="row form-group">
             <div class="col-6">
             <label for="dtInicio">Data Inicio: </label>
-            <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($atividades) ? $atividades->DataInicio : '' }}">
+            <input type="date" class="form-control" id="dtInicio" name="DataInicio" value="{{ isset($atividades) ? date("d/m/Y", strtotime($atividades->DataInicio)) : '' }}">
           </div>
           <div class="col-6">
             <label for="dtFim">Data Fim: </label>

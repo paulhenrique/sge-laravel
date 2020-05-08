@@ -39,7 +39,7 @@ background-image-solid
 				    <h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></h2>
 				@endif
 				<p class="lead text-center">
-					<strong>Inscrições até: {{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>
+					<strong>Inscrições até: {{ date("d/m/Y", strtotime($eventos->DataLimiteInscricao)) }}</strong>
 				</p>
 				<p class="lead mx-auto col-8 text-justify">
 					O evento <strong>{{$eventos->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($eventos->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>, no local: <strong>{{$eventos->Local}}</strong>, às: <strong> {{$eventos->HorarioInicio}}</strong> até <strong> {{$eventos->HorarioFim}}</strong>, organizado por: <strong>{{$eventos->Responsavel}}</strong>.
