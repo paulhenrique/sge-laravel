@@ -62,9 +62,9 @@ body.background-image {
     color: white;
 }
 
-input[type="file"] {
+/* input[type="file"] {
     display: none;
-}
+} */
 
 .border-white {
     border-style: solid;
@@ -255,10 +255,6 @@ body.blue {
 
 .font-white {
     color: white;
-}
-
-input[type="file"] {
-    display: none;
 }
 
 .text-nav {
@@ -1027,9 +1023,6 @@ HEAD .sidebar {
     color: white;
 }
 
-input[type="file"] {
-    display: none;
-}
 
 .text-nav {
     font-weight: bold;

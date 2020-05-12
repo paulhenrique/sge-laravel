@@ -58,7 +58,7 @@ class AtividadeController extends Controller
             if (auth()->user()->tipoUser == "admin") {
                 return redirect()->route('list_atividade_admin',['idEvento' => $data['idEvento']]);
             }else{
-                return redirect()->route('listEvent')->withErrors('Sua solicitação para palestra já foi realizada, fique atento ao seu email!!');
+                return redirect()->route('listEvent')->with('success','Sua solicitação para palestra já foi realizada, fique atento ao seu email!!');
             }
             
         }else{
