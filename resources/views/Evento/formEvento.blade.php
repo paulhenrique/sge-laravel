@@ -118,7 +118,10 @@
         <div class="form-group welcome-left d-flex align-items-center justify-content-center align-self-center">
           <label for="logo"><p class="text-center"><img class="icon" src="{{ asset('images/upload-icon.svg') }}"></p></label>
             <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
+            
         </div>
+
+        
         <div class="form-group">
           <label for="Site">Endereço Online (OPCIONAL): </label>
           <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
