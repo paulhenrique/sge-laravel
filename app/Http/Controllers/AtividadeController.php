@@ -25,7 +25,7 @@ class AtividadeController extends Controller
     }
 
     public function create(AtividadeRequest $data){
-        
+
         $validated = $data->validated();
 
         $data_evento = EventoModel::find($data['idEvento']);
@@ -37,7 +37,12 @@ class AtividadeController extends Controller
         }else{
             return redirect()->back()->withErrors('Este evento não está liberado para receber atividades ministradas pelo público.');
         }
-              
+
+        $data['DataInicio'] = strtr($data['DataInicio'], '/', '-');
+        $data['DataTermino'] = strtr($data['DataTermino'], '/', '-');
+        $data['DataInicio'] = date('Y-m-d', strtotime($data['DataInicio']));
+        $data['DataTermino'] = date('Y-m-d', strtotime($data['DataTermino']));
+
 
         if(strtotime($data['DataInicio']) >= strtotime($data_evento->DataInicio)
             && strtotime($data['DataTermino']) <= strtotime($data_evento->DataFim)){
@@ -60,7 +65,7 @@ class AtividadeController extends Controller
             }else{
                 return redirect()->route('listEvent')->with('success','Sua solicitação para palestra já foi realizada, fique atento ao seu email!!');
             }
-            
+
         }else{
             return redirect()->route('showFormAtividade',['idEvento' => $data['idEvento']])->withErrors('As datas em que ocorrerá atividade não está dentro dos dias que o evento ocorrerá!');
         }
