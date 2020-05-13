@@ -11,6 +11,7 @@ use App\userEventoModel;
 use App\UserAtividadeModel;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EventRequest;
+use DateTime;
 use Gate;
 
 class EventoController extends Controller
@@ -24,7 +25,7 @@ class EventoController extends Controller
         $images = ImagesEvento::where('idEvento', $eventos["idEvento"])->get();
         $url = $eventos['Site'];
 
-        if($url <> "vazio"){  
+        if($url <> "vazio"){
             return redirect($url);
         }else{
             if (auth()->user()){
@@ -65,15 +66,26 @@ class EventoController extends Controller
     }
 
     public function create(EventRequest $data){
+
+        $data['DataInicio'] = strtr($data['DataInicio'], '/', '-');
+        $data['DataFim'] = strtr($data['DataFim'], '/', '-');
+        $data['DataLimiteInscricao'] = strtr($data['DataLimiteInscricao'], '/', '-');
+        $data['DataFim'] = date('Y-m-d', strtotime($data['DataFim']));
+        $data['DataInicio'] = date('Y-m-d', strtotime($data['DataInicio']));
+        $data['DataLimiteInscricao'] = date('Y-m-d', strtotime($data['DataLimiteInscricao']));
+
+        // echo $data['DataInicio'];
+        // echo $data['DataLimiteInscricao'];
+        // echo $data['DataFim'];
+        // dd($data);
         if(empty($data['Site'])){
             $data['Site'] = "vazio";
         }
 
         $validated = $data->validated();
-        
-        //dd($data);
-        if( (strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
-        && (strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim']) ) ){
+
+        if  ((strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
+        && (strtotime($data['DataLimiteInscricao']) <= strtotime($data['DataFim']))){
             if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
                 $name = uniqid(date('HisYmd'));
                 $extension = $data->logo->extension();
@@ -135,6 +147,13 @@ class EventoController extends Controller
 
     public function update(EventRequest $data)
     {
+        $data['DataInicio'] = strtr($data['DataInicio'], '/', '-');
+        $data['DataFim'] = strtr($data['DataFim'], '/', '-');
+        $data['DataLimiteInscricao'] = strtr($data['DataLimiteInscricao'], '/', '-');
+        $data['DataFim'] = date('Y-m-d', strtotime($data['DataFim']));
+        $data['DataInicio'] = date('Y-m-d', strtotime($data['DataInicio']));
+        $data['DataLimiteInscricao'] = date('Y-m-d', strtotime($data['DataLimiteInscricao']));
+
         $validated = $data->validated();
         if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
             $name = uniqid(date('HisYmd'));
