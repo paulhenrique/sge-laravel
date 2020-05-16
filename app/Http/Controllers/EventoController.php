@@ -9,6 +9,7 @@ use App\AtividadeModel;
 use App\ImagesEvento;
 use App\userEventoModel;
 use App\UserAtividadeModel;
+use App\TemplateModel;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EventRequest;
 use DateTime;
@@ -21,8 +22,11 @@ class EventoController extends Controller
 
         //pegando evento pelo apelido
         $eventos = EventoModel::where('Apelido', '=', $Apelido)->get()->first();
+
         $atividades = AtividadeModel::where('idEvento','=',$eventos->idEvento)->orderBy('DataInicio')->get();
         $images = ImagesEvento::where('idEvento', $eventos["idEvento"])->get();
+        //$template = TemplateModel::where('idTemplate', '=', $eventos['idTemplate'])->get();
+        $template = "show";
         $url = $eventos['Site'];
 
         if($url <> "vazio"){
@@ -46,19 +50,21 @@ class EventoController extends Controller
                     $eventos->inscrito = false;
                 }
 
-                return view("Evento.show", compact('eventos','atividades','images'));
+                return view("Evento.".$template, compact('eventos','atividades','images'));
             }
 
 
-            return view("Evento.show", compact(['eventos','atividades','images']));
+            return view("Evento.".$template, compact(['eventos','atividades','images']));
         }
     }
 
     public function ShowForm(Request $data) {
         if(isset($data->idEvento)){
+            //$template = DB::table('template_evento')->get();
             $eventos = DB::table('evento')->where('idEvento', $data->idEvento)->first();
             return view('Evento.formEvento',compact('eventos'));
         }else{
+            //$template = DB::table('template_evento')->get();
             return view('Evento.formEvento');
         }
 
@@ -66,6 +72,7 @@ class EventoController extends Controller
     }
 
     public function create(EventRequest $data){
+        
 
         $data['DataInicio'] = strtr($data['DataInicio'], '/', '-');
         $data['DataFim'] = strtr($data['DataFim'], '/', '-');
@@ -110,6 +117,7 @@ class EventoController extends Controller
                     'Local'   => $data['Local'],
                     'Logo'   => $upload,
                     'Site'   => $data['Site'],
+                    'idTemplate' => '1',//$data['idTemplate'],
                     ]);
                 return redirect()->route('list_evento_admin');
             }
@@ -176,6 +184,7 @@ class EventoController extends Controller
             $eventos->Local = $data['Local'];
             $eventos->Logo = $upload;
             $eventos->Site = $data['Site'];
+            //$eventos->idTemplates = $data['idTemplates'];
             $eventos->save();
 
             return redirect()->route('list_evento_admin');

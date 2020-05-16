@@ -15,6 +15,7 @@ class CreateEventoTable extends Migration
     {
         Schema::create('evento', function (Blueprint $table) {
             $table->bigIncrements('idEvento');
+            $table->bigInteger("idTemplate")->unsigned();
             $table->string("CondicaoEvento");
             $table->string("CondicaoCadastroDeAtividade");
             $table->string("Nome");
@@ -30,6 +31,7 @@ class CreateEventoTable extends Migration
             $table->string("Local");
             $table->binary("Logo");
             $table->string("Site")->nullable();
+            $table->foreign('idTemplate')->references('idTemplate')->on('template_evento');
         });
     }
 
