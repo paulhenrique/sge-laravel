@@ -1,13 +1,13 @@
   @extends('admin.dashboard')
 
 
-  <?php
+    <?php
 
-    if (isset($atividades)) {
-        $action = route('editar_atividade');
-    } else {
-        $action = route('create_atividade');
-    }
+        if (isset($atividades)) {
+            $action = route('editar_atividade');
+        } else {
+            $action = route('create_atividade');
+        }
     ?>
   @section('container-dashboard')
   <section id="services-form" class="section-bg">

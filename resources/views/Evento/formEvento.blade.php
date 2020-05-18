@@ -124,6 +124,7 @@ if (isset($eventos)) {
 
                 </div>
 
+                <input type="hidden" name="idTemplate" value="{{ isset($eventos) ? $eventos->idTemplate : '' }}">
 
                 <div class="form-group">
                     <label for="Site">Endereço Online (OPCIONAL): </label>
@@ -135,7 +136,6 @@ if (isset($eventos)) {
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

@@ -75,3 +75,8 @@ Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("
 //PDF
 Route::get('/pdf/certificado','PdfController@GeneratePDF')->name("GerarPDF");
 
+//Template
+Route::post('/template/create', 'templateController@create')->name('create_template')->middleware('can:isAdmin');
+Route::get('/template/showForm', 'templateController@showForm')->name('form_template')->middleware('can:isAdmin');
+Route::post('/template/update', 'templateController@update')->name('update_template')->middleware('can:isAdmin');
+Route::post('/template/desativar', 'templateController@desativar')->name('desativar_template')->middleware('can:isAdmin');

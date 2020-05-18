@@ -21,9 +21,15 @@
                 <ul class="fab-options m-0"> 
                   <li>
                     <div class="fab-icon-holder">
+                        <a class="links_button_admin" href="{{ route('form_template') }}"><i class="fas fa-clipboard-list"></i> </a>
+                    </div>
+                    <span class="fab-label"><a class="links_button_admin" href="{{ route('form_template') }}">Cadastrar Template</a></span>
+                  </li>
+                  <li>
+                    <div class="fab-icon-holder">
                         <a class="links_button_admin" href="{{ route('list_evento_admin') }}"><i class="fas fa-clipboard-list"></i> </a>
                     </div>
-                    <span class="fab-label"><a class="links_button_admin" href="{{ route('list_evento_admin') }}">Listar eventos</a></span>
+                    <span class="fab-label"><a class="links_button_admin" href="{{ route('list_evento_admin') }}">Listar Eventos</a></span>
                   </li>
                   <li>
                     <div class="fab-icon-holder">
