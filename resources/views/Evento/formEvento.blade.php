@@ -3,6 +3,7 @@
 
 
 <?php
+//dd($templates);
 if (isset($eventos)) {
     $action = route('editar_evento');
     $formulario_title = 'Editar Evento';
@@ -70,12 +71,12 @@ if (isset($eventos)) {
                         {{-- <button type="button" class="btn add_field_button" id="addScnt">+ Item</button> --}}
 
                         <div class="row form-group">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-sm-12">
                                 <label for="dtInicio">Data Inicio: </label>
                                 <input type="text" data-mask="00/00/0000" class="form-control" id="dtInicio" name="DataInicio" placeholder="Insira a data de início do evento" value="{{ isset($eventos) ? date('d/m/Y', strtotime($eventos->DataInicio)) : "" }}">
 
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-sm-12">
                                 <label for="dtFim">Data Fim: </label>
                                 <input type="text" data-mask="00/00/0000" class="form-control" id="dtFim" name="DataFim" placeholder="Insira a data de encerramento do evento" value="{{ isset($eventos) ? date('d/m/Y', strtotime($eventos->DataFim)) : "" }}">
                             </div>
@@ -87,11 +88,11 @@ if (isset($eventos)) {
                         </div>
 
                         <div class="row form-group">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-sm-12">
                                 <label for="hrInicio">Horária Inicio: </label>
                                 <input type="time" class="form-control" id="hrInicio" name="HorarioInicio" placeholder="Insira o horário de início do evento" value="{{ isset($eventos) ? $eventos->HorarioInicio : "" }}">
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-sm-12">
                                 <label for="hrFim">Horário Fim: </label>
                                 <input type="time" class="form-control" id="hrFim" name="HorarioFim" placeholder="Insira o horário de encerramento do evento" value="{{ isset($eventos) ? $eventos->HorarioFim : "" }}">
                             </div>
@@ -112,9 +113,7 @@ if (isset($eventos)) {
                                 </div>
                             </div>
                         </div>
-
                 </div>
-
 
                 <div class="form-group welcome-left d-flex align-items-center justify-content-center align-self-center">
                     <label for="logo">
@@ -123,6 +122,54 @@ if (isset($eventos)) {
                     <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
 
                 </div>
+
+
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                                        @foreach ($templates as $template)
+
+
+
+                                        <a class="nav-link template_link" id="{{$template->Local_do_Arquivo}}" data-toggle="pill" href="#_{{$template->Local_do_Arquivo}}" role="tab" aria-controls="{{$template->Local_do_Arquivo}}">
+                                            {{$template->Nome}}
+                                             <!-- <input type="text" id="{{$template->Local_do_Arquivo}}" class="custom-control-input template-radio nav-link" value="{{$template->Local_do_Arquivo}}"> -->
+                                        </a>
+
+                                        @endforeach
+                                    </div>
+                                    <div class="tab-content col-10" id="v-pills-tabContent">
+                                        @foreach ($templates as $template)
+                                        <div class="tab-pane fade show " id="_{{$template->Local_do_Arquivo}}" role="tabpanel" aria-labelledby="{{$template->Local_do_Arquivo}}">
+                                            <img class="img-fluid" src="{{ url("/storage/{$template->Image_preview}") }}">
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Salvar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <input type="hidden" name="idTemplate" value="{{ isset($eventos) ? $eventos->idTemplate : '' }}">
 
@@ -139,8 +186,7 @@ if (isset($eventos)) {
 </div>
 
 
-
-{{-- <script>
+<!-- <script>
         $(function() {
             var scntDiv = $('#form_conteudo_programatico');
             var i = $('#form_conteudo_programatico div').size() + 1;
@@ -149,7 +195,25 @@ if (isset($eventos)) {
             $('#addScnt').live('click', function() {
                     $("<div class='row' id='alternativa'><div class='input-field col s12'><input id='title' type='text' name='alternativa'><label for='title'>Alternativa:</label></div></div>").appendTo(scntDiv);
                     i++;
-                    return false;
+                    return false;<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
             });
 
             $('#remScnt').live('click', function() {
@@ -161,5 +225,5 @@ if (isset($eventos)) {
             });
     });
 
-    </script> --}}
+    </script>  -->
 @endsection

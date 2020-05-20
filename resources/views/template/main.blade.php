@@ -53,10 +53,12 @@
     <main class="wrapper" id="page-content">
         @yield('content')
 
+    <div class="push"></div>
     </main>
 
     @yield('footer')
 
     <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/getvalue.js')}}"> </script>
 </body>
 </html>

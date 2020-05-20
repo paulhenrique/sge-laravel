@@ -666,9 +666,6 @@ hr {
     text-align: center;
 }
 
-#services-evento a {
-    text-decoration: none;
-}
 
 #servu #services .box:hover {
     -webkit-transform: scale(1.1);
@@ -1238,9 +1235,7 @@ hr {
     text-align: center;
 }
 
-#services-evento a {
-    text-decoration: none;
-}
+
 
 #servu #services .box:hover {
     -webkit-transform: scale(1.1);
@@ -1455,9 +1450,7 @@ hr {
     text-align: center;
 }
 
-#services-evento a {
-    text-decoration: none;
-}
+
 
 #servu #services .box:hover {
     -webkit-transform: scale(1.1);
@@ -1749,4 +1742,15 @@ figcaption:hover {
 
 .certificado {
     font-style: italic;
+}
+
+.template_link:hover {
+   color: black;
+}
+
+
+.template-radio {
+    background-color:#f0f;
+    color: #f0f;
+    display:block;
 }

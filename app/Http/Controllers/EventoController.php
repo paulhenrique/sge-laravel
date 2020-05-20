@@ -59,21 +59,22 @@ class EventoController extends Controller
     }
 
     public function ShowForm(Request $data) {
+
         if(isset($data->idEvento)){
-            //$template = DB::table('template_evento')->get();
+            $templates = DB::table('template_evento')->get();
             $eventos = DB::table('evento')->where('idEvento', $data->idEvento)->first();
-            return view('Evento.formEvento',compact('eventos'));
+            return view('Evento.formEvento',compact('eventos','templates'));
         }else{
-            //$template = DB::table('template_evento')->get();
-            return view('Evento.formEvento');
+            $templates = DB::table('template_evento')->get();
+            return view('Evento.formEvento', compact('templates'));
         }
 
 
     }
 
     public function create(EventRequest $data){
-        
 
+        dd($data);
         $data['DataInicio'] = strtr($data['DataInicio'], '/', '-');
         $data['DataFim'] = strtr($data['DataFim'], '/', '-');
         $data['DataLimiteInscricao'] = strtr($data['DataLimiteInscricao'], '/', '-');
@@ -81,10 +82,6 @@ class EventoController extends Controller
         $data['DataInicio'] = date('Y-m-d', strtotime($data['DataInicio']));
         $data['DataLimiteInscricao'] = date('Y-m-d', strtotime($data['DataLimiteInscricao']));
 
-        // echo $data['DataInicio'];
-        // echo $data['DataLimiteInscricao'];
-        // echo $data['DataFim'];
-        // dd($data);
         if(empty($data['Site'])){
             $data['Site'] = "vazio";
         }
@@ -96,7 +93,7 @@ class EventoController extends Controller
             if ($data->hasFile('logo') && $data->file('logo')->isValid()) {
                 $name = uniqid(date('HisYmd'));
                 $extension = $data->logo->extension();
-                $namefile = "{$name}.{$extension}";
+                $namefile    = "{$name}.{$extension}";
                 $upload = $data->logo->store('logo_evento');
                 //$visibility = Storage::getVisibility($upload);
                 //Storage::setVisibility($upload,'public');
