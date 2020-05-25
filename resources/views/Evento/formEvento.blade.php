@@ -122,60 +122,56 @@ if (isset($eventos)) {
                     <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
 
                 </div>
-
-
-
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Templates</button>
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Templates Disponíveis</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <div class="nav flex-column nav-pills col-lg-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
                                         @foreach ($templates as $template)
-
-
-
                                         <a class="nav-link template_link" id="{{$template->Local_do_Arquivo}}" data-toggle="pill" href="#_{{$template->Local_do_Arquivo}}" role="tab" aria-controls="{{$template->Local_do_Arquivo}}">
                                             {{$template->Nome}}
-                                             <!-- <input type="text" id="{{$template->Local_do_Arquivo}}" class="custom-control-input template-radio nav-link" value="{{$template->Local_do_Arquivo}}"> -->
                                         </a>
-
                                         @endforeach
                                     </div>
-                                    <div class="tab-content col-10" id="v-pills-tabContent">
+                                    <div class="tab-content col-lg-10" id="v-pills-tabContent">
                                         @foreach ($templates as $template)
-                                        <div class="tab-pane fade show " id="_{{$template->Local_do_Arquivo}}" role="tabpanel" aria-labelledby="{{$template->Local_do_Arquivo}}">
-                                            <img class="img-fluid" src="{{ url("/storage/{$template->Image_preview}") }}">
+                                        <div class="tab-pane fade show" id="_{{$template->Local_do_Arquivo}}" role="tabpanel" aria-labelledby="{{$template->Local_do_Arquivo}}">
+                                            <img class="img-fluid pl-5" src="{{ url("/storage/{$template->Image_preview}") }}">
                                         </div>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Salvar</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Sair</button>
 
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <input type="hidden" name="idTemplate" value="{{ isset($eventos) ? $eventos->idTemplate : '' }}">
+                <!-- <input type="hidden" name="idTemplate" value="{{ isset($eventos) ? $eventos->idTemplate : '' }}"> -->
 
                 <div class="form-group">
-                    <label for="Site">Endereço Online (OPCIONAL): </label>
-                    <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
+                    <label for="template">Escolha seu template: </label>
+                    <select class="form-control" name="idTemplate" id="template">
+                        @foreach($templates as $template)
+                        <option value="{{ isset($template) ? $template->idTemplate : '' }}">{{$template->Nome}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                        <div class="form-group">
+                        <label for="Site">Endereço Online (OPCIONAL): </label>
+                        <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
                 </div>
 
                 <button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>

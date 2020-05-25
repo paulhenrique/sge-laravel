@@ -34,6 +34,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/meetape.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
     <link  href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
@@ -59,6 +60,6 @@
     @yield('footer')
 
     <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/getvalue.js')}}"> </script>
+    <script src="{{ asset('js/contagem.js')}}"> </script>
 </body>
 </html>
