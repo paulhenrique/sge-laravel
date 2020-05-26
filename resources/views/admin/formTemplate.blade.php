@@ -2,7 +2,7 @@
 
 
 <?php
-    
+    //dd($template);
   if (isset($template)) {
       $action = route('update_template');
   } else {
