@@ -10,9 +10,14 @@ use App\Http\Controllers\Controller;
 
 class templateController extends Controller
 {
+    public function listTemplate(Request $data){
+        $templates = DB::table('template_evento')->get();
+        return view('Admin.listTemplates',compact('templates'));
+    }
+
     public function showForm(Request $data){
         if(isset($data->idTemplate)){
-            $template = DB::table('template_evento')->where('idTemplate', $data->idTemplate)->get();
+            $template = DB::table('template_evento')->where('idTemplate', $data->idTemplate)->first();
             return view('Admin.formTemplate',compact('template'));
         }else{
             return view('Admin.formTemplate');
@@ -38,25 +43,23 @@ class templateController extends Controller
                 'Local_do_Arquivo'   => $data['Local_do_Arquivo'],
             ]);
         }
-        return redirect()->route('list_evento_admin');
+        return redirect()->route('list_template');
     }
 
     public function update(Request $data)
     {
-        $template = AtividadeModel::findOrFail($data['idAtividade']);
+        $template = TemplateModel::findOrFail($data['idTemplate']);
         $template->Nome = $data['Nome'];
         $template->Image_preview = $data['Image_preview'];
         $template->Local_do_Arquivo = $data['Local_do_Arquivo'];
         $template->save();
 
-        return redirect()->route('list_evento_admin');
+        return redirect()->route('list_template');
     }
 
-    public function delete (Request $request) {
-        $atividade = AtividadeModel::findOrFail($request['idAtividade']);
-            $atividade->CondicaoAtividade = 'Desativado';
-            $atividade->save();
-
-            return redirect()->route('list_evento_admin');
+    public function delete(Request $data) {
+        $template = TemplateModel::findOrFail($data['idTemplate']);
+        $template->delete();
+        return redirect()->route('list_template');
     }
 }
