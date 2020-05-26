@@ -1,6 +1,5 @@
-.hero {
-    margin-top: 2%;
-    max-height: 500px;
+.bg-purple {
+     background: #3f3d56;
 }
 
 .hero-text {
@@ -17,4 +16,10 @@
     font-size: 1.5rem;
 }
 
+.event-adress iframe {
+    width: 100%;
+}
 
+.img-hero {
+    max-height: 300px;
+}
