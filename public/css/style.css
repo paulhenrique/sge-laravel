@@ -1680,11 +1680,14 @@ figcaption:hover {
     right: -20px;
 }
 
-.fab:hover+.fab-options,
+
+
+/* .fab:hover+.fab-options,
 .fab-options:hover {
     opacity: 1;
     transition: .6s;
-}
+} */
+
 
 .fab-options li {
     display: flex;

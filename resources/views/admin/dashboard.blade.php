@@ -5,6 +5,29 @@
 @endsection
 
 @section('content')
+<script>
+    window.onload = () => {
+        const fabs = document.getElementById("fab");
+        const faboptions = document.querySelectorAll('.fab-options');
+        fabs.addEventListener('click', () => {
+            fabs.classList.add('clicado');
+
+            faboptions.forEach((li, index) => {
+                li.style.display = "block";
+                li.style.opacity = "0.8";
+                li.style.transition = ".6s";
+
+            });
+        });
+        fabs.addEventListener('click', (fabs) => {
+            if (fabs.srcElement.classList.contains('clicado') == true) {
+                faboptions.forEach((li, index) => {
+                    li.style.display = "none";
+                });
+            }
+        })
+    }
+</script>
 <div class="row container-fluid">
     @include('components.sidebar')
     <div class="col-md-12 col-lg-12 mt-2">
@@ -12,11 +35,10 @@
 
         @yield('container-dashboard')
         @can("isAdmin")
-        {{-- <div class="float"><a onclick="window.history.back()" class="float"><i class="fa fa-plus my-float"></i></a>
-          </div> --}}
+
         <div class="fab-container">
-            <div class="fab fab-icon-holder">
-                <img class="m-3" src="{{ asset('images/logo_png_branco.png') }}" width="30" height="30" alt="logo_branco">
+            <div id="fab" class="fab fab-icon-holder">
+                <img id="fab-image" class="m-3 fab-image" src="{{ asset('images/logo_png_branco.png') }}" width="30" height="30" alt="logo_branco">
             </div>
             <ul class="fab-options m-0">
                 <li>

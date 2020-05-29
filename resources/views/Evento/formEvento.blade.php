@@ -122,7 +122,7 @@ if (isset($eventos)) {
                     <input type="file" class="form-control" id="logo" name="logo" value="{{ isset($eventos) ? $eventos->Logo : "" }}">
 
                 </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Templates</button>
+
 
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -169,9 +169,10 @@ if (isset($eventos)) {
                         @endforeach
                     </select>
                 </div>
-                        <div class="form-group">
-                        <label for="Site">Endereço Online (OPCIONAL): </label>
-                        <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
+                <button type="button" class="btn btn-primary mb-1 col-12" data-toggle="modal" data-target=".bd-example-modal-lg">Templates Disponíveis</button>
+                <div class="form-group">
+                    <label for="Site">Endereço Online (OPCIONAL): </label>
+                    <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
                 </div>
 
                 <button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>
