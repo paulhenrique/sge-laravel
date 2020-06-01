@@ -62,9 +62,9 @@ body.background-image {
     color: white;
 }
 
-/* input[type="file"] {
-    display: none;
-} */
+html, body {
+    overflow-x: hidden;
+}
 
 .border-white {
     border-style: solid;
@@ -1673,6 +1673,7 @@ figcaption:hover {
 }
 
 .fab-options {
+    display:none;
     list-style-type: none;
     position: absolute;
     bottom: 70px;
