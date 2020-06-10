@@ -24,3 +24,21 @@
 .img-hero {
     max-height: 300px;
 }
+
+.img-local {
+    max-height: 450px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .img-local {
+        max-height: 250px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.height-menu {
+    min-height: 500px;
+}

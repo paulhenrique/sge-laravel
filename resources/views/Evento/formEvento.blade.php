@@ -169,9 +169,13 @@ if (isset($eventos)) {
                         @endforeach
                     </select>
                 </div>
+
                 <button type="button" class="btn btn-primary mb-1 col-12" data-toggle="modal" data-target=".bd-example-modal-lg">Templates Disponíveis</button>
                 <div class="form-group">
-                    <label for="Site">Endereço Online (OPCIONAL): </label>
+                    <label for="Site" class="help">Endereço Online (OPCIONAL): </label>
+                        <a data-toggle="tooltip" class="template_link d-flex justify-content-end help-icon" title="Caro, usuário. Os desenvolvedores solicitam que para responder o campo abaixo, necessita-se do https:// antes da url.">
+                            <img src="{{asset ('images/help.svg')}}" class="" height="18" width="18">
+                        </a>
                     <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
                 </div>
 

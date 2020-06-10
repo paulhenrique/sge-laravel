@@ -30,7 +30,8 @@ class EventoController extends Controller
         foreach ($template as $modelo) {
             $local_do_arquivo = $modelo->Local_do_Arquivo;
         }
-        if($url <> "vazio"){
+        //dd($url);
+        if(!is_null($url)){
             return redirect($url);
         }else{
             if (auth()->user()){

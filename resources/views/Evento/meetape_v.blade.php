@@ -27,7 +27,7 @@ background-image-solid
     </div>
     @endif
     <section class="">
-        <div class="row" style="min-height: 500px;">
+        <div class="row height-menu">
             <div class="col-md-6 col-sm-12 align-self-center">
                 <img class="d-flex img-fluid mt-2 pl-1 m-auto" src="{{ url("/storage/{$eventos->Logo}") }}">
             </div>
@@ -41,9 +41,9 @@ background-image-solid
                     <span id="dia"></span> : <span id="hora"></span> : <span id="minuto"></span> : <span id="segundo"></span>
                 </p>
                 @if($eventos->inscrito == false)
-                <h2 class="text-center"><a class="btn btn-outline-success " href="{{ route('inscrever_user_evento',['idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></h2>
+                <h2 class="text-center"><a class="btn btn-success " href="{{ route('inscrever_user_evento',['idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></h2>
                 @else
-                <h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></h2>
+                <h2 class="text-center"><a class="btn btn-danger " href="{{ route('desinscrever',['idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></h2>
                 @endif
                 <p class="lead text-center">
                     <strong>Inscrições até: {{ date("d/m/Y", strtotime($eventos->DataLimiteInscricao)) }}</strong>
@@ -57,7 +57,8 @@ background-image-solid
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <p class="text-justify text-section align-self-center">
-                    O evento <strong>{{$eventos->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($eventos->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>, no local: <strong>{{$eventos->Local}}</strong>, às: <strong> {{$eventos->HorarioInicio}}</strong> até <strong> {{$eventos->HorarioFim}}</strong>, organizado por: <strong>{{$eventos->Responsavel}}</strong>.
+                    O evento <strong>{{$eventos->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($eventos->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong> com um carga horária de <strong> {{$eventos->CargaHoraria}}</strong>, no local: <strong>{{$eventos->Local}}</strong>, às: <strong> {{$eventos->HorarioInicio}}</strong> até <strong> {{$eventos->HorarioFim}}</strong>
+                    , organizado por: <strong>{{$eventos->Responsavel}}</strong>.
                 </p>
             </div>
             <div class="col-sm-12 col-md-6 align-self-center mb-5">
@@ -93,7 +94,7 @@ background-image-solid
             @endforeach
             @endif
         </div>
-        </dib>
+    </div>
 </section>
 <div class="container">
     <section class="panelist">
@@ -123,11 +124,11 @@ background-image-solid
     </section>
 </div>
 
-<section class="place bg-purple mb-4">
+<section class="place bg-purple">
     <h1 class="text-center section-title text-white"> Local do Evento </h1>
     <div class="row">
-        <div class=" col-sm-12 col-md-6 align-self-center mb-5">
-            <img src="{{ asset('images/img-event-locale.svg') }}" class="img-fluid">
+        <div class=" col-sm-12 col-md-6 align-self-center mb-5 d-flex justify-content-center">
+            <img src="{{ asset('images/img-event-locale.svg') }}" class="img-fluid img-local">
         </div>
         <div class="col-sm-12 col-md-6 event-adress text-section">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2931471902366!2d-48.02073778506283!3d-23.593817384666867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5cbf41ebfcf31%3A0xa65e4fb6d75446bf!2sInstituto%20Federal%20de%20Educa%C3%A7%C3%A3o%2C%20Ci%C3%AAncia%20e%20Tecnologia%20de%20S%C3%A3o%20Paulo%2C%20Campus%20Itapetininga!5e0!3m2!1spt-BR!2sbr!4v1585933087747!5m2!1spt-BR!2sbr" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -135,7 +136,9 @@ background-image-solid
         </div>
     </div>
 </section>
-</div>
+<section class="gallery-meetape">
+    <h1 class="text-center section-title"> Galeria </h1>
 
+</section>
 
 @endsection

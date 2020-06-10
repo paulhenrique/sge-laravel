@@ -18,6 +18,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.mask.js') }}" defer></script>
+    <script src="{{ asset('lib/animate/wow/wow.min.js') }}"> </script>
+    <script src="{{ asset('lib/animate/wow/wow.js') }}"> </script>
     <script>
         $('#myModal').on('shown.bs.modal', function() {
             $('#myInput').trigger('focus')
@@ -42,8 +44,6 @@
     <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
     <!-- Js -->
-    <link href="{{ asset('lib/animate/wow/wow.min.js') }}" rel="stylesheet">
-    <link href="{{ asset('lib/animate/wow/wow.js') }}" rel="stylesheet">
 
 
 
@@ -57,15 +57,14 @@
     @yield('add')
     <main class="wrapper" id="">
 
-    @yield('content')
+        @yield('content')
 
     </main>
 
     @yield('footer')
-    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
 
     <script src="{{ asset('js/contagem.js')}}"> </script>
 </body>
 
 </html>
-

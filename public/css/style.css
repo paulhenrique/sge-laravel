@@ -1755,3 +1755,12 @@ figcaption:hover {
 .template-radio {
     display:none;
 }
+
+.help {
+    width: 100%;
+}
+
+.help-icon {
+    position: relative;
+    bottom: 27px;
+}
