@@ -26,7 +26,7 @@ background-image-solid
         {{ session()->get('error') }}
     </div>
     @endif
-    <section class="">
+    <section class="border-bottom border-dark">
         <div class="row height-menu">
             <div class="col-md-6 col-sm-12 align-self-center">
                 <img class="d-flex img-fluid mt-2 pl-1 m-auto" src="{{ url("/storage/{$eventos->Logo}") }}">
@@ -38,7 +38,7 @@ background-image-solid
                     </p>
                 </strong>
                 <p class=""> Está Chegando!<br>
-                    <span id="dia"></span> : <span id="hora"></span> : <span id="minuto"></span> : <span id="segundo"></span>
+                    <span id="dia"></span> D : <span id="hora"></span> H: <span id="minuto"></span>M : <span id="segundo"></span>S
                 </p>
                 @if($eventos->inscrito == false)
                 <h2 class="text-center"><a class="btn btn-success " href="{{ route('inscrever_user_evento',['idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></h2>
@@ -82,9 +82,9 @@ background-image-solid
                         <p class="text-center"><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <strong> Início: </strong> {{ date("d/m/Y", strtotime($atividade->DataInicio)) }} <strong> às </strong> {{$atividade->HoraInicio}} <strong> <br>Término: </strong>{{ date("d/m/Y", strtotime($atividade->DataTermino)) }} <strong> até</strong> {{$atividade->HoraTermino}} </small></p>
                         <div class="row text-center justify-content-center">
                             @if($atividade->inscrito == false)
-                            <p class=""><a class="btn btn-outline-success" href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></p>
+                            <p class=""><a class="btn btn-success" href="{{ route('inscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $eventos->idEvento]) }}" role="button">Inscrever-se</a></p>
                             @else
-                            <p class=""><a class="btn btn-outline-danger" href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></p>
+                            <p class=""><a class="btn btn-danger" href="{{ route('desinscrever_user_atividade',['idAtividade' => $atividade->idAtividade, 'idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></p>
                             @endif
                         </div>
                     </div>
@@ -121,6 +121,16 @@ background-image-solid
                 </div>
             </div>
         </div>
+        @if($eventos->CondicaoCadastroDeAtividade == "Sim")
+            @can("isParticipante")
+                <div class="lead mx-auto col-lg-8 col-md-8 text-justify">
+                    <p><strong>Esse evento está aberto para receber atividades da comunidade, caso deseje participar, basta clicar no botão abaixo, preencher o formulário e aguardar a resposta em seu email.</strong></p>
+                    <div class="col-4 mx-auto my-1"><a class="btn btn-success" 
+                    href="{{ route('showFormAtividade',['idEvento' => $eventos->idEvento]) }}" 
+                    role="button">Enviar Proposta!</a></div>
+                </div>
+            @endcan
+	    @endif
     </section>
 </div>
 

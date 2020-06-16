@@ -31,6 +31,8 @@ class AtividadeRequest extends FormRequest
             'HoraInicio' => 'required',
             'HoraTermino' => 'required',
             'NumMaxParticipantes' => 'required',
+            'NomePalestrante' => 'required',
+            'DadosPalestrante' => 'required|max:255',
             'local' => 'required'
         ];
     }

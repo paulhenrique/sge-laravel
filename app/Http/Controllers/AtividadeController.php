@@ -56,6 +56,8 @@ class AtividadeController extends Controller
                 'HoraInicio' => $data['HoraInicio'],
                 'HoraTermino'   => $data['HoraTermino'],
                 'NumMaxParticipantes'   => $data['NumMaxParticipantes'],
+                'NomePalestrante'   => $data['NomePalestrante'],
+                'DadosPalestrante'   => $data['DadosPalestrante'],
                 'local'   => $data['local'],
                 'idEvento'   => $data['idEvento'],
                 'idPalestrante'   => auth()->user()->id
@@ -104,6 +106,11 @@ class AtividadeController extends Controller
 
     public function update(Request $data)
     {
+        $data['DataInicio'] = strtr($data['DataInicio'], '/', '-');
+        $data['DataTermino'] = strtr($data['DataTermino'], '/', '-');
+        $data['DataInicio'] = date('Y-m-d', strtotime($data['DataInicio']));
+        $data['DataTermino'] = date('Y-m-d', strtotime($data['DataTermino']));
+        
         $atividades = AtividadeModel::findOrFail($data['idAtividade']);
         $atividades->nomeAtividade = $data['nomeAtividade'];
         $atividades->tipo = $data['tipo'];
@@ -114,6 +121,8 @@ class AtividadeController extends Controller
         $atividades->HoraTermino = $data['HoraTermino'];
         $atividades->Local = $data['local'];
         $atividades->NumMaxParticipantes = $data['NumMaxParticipantes'];
+        $atividades->NomePalestrante = $data['NomePalestrante'];
+        $atividades->DadosPalestrante = $data['DadosPalestrante'];
         $atividades->idEvento = $data['idEvento'];
         $atividades->save();
 

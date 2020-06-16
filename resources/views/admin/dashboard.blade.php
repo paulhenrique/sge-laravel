@@ -45,7 +45,7 @@
                     <div class="fab-icon-holder">
                         <a class="links_button_admin" href="{{ route('form_template') }}"><i class="fas fa-code"></i> </a>
                     </div>
-                    <span class="fab-label"><a class="links_button_admin" href="{{ route('list_template') }}">Cadastrar Template</a></span>
+                    <span class="fab-label"><a class="links_button_admin" href="{{ route('list_template') }}">Templates</a></span>
                 </li>
                 <li>
                     <div class="fab-icon-holder">

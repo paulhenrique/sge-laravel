@@ -14,7 +14,7 @@ if (isset($eventos)) {
 ?>
 @section('container-dashboard')
 <div id="services-evento">
-    <div class="form-box text-left col-md-6 m-auto">
+    <div class="form-box text-left col-md-7 m-auto">
         <div class="card-body row p-0">
             <div class="col-md-12 p-5">
                 <h1 class="text-center">{{$formulario_title}}</h1>
@@ -68,7 +68,7 @@ if (isset($eventos)) {
                             <textarea class="form-control" name="ConteudoProgramatico" placeholder="Descreva sucintamente o que ocorrerá durante o evento" id="ConteudoProgramatico">{{ isset($eventos) ? $eventos->ConteudoProgramatico : "" }}</textarea>
                         </div>
 
-                        {{-- <button type="button" class="btn add_field_button" id="addScnt">+ Item</button> --}}
+                        
 
                         <div class="row form-group">
                             <div class="col-lg-6 col-sm-12">
@@ -173,10 +173,10 @@ if (isset($eventos)) {
                 <button type="button" class="btn btn-primary mb-1 col-12" data-toggle="modal" data-target=".bd-example-modal-lg">Templates Disponíveis</button>
                 <div class="form-group">
                     <label for="Site" class="help">Endereço Online (OPCIONAL): </label>
-                        <a data-toggle="tooltip" class="template_link d-flex justify-content-end help-icon" title="Caro, usuário. Os desenvolvedores solicitam que para responder o campo abaixo, necessita-se do https:// antes da url.">
+                        <a data-toggle="tooltip" class="template_link d-flex justify-content-end help-icon" title="Para responder o campo abaixo, necessita-se do https:// antes da url.">
                             <img src="{{asset ('images/help.svg')}}" class="" height="18" width="18">
                         </a>
-                    <input type="string" class="form-control" id="Site" name="Site" placeholder="Insira o endereço caso o evento possua um site próprio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
+                    <input type="string" class="form-control" id="Site" name="Site" placeholder="Caso o evento NÃO possua um site próprio envie esse campo vazio" value="{{ isset($eventos) ? $eventos->Site : "" }}">
                 </div>
 
                 <button type="submit" class="btn btn-outline-primary btn-block">Enviar</button>

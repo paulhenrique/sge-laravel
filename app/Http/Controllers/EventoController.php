@@ -98,10 +98,6 @@ class EventoController extends Controller
         $data['DataInicio'] = date('Y-m-d', strtotime($data['DataInicio']));
         $data['DataLimiteInscricao'] = date('Y-m-d', strtotime($data['DataLimiteInscricao']));
 
-        if(empty($data['Site'])){
-            $data['Site'] = "vazio";
-        }
-
         $validated = $data->validated();
 
         if  ((strtotime($data['DataInicio']) <= strtotime($data['DataFim']))
