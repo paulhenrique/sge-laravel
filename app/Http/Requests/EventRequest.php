@@ -35,6 +35,8 @@ class EventRequest extends FormRequest
             'HorarioInicio' => 'required',
             'HorarioFim' => 'required',
             'Local' => 'required',
+            'Site' => 'url|nullable',
+            'CondicaoCadastroDeAtividade' => 'required',
             'logo' => 'required'
         ];
     }

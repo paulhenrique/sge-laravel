@@ -84,7 +84,7 @@
                           
                           <div class="form-group">
                               <label for="DadosPalestrante">Dados do Palestrante: </label>
-                              <textarea maxlength="200" class="form-control" id="DadosPalestrante" name="DadosPalestrante" placeholder="Faça um resumo dos dados do palestrante (Formação, Local de Trabalho, ...)">{{ isset($atividades) ? $atividades->DadosPalestrante : '' }}</textarea>
+                              <textarea maxlength="255" class="form-control" id="DadosPalestrante" name="DadosPalestrante" placeholder="Faça um resumo com no máximo 255 caracteres sobre os dados do palestrante (Formação, Local de Trabalho, etc.)">{{ isset($atividades) ? $atividades->DadosPalestrante : '' }}</textarea>
                           </div>
 
                           <div class="row form-group">
