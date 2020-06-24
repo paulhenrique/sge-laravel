@@ -1,3 +1,5 @@
+
+
 body.blue {
     background-color: #2a3e79;
 }
@@ -546,6 +548,82 @@ hr {
     background-image: url('../images/icon.svg');
     border-radius: 50px;
     text-align: center;
+}
+
+.fab {
+    width: 60px;
+    height: 60px;
+    background-color: #24282c;
+    border-radius: 100%;
+    background-image: url('../images/logo_png_branco.png');
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.fab-container {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 999px;
+    cursor: pointer;
+}
+
+.fab-icon-holder {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #596067;
+    box-shadow: 0 6px 20px rgba (0, 0, 0, .2);
+}
+
+.fab-icon-holder:hover {
+    opacity: 0.8;
+}
+
+.fab-icon-holder i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-style: 25px;
+    color: white;
+}
+
+
+.fab-options {
+    display:none;
+    list-style-type: none;
+    position: absolute;
+    bottom: 70px;
+    opacity: 0;
+    right: -20px;
+}
+
+
+
+/* .fab:hover+.fab-options,
+.fab-options:hover {
+    opacity: 1;
+    transition: .6s;
+} */
+
+
+.fab-options li {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: -10px;
+    padding-top: 10px;
+}
+
+.fab-label {
+    margin-left: 5px;
+    align-self: center;
+    user-select: none;
+    white-space: nowrap;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
 
@@ -1637,74 +1715,6 @@ figcaption:hover {
     color: black;
 }
 
-.fab-container {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 999px;
-    cursor: pointer;
-}
-
-.fab-icon-holder {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    background: #596067;
-    box-shadow: 0 6px 20px rgba (0, 0, 0, .2);
-}
-
-.fab-icon-holder:hover {
-    opacity: 0.8;
-}
-
-.fab-icon-holder i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-style: 25px;
-    color: white;
-}
-
-.fab {
-    width: 60px;
-    height: 60px;
-    background: #24282c;
-}
-
-.fab-options {
-    display:none;
-    list-style-type: none;
-    position: absolute;
-    bottom: 70px;
-    opacity: 0;
-    right: -20px;
-}
-
-
-
-/* .fab:hover+.fab-options,
-.fab-options:hover {
-    opacity: 1;
-    transition: .6s;
-} */
-
-
-.fab-options li {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: -10px;
-    padding-top: 10px;
-}
-
-.fab-label {
-    margin-left: 5px;
-    align-self: center;
-    user-select: none;
-    white-space: nowrap;
-    border-radius: 3px;
-    font-size: 16px;
-}
 
 .links_button_admin {
     color: black;
@@ -1764,3 +1774,4 @@ figcaption:hover {
     position: relative;
     bottom: 27px;
 }
+

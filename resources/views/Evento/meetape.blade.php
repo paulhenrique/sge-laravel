@@ -15,7 +15,35 @@ background-image-solid
 
 @section('content')
 
+<script>
+    var event_begin = document.querySelector('input[name=DataInicio]').value
+    event_begin = new Date(event_begin)
+    var target_date = new Date(event_begin).getTime();
+    var dias, horas, minutos, segundos;
+    var regressiva = document.getElementById("regressiva");
 
+    setInterval(function() {
+
+        var current_date = new Date().getTime();
+        var segundos_f = (target_date - current_date) / 1000;
+
+        dias = parseInt(segundos_f / 86400);
+        segundos_f = segundos_f % 86400;
+
+        horas = parseInt(segundos_f / 3600);
+        segundos_f = segundos_f % 3600;
+
+        minutos = parseInt(segundos_f / 60);
+        segundos = parseInt(segundos_f % 60);
+
+        document.getElementById('dia').innerHTML = dias;
+        document.getElementById('hora').innerHTML = horas;
+        document.getElementById('minuto').innerHTML = minutos;
+        document.getElementById('segundo').innerHTML = segundos;
+
+
+    }, 1000);
+</script>
 <div class="container">
     @if(session()->has('success'))
     <div class="alert alert-success col-12">
@@ -122,15 +150,13 @@ background-image-solid
             </div>
         </div>
         @if($eventos->CondicaoCadastroDeAtividade == "Sim")
-            @can("isParticipante")
-                <div class="lead mx-auto col-lg-8 col-md-8 text-justify">
-                    <p><strong>Esse evento está aberto para receber atividades da comunidade, caso deseje participar, basta clicar no botão abaixo, preencher o formulário e aguardar a resposta em seu email.</strong></p>
-                    <div class="col-4 mx-auto my-1"><a class="btn btn-success" 
-                    href="{{ route('showFormAtividade',['idEvento' => $eventos->idEvento]) }}" 
-                    role="button">Enviar Proposta!</a></div>
-                </div>
-            @endcan
-	    @endif
+        @can("isParticipante")
+        <div class="lead mx-auto col-lg-8 col-md-8 text-justify">
+            <p><strong>Esse evento está aberto para receber atividades da comunidade, caso deseje participar, basta clicar no botão abaixo, preencher o formulário e aguardar a resposta em seu email.</strong></p>
+            <div class="col-4 mx-auto my-1"><a class="btn btn-success" href="{{ route('showFormAtividade',['idEvento' => $eventos->idEvento]) }}" role="button">Enviar Proposta!</a></div>
+        </div>
+        @endcan
+        @endif
     </section>
 </div>
 
