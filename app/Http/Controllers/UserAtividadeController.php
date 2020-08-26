@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\userEventoModel;
 use App\UserAtividadeModel;
+use App\User;
 
 class UserAtividadeController extends Controller
 {
@@ -76,9 +77,9 @@ class UserAtividadeController extends Controller
         $idUserAtividade    = $data['idUserAtividade'];
 		$status             = $data['status'];
 
-		if($status == 'P'){
+		if($status == 'Presente'){
 			UserAtividadeModel::where('idUserAtividade',$idUserAtividade)->update(['presente' => True, 'ausente' => False]);
-		}elseif($status == 'A'){
+		}elseif($status == 'Ausente'){
 			UserAtividadeModel::where('idUserAtividade',$idUserAtividade)->update(['presente' => False, 'ausente' => True]);
 		}
 

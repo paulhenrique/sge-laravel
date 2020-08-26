@@ -1,0 +1,44 @@
+
+.bg-purple {
+     background: #3f3d56;
+}
+
+.hero-text {
+    font-size: 2rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    line-height: 150px;
+}
+
+.text-section {
+    padding:10%;
+    font-size: 1.5rem;
+}
+
+.event-adress iframe {
+    width: 100%;
+}
+
+.img-hero {
+    max-height: 300px;
+}
+
+.img-local {
+    max-height: 450px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .img-local {
+        max-height: 250px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.height-menu {
+    min-height: 500px;
+}

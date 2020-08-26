@@ -27,7 +27,7 @@ background-image-solid
 			{{ session()->get('error') }}
 		</div>
 		@endif
-		<div class="jumbotron jumbotron-fluid col-12 py-3">
+		<div class="jumbotron jumbotron-fluid col-12 py-2">
 			<div class="container">
 				<div class="display-4 col-12 text-center">
 					<img src="{{ url("/storage/{$eventos->Logo}") }}" class="circle-event-logo m-2  border-white m-2" alt="logo_do_evento_{{$eventos->Nome}}">
@@ -39,20 +39,20 @@ background-image-solid
 				    <h2 class="text-center"><a class="btn btn-outline-danger " href="{{ route('desinscrever',['idEvento' => $eventos->idEvento]) }}" role="button">Desinscrever-se</a></h2>
 				@endif
 				<p class="lead text-center">
-					<strong>Inscrições até: {{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>
+					<strong>Inscrições até: {{ date("d/m/Y", strtotime($eventos->DataLimiteInscricao)) }}</strong>
 				</p>
-				<p class="lead mx-auto col-8 text-justify">
+				<p class="lead mx-auto col-lg-8 col-md-12 text-justify">
 					O evento <strong>{{$eventos->Nome}}</strong> será realizado no(s) dia(s) <strong>{{ date("d/m/Y", strtotime($eventos->DataInicio)) }} </strong> à <strong>{{ date("d/m/Y", strtotime($eventos->DataFim)) }}</strong>, no local: <strong>{{$eventos->Local}}</strong>, às: <strong> {{$eventos->HorarioInicio}}</strong> até <strong> {{$eventos->HorarioFim}}</strong>, organizado por: <strong>{{$eventos->Responsavel}}</strong>.
 				</p>
 			</div>
 		</div>
 		<div class="col-12">
-			<div class="container-fluid py-3">
+			<div class="container-fluid">
 				<div class="page-header">
 					<h1 class="text-center">Atividades</h1>
 					<hr>
 				</div>
-				<div class="col-8 mx-auto text-center">
+				<div class="col-12 mx-auto text-center">
 					<div style="display:inline-block;width:100%;overflow-y:auto;">
 						<ul class="timeline timeline-horizontal">
 							@foreach ($atividades as $atividade)
@@ -78,6 +78,16 @@ background-image-solid
 						</ul>
 					</div>
 				</div>
+				@if($eventos->CondicaoCadastroDeAtividade == "Sim")
+					@can("isParticipante")
+						<div class="lead mx-auto col-lg-8 col-md-8 text-justify">
+							<p>Esse evento está aberto para receber atividades da comunidade, caso deseje participar, basta clicar no botão abaixo, preencher o formulário e aguardar a resposta em seu email.</p>
+							<div class="col-4 mx-auto my-1"><a class="btn btn-success" 
+							href="{{ route('showFormAtividade',['idEvento' => $eventos->idEvento]) }}" 
+							role="button">Enviar Proposta!</a></div>
+						</div>
+					@endcan
+				@endif
 			</div>
 		</div>
 		<div class="jumbotron jumbotron-fluid col-12 mb-0">

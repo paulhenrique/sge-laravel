@@ -44,11 +44,6 @@
                         <label> CPF:</label>
                     <h3>{{$user->CPF}}</h3>
                     </div>
-                    {{-- <div class="col-lg-6">
-                        <label> Senha:</label>
-                        <h3>********</h3>
-                        </div>
-                    </div> --}}
                 </div>
                 </div>
 
@@ -65,21 +60,18 @@
                     <div class="box text-left row">
                         <div class="col-lg-6">
                         <label for="name"> Nome: </label>
-                        {{-- <h3 class="text-capitalize">Joao victor Ferreira de Morais </h3> --}}
                         <div class="form-group">
                         <input type="text" name="name" id="name" class="form-control" value="{{$user->name}}">
                         </div>
                         </div>
                         <div class="col-lg-6">
                         <label for="email"> Email: </label>
-                        {{-- <h3 class="text-capitalize">email@joao.com</h3> --}}
                         <div class="form-group">
                         <input type="text" name="email" id="email" class="form-control" value="{{$user->email}}">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <label for="cpf"> CPF:</label>
-                        {{-- <h3>123.123.123-1</h3> --}}
                         <div class="form-group">
                         <input type="text" name="CPF" id="cpf" class="form-control" data-mask="000.000.000-00" value="{{$user->CPF}}">
                         </div>
@@ -88,12 +80,12 @@
                             <label for="senha"> Senha:</label>
                             {{-- <h3>123.123.123-1</h3> --}}
                             <div class="form-group">
-                            <input type="password" name="password" id="senha" class="form-control">
+                            <input type="password" name="password" id="senha" class="form-control" placeholder="Sua senha não será exibida por segurança">
                             </div>
                         </div>
                         <div class="col-lg-12 mt-1">
                             <div class="form-group">
-                            <button type="button" class="btn btn-warning form-control"> Alterar Dados </button>
+                            <button type="button" class="btn btn-info form-control"> Alterar Dados </button>
                             </div>
                             <a data-toggle="modal" data-target="#exampleModal"><button type="button" class="btn btn-danger form-control"> Excluir conta </button></a>
                             </div>
@@ -131,10 +123,10 @@
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             <div class="row">
                 @if(count($eventos)==0)
-                    <div class="col-md-12 text-center">
+                    <div class="col-md-12 text-center" id="services-evento">
                         <div class="card">
                             <div class="card-body">
-                                <h1>Você ainda não participou de evento algum!!</h1>
+                                <h1>Você ainda não participou de evento algum!!!</h1>
                                 <!-- Permitir exbição somente para Admins -->
                                 <p>Clique aqui para vizualizar os <a class="link_form" href="{{route('listEvent')}}"><strong> eventos disponíveis</strong></a><p>
                             </div>

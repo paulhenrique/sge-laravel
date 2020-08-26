@@ -1,5 +1,4 @@
 <?php
-
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -40,10 +39,14 @@ Route::post('/evento/galeria/image/create','GaleriaController@addGaleria')->name
 Route::get('/evento/galeria/imagem/delete', 'GaleriaController@delete')->name('delete_image')->middleware('can:isAdmin');
 
 //Atividades
-Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade')->middleware('can:isAdmin');
-Route::get('/atividade/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade')->middleware('can:isAdmin');
+Route::post('/atividade/create', 'AtividadeController@create')->name('create_atividade')->middleware('auth');
+Route::get('/atividade/form', 'AtividadeController@showFormAtividade')->name('showFormAtividade');
 Route::post('/atividade/update', 'AtividadeController@update')->name('editar_atividade')->middleware('can:isAdmin');
 Route::get('/atividade/delete', 'AtividadeController@delete')->name("deletar_atividade")->middleware('can:isAdmin');
+
+//Atividades em Analise
+Route::get('/admin/atividade-em-analise/list', 'AtividadeController@listar_atividades_em_analise')->name('listar_atividades_em_analise')->middleware('can:isAdmin');
+Route::get('/atividade/alterar-condicao', 'AtividadeController@alterar_condicao')->name('alterar_condicao')->middleware('can:isAdmin');
 
 //inscricao Evento
 Route::get('userEvento/inscricao/', 'userEventoController@inscrever')->name('inscrever_user_evento')->middleware('auth');
@@ -72,3 +75,9 @@ Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("
 //PDF
 Route::get('/pdf/certificado','PdfController@GeneratePDF')->name("GerarPDF");
 
+//Template
+Route::post('/template/create', 'templateController@create')->name('create_template')->middleware('can:isAdmin');
+Route::get('/template/list', 'templateController@listTemplate')->name('list_template')->middleware('can:isAdmin');
+Route::get('/template/showForm', 'templateController@showForm')->name('form_template')->middleware('can:isAdmin');
+Route::post('/template/update', 'templateController@update')->name('update_template')->middleware('can:isAdmin');
+Route::get('/template/delete', 'templateController@delete')->name('delete_template')->middleware('can:isAdmin');
