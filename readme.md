@@ -1,5 +1,4 @@
 ## sgeIFSP
-
 Sistema de gerenciamento de eventos da fábrica de software do IFSP Campus Itapetininga
 
 ## Requisitos
@@ -17,9 +16,8 @@ Verificar se MySQL está instalado e configurado com usuário e senha.
 Configurar o arquivo .env com os dados de conexão para seu banco, alterando usuário e senha
 
 5. `php artisan migrate`
-6. `npm install && npm run dev`
-7. `php artisan key:gen`
-8. `php artisan serve`
+6. `php artisan key:gen`
+7. `php artisan serve`
 
 ## Para subir o servidor
 ### Com o artisan
