@@ -17,7 +17,8 @@ Configurar o arquivo .env com os dados de conexão para seu banco, alterando usu
 
 5. `php artisan migrate`
 6. `php artisan key:gen`
-7. `php artisan serve`
+7. php artisan storage:link
+8. `php artisan serve`
 
 ## Para subir o servidor
 ### Com o artisan
