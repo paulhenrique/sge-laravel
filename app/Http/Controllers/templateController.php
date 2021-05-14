@@ -12,15 +12,15 @@ class templateController extends Controller
 {
     public function listTemplate(Request $data){
         $templates = DB::table('template_evento')->get();
-        return view('Admin.listTemplates',compact('templates'));
+        return view('admin.listTemplates',compact('templates'));
     }
 
     public function showForm(Request $data){
         if(isset($data->idTemplate)){
             $template = DB::table('template_evento')->where('idTemplate', $data->idTemplate)->first();
-            return view('Admin.formTemplate',compact('template'));
+            return view('admin.formTemplate',compact('template'));
         }else{
-            return view('Admin.formTemplate');
+            return view('admin.formTemplate');
         }
     }
 
