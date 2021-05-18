@@ -62,4 +62,5 @@ class UserController extends Controller
         userEventoModel::where("idUser", "=", user()->auth()->id)->delete();
         return view("welcome");
     }
+    
 }

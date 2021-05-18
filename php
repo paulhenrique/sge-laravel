@@ -1,0 +1,1 @@
+/home/ifsp/lampstack-7.4.16-1/php/bin/php

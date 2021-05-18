@@ -62,15 +62,15 @@ class EventoController extends Controller
                         $atividade->inscrito = false;
                     }
                 }
-                    return view("Evento." . $local_do_arquivo, compact('eventos', 'atividades', 'images', 'palestrantes'));
+                    return view('Evento.show', compact('eventos', 'atividades', 'images', 'palestrantes'));
             } else {
-                    return view("Evento." . $local_do_arquivo, compact('eventos', 'atividades', 'images'));
+                    return view('Evento.show', compact('eventos', 'atividades', 'images'));
             }
 
             }
 
 
-            return view("Evento.".$local_do_arquivo, compact(['eventos','atividades','images','palestrantes']));
+            return view('Evento.show', compact(['eventos','atividades','images','palestrantes']));
         }
     }
 
