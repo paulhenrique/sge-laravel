@@ -26,16 +26,16 @@ class templateController extends Controller
 
     public function create(Request $data){
 
-            if ($data->hasFile('Image_preview') && $data->file('Image_preview')->isValid()) {
-                $name = uniqid(date('HisYmd'));
-                $extension = request()->file('Image_preview')->extension();
-                $nameFile = "{$name}.{$extension}";
-                $upload = request()->file('Image_preview')->storeAs('template_preview', $nameFile);
+        if ($data->hasFile('Image_preview') && $data->file('Image_preview')->isValid()) {
+            $name = uniqid(date('HisYmd'));
+            $extension = request()->file('Image_preview')->extension();
+            $nameFile = "{$name}.{$extension}";
+            $upload = request()->file('Image_preview')->storeAs('template_preview', $nameFile);
 
-                if (!$upload) {
-                    echo "Erro";
-                    return redirect()->back()->withErrors('error', 'Falha ao fazer upload');
-                }
+            if (!$upload) {
+                echo "Erro";
+                return redirect()->back()->withErrors('error', 'Falha ao fazer upload');
+            }
 
             TemplateModel::create([
                 'Nome' => $data['Nome'],

@@ -90,6 +90,11 @@ background-image-solid
 				@endif
 			</div>
 		</div>
+
+        
+		<p><a href="{{ route('showForm_create_trabalho') }}">Submeter trabalho</a></p>
+
+		
 		<div class="jumbotron jumbotron-fluid col-12 mb-0">
 			<div class="container-fluid py-3">
 				<div class="page-header">

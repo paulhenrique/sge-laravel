@@ -72,6 +72,10 @@ Route::get('/admin/users', 'UserController@pegarTodosUsers')->name('todosUsers')
 //apelido
 Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("showEvent");
 
+//Trabalho
+Route::get('/trabalho/create/form', 'TrabalhoController@showFormTrabalho') ->name('showForm_create_trabalho');
+Route::post('/trabalho/create', 'TrabalhoController@createTrabalho')->name('create_trabalho');
+
 //PDF
 Route::get('/pdf/certificado','PdfController@GeneratePDF')->name("GerarPDF");
 
@@ -81,3 +85,4 @@ Route::get('/template/list', 'templateController@listTemplate')->name('list_temp
 Route::get('/template/showForm', 'templateController@showForm')->name('form_template')->middleware('can:isAdmin');
 Route::post('/template/update', 'templateController@update')->name('update_template')->middleware('can:isAdmin');
 Route::get('/template/delete', 'templateController@delete')->name('delete_template')->middleware('can:isAdmin');
+
