@@ -73,8 +73,8 @@ Route::get('/admin/users', 'UserController@pegarTodosUsers')->name('todosUsers')
 Route::get('/{Apelido}', 'EventoController@show', function ($Apelido){})->name("showEvent");
 
 //Trabalho
-Route::get('/trabalho/create/form', 'TrabalhoController@showFormTrabalho') ->name('showForm_create_trabalho');
-Route::post('/trabalho/create', 'TrabalhoController@createTrabalho')->name('create_trabalho');
+Route::get('/{Apelido}/trabalho/form', 'TrabalhoController@showFormTrabalho') ->name('showForm_create_trabalho')->middleware('auth');;
+Route::post('/trabalho/create', 'TrabalhoController@createTrabalho')->name('create_trabalho')->middleware('auth');;
 
 //PDF
 Route::get('/pdf/certificado','PdfController@GeneratePDF')->name("GerarPDF");

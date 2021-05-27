@@ -92,7 +92,7 @@ background-image-solid
 		</div>
 
         
-		<p><a href="{{ route('showForm_create_trabalho') }}">Submeter trabalho</a></p>
+		<p><a href="{{ route('showForm_create_trabalho',['Apelido' => $eventos->Apelido]) }}">Submeter trabalho</a></p>
 
 		
 		<div class="jumbotron jumbotron-fluid col-12 mb-0">
