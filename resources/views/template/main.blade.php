@@ -66,6 +66,7 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
 
     <!-- <script src="{{ asset('js/contagem.js')}}"> </script> -->
+    
 </body>
 
 </html>

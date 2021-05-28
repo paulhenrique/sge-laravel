@@ -12,30 +12,30 @@ class templateController extends Controller
 {
     public function listTemplate(Request $data){
         $templates = DB::table('template_evento')->get();
-        return view('Admin.listTemplates',compact('templates'));
+        return view('admin.listTemplates',compact('templates'));
     }
 
     public function showForm(Request $data){
         if(isset($data->idTemplate)){
             $template = DB::table('template_evento')->where('idTemplate', $data->idTemplate)->first();
-            return view('Admin.formTemplate',compact('template'));
+            return view('admin.formTemplate',compact('template'));
         }else{
-            return view('Admin.formTemplate');
+            return view('admin.formTemplate');
         }
     }
 
     public function create(Request $data){
 
-            if ($data->hasFile('Image_preview') && $data->file('Image_preview')->isValid()) {
-                $name = uniqid(date('HisYmd'));
-                $extension = request()->file('Image_preview')->extension();
-                $nameFile = "{$name}.{$extension}";
-                $upload = request()->file('Image_preview')->storeAs('template_preview', $nameFile);
+        if ($data->hasFile('Image_preview') && $data->file('Image_preview')->isValid()) {
+            $name = uniqid(date('HisYmd'));
+            $extension = request()->file('Image_preview')->extension();
+            $nameFile = "{$name}.{$extension}";
+            $upload = request()->file('Image_preview')->storeAs('template_preview', $nameFile);
 
-                if (!$upload) {
-                    echo "Erro";
-                    return redirect()->back()->withErrors('error', 'Falha ao fazer upload');
-                }
+            if (!$upload) {
+                echo "Erro";
+                return redirect()->back()->withErrors('error', 'Falha ao fazer upload');
+            }
 
             TemplateModel::create([
                 'Nome' => $data['Nome'],

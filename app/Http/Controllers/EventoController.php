@@ -47,30 +47,29 @@ class EventoController extends Controller
                 }
 
                 $evento_inscrito = userEventoModel::where('idUser', '=', auth()->user()->id)->where('idEvento', '=', $eventos->idEvento)->count();
+                
                 if($evento_inscrito !=0){
                     $eventos->inscrito = true;
                 }else{
                     $eventos->inscrito = false;
                 }
                 if (count($atividades) > 0 ) {
-                foreach ($atividades as $atividade) {
-                    $atividade_inscrito = UserAtividadeModel::where('idUser', '=', auth()->user()->id)->where('idAtividade', '=', $atividade->idAtividade)->count();
-                    $palestrantes = DB::table('users')->where('id', '=', $atividade->idPalestrante)->get();
-                    if ($atividade_inscrito != 0) {
-                        $atividade->inscrito = true;
-                    } else {
-                        $atividade->inscrito = false;
+                    foreach ($atividades as $atividade) {
+                        $atividade_inscrito = UserAtividadeModel::where('idUser', '=', auth()->user()->id)->where('idAtividade', '=', $atividade->idAtividade)->count();
+                        $palestrantes = DB::table('users')->where('id', '=', $atividade->idPalestrante)->get();
+                        if ($atividade_inscrito != 0) {
+                            $atividade->inscrito = true;
+                        } else {
+                            $atividade->inscrito = false;
+                        }
                     }
+                    return view('Evento.show', compact('eventos', 'atividades', 'images', 'palestrantes'));
+                } else {
+                        return view('Evento.show', compact('eventos', 'atividades', 'images'));
                 }
-                    return view("Evento." . $local_do_arquivo, compact('eventos', 'atividades', 'images', 'palestrantes'));
-            } else {
-                    return view("Evento." . $local_do_arquivo, compact('eventos', 'atividades', 'images'));
-            }
 
             }
-
-
-            return view("Evento.".$local_do_arquivo, compact(['eventos','atividades','images','palestrantes']));
+            return view('Evento.show', compact('eventos','atividades','images'));
         }
     }
 
